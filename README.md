@@ -97,6 +97,15 @@ secret and prints it once at the end — so the secret never lands in your shell
 history. Pass a literal value instead if you already have one, or leave the
 variable unset to deploy with the MCP endpoint open.
 
+Before building anything the script registers the resource providers the
+deployment needs (`Microsoft.App`, `Microsoft.ContainerRegistry`,
+`Microsoft.DBforPostgreSQL`, `Microsoft.OperationalInsights`) — fresh
+subscriptions often have these unregistered — and checks which PostgreSQL
+versions and SKUs the region actually offers, adapting if the defaults are not
+available. Override them with `PG_VERSION`, `PG_SKU` and `PG_TIER` if you need
+a particular shape. If the region offers no PostgreSQL capacity at all, it says
+so and stops before the image build rather than minutes later.
+
 Migrations run automatically when the container starts (`prisma migrate deploy`
 behind a Postgres advisory lock, so parallel replicas are safe). Set
 `RUN_MIGRATIONS=false` to take that over yourself.

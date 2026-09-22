@@ -14,6 +14,9 @@
 #   MCP_API_KEY       shared secret for /mcp     (default: empty = open, no auth)
 #                     set to "generate" to have a strong key created and printed
 #   IMAGE_TAG         container image tag        (default: current UTC timestamp)
+#   PG_VERSION        PostgreSQL major version   (default: 16, auto-corrected)
+#   PG_SKU            PostgreSQL compute SKU     (default: Standard_B1ms, auto-corrected)
+#   PG_TIER           PostgreSQL tier            (default: Burstable, auto-corrected)
 #
 # The image is built by `az acr build` inside Azure, so no local Docker daemon
 # is required.
@@ -31,6 +34,9 @@ PG_ADMIN_USER="${PG_ADMIN_USER:-balticadmin}"
 MCP_API_KEY="${MCP_API_KEY:-}"
 IMAGE_TAG="${IMAGE_TAG:-$(date -u +%Y%m%d%H%M%S)}"
 IMAGE_NAME="baltic-tickets"
+PG_VERSION="${PG_VERSION:-16}"
+PG_SKU="${PG_SKU:-Standard_B1ms}"
+PG_TIER="${PG_TIER:-Burstable}"
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
@@ -78,6 +84,81 @@ echo "  MCP auth       : $([[ -n "${MCP_API_KEY}" ]] && echo 'API key' || echo '
 info "Creating resource group"
 az group create --name "${RESOURCE_GROUP}" --location "${LOCATION}" --output none
 
+# Fresh subscriptions often have these unregistered, which surfaces later as
+# confusing validation errors (an empty list of allowed PostgreSQL versions,
+# for instance) rather than a clear "provider not registered".
+info "Registering resource providers"
+for ns in Microsoft.App Microsoft.ContainerRegistry Microsoft.DBforPostgreSQL Microsoft.OperationalInsights; do
+  state="$(az provider show --namespace "$ns" --query registrationState -o tsv 2>/dev/null || echo Unknown)"
+  if [[ "$state" == "Registered" ]]; then
+    echo "  $ns: already registered"
+  else
+    echo "  $ns: $state — registering (this can take a minute)…"
+    az provider register --namespace "$ns" --wait 2>/dev/null || \
+      echo "    could not register $ns automatically; you may need an Owner/Contributor to do it"
+  fi
+done
+
+# Which PostgreSQL versions and SKUs exist depends on subscription, region and
+# tier. Checking now — rather than after the image build — turns a three-minute
+# round trip into a few seconds.
+info "Checking PostgreSQL availability in ${LOCATION}"
+SKUS_FILE="$(mktemp)"
+if az postgres flexible-server list-skus --location "${LOCATION}" -o json >"${SKUS_FILE}" 2>/dev/null; then
+  if CHOICE="$(python3 - "${SKUS_FILE}" "${PG_TIER}" "${PG_VERSION}" "${PG_SKU}" <<'PYEOF'
+import json, sys
+
+path, want_tier, want_version, want_sku = sys.argv[1:5]
+tiers = json.load(open(path))
+
+catalogue = {}
+for tier in tiers:
+    versions = {}
+    for v in tier.get("supportedServerVersions", []):
+        versions[str(v.get("name"))] = [s.get("name") for s in v.get("supportedSkus", [])]
+    if versions:
+        catalogue[tier.get("name")] = versions
+
+if not catalogue:
+    sys.exit("no PostgreSQL Flexible Server capacity is offered here")
+
+tier = want_tier if want_tier in catalogue else next(
+    (t for t in ("Burstable", "GeneralPurpose", "MemoryOptimized") if t in catalogue),
+    next(iter(catalogue)))
+
+versions = catalogue[tier]
+if want_version in versions:
+    version = want_version
+else:
+    # Highest major version available, so a pinned-but-retired default still works.
+    version = max(versions, key=lambda v: int(v) if v.isdigit() else -1)
+
+skus = versions[version]
+sku = want_sku if want_sku in skus else (sorted(skus)[0] if skus else "")
+if not sku:
+    sys.exit(f"no SKUs offered for {tier} / PostgreSQL {version} in this region")
+
+print(f"{tier}\t{version}\t{sku}")
+PYEOF
+  )"; then
+    IFS=$'\t' read -r PG_TIER_OK PG_VERSION_OK PG_SKU_OK <<<"${CHOICE}"
+    if [[ "${PG_TIER_OK}/${PG_VERSION_OK}/${PG_SKU_OK}" != "${PG_TIER}/${PG_VERSION}/${PG_SKU}" ]]; then
+      echo "  Requested ${PG_TIER} / PostgreSQL ${PG_VERSION} / ${PG_SKU} is not offered here."
+      echo "  Using    ${PG_TIER_OK} / PostgreSQL ${PG_VERSION_OK} / ${PG_SKU_OK} instead."
+    else
+      echo "  ${PG_TIER} / PostgreSQL ${PG_VERSION} / ${PG_SKU}"
+    fi
+    PG_TIER="${PG_TIER_OK}"; PG_VERSION="${PG_VERSION_OK}"; PG_SKU="${PG_SKU_OK}"
+  else
+    fail "PostgreSQL Flexible Server is not available in ${LOCATION} for this subscription.
+  Try a different region, e.g.  LOCATION=polandcentral ./scripts/deploy-azure.sh
+  Or list the regions that work:  az postgres flexible-server list-skus --location <region> -o table"
+  fi
+else
+  echo "  Could not query availability — continuing and letting Azure validate."
+fi
+rm -f "${SKUS_FILE}"
+
 info "Creating the container registry"
 REGISTRY_NAME="$(az deployment group create \
   --resource-group "${RESOURCE_GROUP}" \
@@ -110,6 +191,9 @@ OUTPUTS="$(az deployment group create \
     containerImage="${FULL_IMAGE}" \
     postgresAdminUser="${PG_ADMIN_USER}" \
     postgresAdminPassword="${PG_ADMIN_PASSWORD}" \
+    postgresVersion="${PG_VERSION}" \
+    postgresSkuName="${PG_SKU}" \
+    postgresTier="${PG_TIER}" \
     mcpApiKey="${MCP_API_KEY}" \
   --query 'properties.outputs' -o json)"
 

@@ -50,8 +50,19 @@ param minReplicas int = 1
 @maxValue(30)
 param maxReplicas int = 3
 
-@description('PostgreSQL compute tier. Burstable B1ms is the cheapest option that fits this workload.')
+@description('PostgreSQL compute SKU. Burstable B1ms is the cheapest option that fits this workload.')
 param postgresSkuName string = 'Standard_B1ms'
+
+@description('PostgreSQL compute tier. Must match the SKU — Standard_B* is Burstable, Standard_D* is GeneralPurpose.')
+@allowed([
+  'Burstable'
+  'GeneralPurpose'
+  'MemoryOptimized'
+])
+param postgresTier string = 'Burstable'
+
+@description('PostgreSQL major version. Which versions exist depends on the subscription, region and tier; the deploy script queries the available set and picks one.')
+param postgresVersion string = '16'
 
 var suffix = uniqueString(resourceGroup().id)
 var postgresServerName = take(toLower('${namePrefix}-pg-${suffix}'), 60)
@@ -80,10 +91,10 @@ resource postgres 'Microsoft.DBforPostgreSQL/flexibleServers@2024-08-01' = {
   location: location
   sku: {
     name: postgresSkuName
-    tier: 'Burstable'
+    tier: postgresTier
   }
   properties: {
-    version: '16'
+    version: postgresVersion
     administratorLogin: postgresAdminUser
     administratorLoginPassword: postgresAdminPassword
     storage: {
