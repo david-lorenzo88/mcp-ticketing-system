@@ -1,0 +1,51 @@
+# ---------------------------------------------------------------------------
+# Microsoft Copilot Studio — custom connector for the Baltic Summit MCP server.
+#
+# Copilot Studio reaches MCP servers through a custom connector described with
+# Swagger 2.0. The part that makes it an MCP connector rather than an ordinary
+# REST one is `x-ms-agentic-protocol: mcp-streamable-1.0` on the POST operation:
+# it tells Copilot Studio to speak MCP Streamable HTTP over this path and to
+# discover the tools itself, so the individual tools are NOT listed here.
+#
+# BEFORE IMPORTING: replace the `host` value below with your deployed host name
+# (no scheme, no trailing slash) — `scripts/deploy-azure.sh` prints it as
+# "Connector host".
+#
+# This is the open variant, matching a deployment with MCP_API_KEY unset. If you
+# set MCP_API_KEY, import baltic-summit-mcp-apikey.swagger.yaml instead.
+# ---------------------------------------------------------------------------
+swagger: '2.0'
+
+info:
+  title: Baltic Summit Ticketing
+  description: >-
+    Ticketing and admission for the Baltic Summit conference. Lets an agent list
+    and search tickets, register new attendees, correct ticket details, cancel
+    tickets, check attendees in at the door, and report on ticket sales.
+  version: '1.0.0'
+
+host: REPLACE-WITH-YOUR-HOST.azurecontainerapps.io
+basePath: /
+schemes:
+  - https
+
+consumes: []
+produces: []
+
+paths:
+  /mcp:
+    post:
+      summary: Baltic Summit ticketing MCP server
+      description: Streamable HTTP endpoint exposing the ticketing tools.
+      operationId: InvokeMCP
+      x-ms-agentic-protocol: mcp-streamable-1.0
+      responses:
+        '200':
+          description: Success
+
+definitions: {}
+parameters: {}
+responses: {}
+securityDefinitions: {}
+security: []
+tags: []

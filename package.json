@@ -1,0 +1,31 @@
+{
+  "name": "baltic-summit-ticketing",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Ticketing and admission system for Baltic Summit, with an MCP server for Copilot Studio and Azure AI Foundry agents.",
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspaces --if-present",
+    "dev:server": "npm run dev -w @baltic/server",
+    "dev:web": "npm run dev -w @baltic/web",
+    "build": "npm run build -w @baltic/database && npm run build -w @baltic/web && npm run build -w @baltic/server",
+    "start": "npm run start -w @baltic/server",
+    "db:generate": "npm run generate -w @baltic/database",
+    "db:migrate": "npm run migrate -w @baltic/database",
+    "db:deploy": "npm run deploy -w @baltic/database",
+    "db:seed": "npm run seed -w @baltic/database",
+    "db:studio": "npm run studio -w @baltic/database",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "test": "npm run test -w @baltic/server",
+    "docker:up": "docker compose up -d",
+    "docker:down": "docker compose down"
+  }
+}

@@ -1,0 +1,80 @@
+// Baltic Summit — ticketing & admission data model.
+//
+// Regenerate the client after changing this file:  npm run db:generate
+// Create a migration during development:           npm run db:migrate
+// Apply migrations in Azure:                       npm run db:deploy
+
+generator client {
+  provider               = "prisma-client"
+  output                 = "../src/generated/prisma"
+  runtime                = "nodejs"
+  moduleFormat           = "esm"
+  generatedFileExtension = "ts"
+  importFileExtension    = "js"
+}
+
+// Prisma 7 keeps connection URLs out of the schema: the migration/introspection
+// URL lives in `prisma.config.ts`, and the runtime client is given a driver
+// adapter (see src/index.ts).
+datasource db {
+  provider = "postgresql"
+}
+
+/// What the holder is entitled to attend.
+enum TicketType {
+  FULL_PASS // Workshop day + both conference days
+  CONFERENCE // Conference days only
+  WORKSHOP // Workshop day only
+  SPEAKER
+  SPONSOR
+  VOLUNTEER
+  STUDENT
+}
+
+/// Lifecycle of a ticket, from reservation through admission.
+enum TicketStatus {
+  RESERVED // Held, not yet paid/confirmed
+  CONFIRMED // Valid for admission
+  CHECKED_IN // Admitted at the door
+  CANCELLED // Void, not valid for admission
+}
+
+model Ticket {
+  id String @id @default(uuid())
+
+  /// Monotonic counter rendered as the public ticket number, e.g. BS26-00042.
+  /// The prefix lives in the TICKET_PREFIX env var, not in the database.
+  reference Int @unique @default(autoincrement())
+
+  // --- Attendee ---------------------------------------------------------
+  firstName String @db.VarChar(100)
+  lastName  String @db.VarChar(100)
+  email     String @db.VarChar(255)
+  phone     String? @db.VarChar(50)
+  company   String? @db.VarChar(150)
+  jobTitle  String? @db.VarChar(150)
+
+  // --- Entitlement ------------------------------------------------------
+  ticketType TicketType   @default(CONFERENCE)
+  status     TicketStatus @default(RESERVED)
+
+  priceAmount Decimal @default(0) @db.Decimal(10, 2)
+  currency    String  @default("PLN") @db.VarChar(3)
+
+  dietaryRequirements String? @db.VarChar(500)
+  notes               String? @db.VarChar(2000)
+
+  // --- Lifecycle timestamps --------------------------------------------
+  checkedInAt        DateTime?
+  cancelledAt        DateTime?
+  cancellationReason String?   @db.VarChar(500)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([status])
+  @@index([ticketType])
+  @@index([email])
+  @@index([createdAt])
+  @@map("tickets")
+}

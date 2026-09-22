@@ -1,0 +1,46 @@
+# Local development stack for the Baltic Summit ticketing system.
+#
+#   docker compose up -d db      # just PostgreSQL (recommended for development)
+#   docker compose up -d         # PostgreSQL + the full app in a container
+#
+services:
+  db:
+    image: postgres:17-alpine
+    container_name: baltic-tickets-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: baltic
+      POSTGRES_PASSWORD: baltic
+      POSTGRES_DB: baltic_tickets
+    ports:
+      - "5432:5432"
+    volumes:
+      - baltic-pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U baltic -d baltic_tickets"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  app:
+    build: .
+    container_name: baltic-tickets-app
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgresql://baltic:baltic@db:5432/baltic_tickets?schema=public
+      PORT: 8080
+      NODE_ENV: production
+      TICKET_PREFIX: BS26
+      CORS_ORIGINS: "*"
+      # Leave empty for an open MCP endpoint (no authentication).
+      MCP_API_KEY: ""
+    ports:
+      - "8080:8080"
+    profiles:
+      - full
+
+volumes:
+  baltic-pgdata:

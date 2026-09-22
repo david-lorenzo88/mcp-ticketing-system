@@ -1,0 +1,53 @@
+# ---------------------------------------------------------------------------
+# Microsoft Copilot Studio — custom connector for the Baltic Summit MCP server,
+# for a deployment that has MCP_API_KEY set.
+#
+# Identical to baltic-summit-mcp.swagger.yaml except that it declares an API key
+# header. Copilot Studio prompts for the key when you create the connection, and
+# sends it as `x-api-key` on every call.
+#
+# BEFORE IMPORTING: replace the `host` value with your deployed host name.
+# ---------------------------------------------------------------------------
+swagger: '2.0'
+
+info:
+  title: Baltic Summit Ticketing
+  description: >-
+    Ticketing and admission for the Baltic Summit conference. Lets an agent list
+    and search tickets, register new attendees, correct ticket details, cancel
+    tickets, check attendees in at the door, and report on ticket sales.
+  version: '1.0.0'
+
+host: REPLACE-WITH-YOUR-HOST.azurecontainerapps.io
+basePath: /
+schemes:
+  - https
+
+consumes: []
+produces: []
+
+paths:
+  /mcp:
+    post:
+      summary: Baltic Summit ticketing MCP server
+      description: Streamable HTTP endpoint exposing the ticketing tools.
+      operationId: InvokeMCP
+      x-ms-agentic-protocol: mcp-streamable-1.0
+      responses:
+        '200':
+          description: Success
+
+definitions: {}
+parameters: {}
+responses: {}
+
+securityDefinitions:
+  api_key:
+    type: apiKey
+    in: header
+    name: x-api-key
+
+security:
+  - api_key: []
+
+tags: []
