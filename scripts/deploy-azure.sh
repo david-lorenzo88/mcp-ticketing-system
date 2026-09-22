@@ -20,6 +20,10 @@
 
 set -euo pipefail
 
+# Without this, any `set -e` abort before the first log line looks like the
+# script did nothing at all.
+trap 'status=$?; [[ $status -ne 0 ]] && printf "\n\033[1;31mDeployment aborted at line %s (exit %s).\033[0m\n" "$LINENO" "$status" >&2' ERR
+
 RESOURCE_GROUP="${RESOURCE_GROUP:-rg-baltic-summit-tickets}"
 LOCATION="${LOCATION:-westeurope}"
 NAME_PREFIX="${NAME_PREFIX:-balticsummit}"
@@ -33,6 +37,15 @@ ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 info() { printf '\n\033[1;36m==> %s\033[0m\n' "$1"; }
 fail() { printf '\n\033[1;31mERROR: %s\033[0m\n' "$1" >&2; exit 1; }
 
+# Random token of $1 characters drawn from the class $2.
+#
+# `head` exits as soon as it has enough bytes, which closes the pipe and kills
+# `tr` with SIGPIPE. Under `set -o pipefail` that would abort the whole script,
+# so the pipeline runs in a subshell with pipefail switched off.
+random_token() {
+  ( set +o pipefail; LC_ALL=C tr -dc "$2" </dev/urandom | head -c "$1" )
+}
+
 command -v az >/dev/null 2>&1 || fail "The Azure CLI is not installed. See https://aka.ms/azure-cli"
 az account show >/dev/null 2>&1 || fail "Not signed in to Azure. Run: az login"
 
@@ -42,7 +55,7 @@ if [[ "${MCP_API_KEY}" == "generate" ]]; then
   if command -v openssl >/dev/null 2>&1; then
     MCP_API_KEY="$(openssl rand -hex 32)"
   else
-    MCP_API_KEY="$(LC_ALL=C tr -dc 'a-f0-9' </dev/urandom | head -c 64)"
+    MCP_API_KEY="$(random_token 64 'a-f0-9')"
   fi
   GENERATED_MCP_KEY=1
 fi
@@ -50,7 +63,7 @@ fi
 if [[ -z "${PG_ADMIN_PASSWORD:-}" ]]; then
   # 24 URL-safe characters. Bicep URL-encodes it into the connection string
   # anyway, but a clean password keeps manual psql access simple.
-  PG_ADMIN_PASSWORD="$(LC_ALL=C tr -dc 'A-Za-z0-9' </dev/urandom | head -c 24)"
+  PG_ADMIN_PASSWORD="$(random_token 24 'A-Za-z0-9')"
   GENERATED_PASSWORD=1
 fi
 
