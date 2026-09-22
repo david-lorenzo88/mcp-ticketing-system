@@ -267,6 +267,7 @@ system-assigned identity, grant it `AcrPull` on the registry, and replace the
 | `npm start` | Run the production build |
 | `npm test` | Unit tests (`vitest`) |
 | `npm run typecheck` | Typecheck every workspace |
+| `python3 scripts/verify-container-layout.py . /tmp/stages` | Replay the Dockerfile's stages without a Docker daemon |
 | `npm run db:migrate` / `db:deploy` | Create / apply migrations |
 | `npm run db:seed` | Insert sample tickets |
 | `npm run db:studio` | Prisma Studio |
