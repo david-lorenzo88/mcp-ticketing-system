@@ -33,6 +33,9 @@ tools automatically. You never list individual tools in the connector.
 4. Select **Create**. Copilot Studio builds the connector, connects, and lists
    the discovered tools.
 5. Select **Add to agent**.
+6. Give the agent its instructions — paste the ready-made set from
+   [copilot-studio-agent-instructions.md](copilot-studio-agent-instructions.md),
+   which is written against these seven tools and their exact enum values.
 
 ## Option B — import the connector definition
 
@@ -57,8 +60,15 @@ By default the server runs with **no authentication**, so choose *No
 authentication* in the wizard. That also means anyone who learns the URL can
 read and change ticket data.
 
-To put a shared secret in front of it without introducing user accounts, set the
-`MCP_API_KEY` environment variable on the Container App:
+To put a shared secret in front of it without introducing user accounts, deploy
+with a key from the start:
+
+```bash
+MCP_API_KEY=generate ./scripts/deploy-azure.sh
+```
+
+The script generates a 32-byte key, stores it as a Container App secret and
+prints it once. To add or rotate the key on an existing deployment:
 
 ```bash
 az containerapp secret set \
@@ -72,6 +82,10 @@ az containerapp update \
 
 Then choose **API Key** authentication in Copilot Studio with header name
 `x-api-key`. The server also accepts `Authorization: Bearer <key>`.
+
+Note that this protects `/mcp` only — `/api/tickets` and the web UI stay open,
+because a browser app cannot hold a shared secret. See "Two things to know" in
+the main README for how to close those off.
 
 ---
 

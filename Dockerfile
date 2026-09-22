@@ -47,15 +47,18 @@ ENV NODE_ENV=production \
 
 RUN apk add --no-cache tini
 
-COPY --from=prod-deps /app/node_modules ./node_modules
-COPY --from=prod-deps /app/packages/database/node_modules ./packages/database/node_modules
+# The whole production dependency tree in one instruction: the hoisted root
+# node_modules, the package manifests, and any nested workspace node_modules
+# npm chose not to hoist. Which workspaces get a nested directory depends on
+# version resolution and is not stable, so naming them individually breaks the
+# build as soon as npm hoists differently — the workspace symlinks in
+# node_modules/@baltic are relative, and resolve once the manifests are here.
+COPY --from=prod-deps /app ./
 
-COPY package.json ./
-COPY packages/database/package.json packages/database/prisma.config.ts ./packages/database/
+COPY packages/database/prisma.config.ts ./packages/database/
 COPY packages/database/prisma ./packages/database/prisma
 COPY --from=build /app/packages/database/dist ./packages/database/dist
 
-COPY apps/server/package.json ./apps/server/
 COPY --from=build /app/apps/server/dist ./apps/server/dist
 
 # The server serves the SPA from ../public relative to its own dist directory.
