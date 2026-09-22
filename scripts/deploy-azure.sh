@@ -17,6 +17,7 @@
 #   PG_VERSION        PostgreSQL major version   (default: 16, auto-corrected)
 #   PG_SKU            PostgreSQL compute SKU     (default: Standard_B1ms, auto-corrected)
 #   PG_TIER           PostgreSQL tier            (default: Burstable, auto-corrected)
+#   PG_SKIP_PREFLIGHT set to 1 to skip the availability probe entirely
 #
 # The image is built by `az acr build` inside Azure, so no local Docker daemon
 # is required.
@@ -104,23 +105,51 @@ done
 # round trip into a few seconds.
 info "Checking PostgreSQL availability in ${LOCATION}"
 SKUS_FILE="$(mktemp)"
-if az postgres flexible-server list-skus --location "${LOCATION}" -o json >"${SKUS_FILE}" 2>/dev/null; then
+if [[ "${PG_SKIP_PREFLIGHT:-0}" == "1" ]]; then
+  echo "  PG_SKIP_PREFLIGHT=1 — skipping, using ${PG_TIER} / PostgreSQL ${PG_VERSION} / ${PG_SKU}."
+  : >"${SKUS_FILE}"
+elif az postgres flexible-server list-skus --location "${LOCATION}" -o json >"${SKUS_FILE}" 2>/dev/null; then
   if CHOICE="$(python3 - "${SKUS_FILE}" "${PG_TIER}" "${PG_VERSION}" "${PG_SKU}" <<'PYEOF'
 import json, sys
 
 path, want_tier, want_version, want_sku = sys.argv[1:5]
-tiers = json.load(open(path))
+data = json.load(open(path))
 
+# `az postgres flexible-server list-skus` has changed shape between CLI
+# versions -- tiers have appeared at the top level and nested under
+# supportedFlexibleServerEditions. Rather than pin one layout, walk the whole
+# document and pick up every object that carries supportedServerVersions.
 catalogue = {}
-for tier in tiers:
-    versions = {}
-    for v in tier.get("supportedServerVersions", []):
-        versions[str(v.get("name"))] = [s.get("name") for s in v.get("supportedSkus", [])]
-    if versions:
-        catalogue[tier.get("name")] = versions
+
+def harvest(node, inherited_name=None):
+    if isinstance(node, list):
+        for item in node:
+            harvest(item, inherited_name)
+        return
+    if not isinstance(node, dict):
+        return
+
+    name = node.get("name", inherited_name)
+    if "supportedServerVersions" in node:
+        versions = {}
+        for v in node.get("supportedServerVersions") or []:
+            if not isinstance(v, dict):
+                continue
+            skus = [s.get("name") for s in (v.get("supportedSkus") or [])
+                    if isinstance(s, dict) and s.get("name")]
+            if v.get("name") is not None:
+                versions.setdefault(str(v["name"]), []).extend(skus)
+        if versions:
+            catalogue.setdefault(str(name), {}).update(versions)
+
+    for value in node.values():
+        if isinstance(value, (dict, list)):
+            harvest(value, name)
+
+harvest(data)
 
 if not catalogue:
-    sys.exit("no PostgreSQL Flexible Server capacity is offered here")
+    sys.exit("could not read any PostgreSQL tiers from the CLI output")
 
 tier = want_tier if want_tier in catalogue else next(
     (t for t in ("Burstable", "GeneralPurpose", "MemoryOptimized") if t in catalogue),
@@ -150,9 +179,17 @@ PYEOF
     fi
     PG_TIER="${PG_TIER_OK}"; PG_VERSION="${PG_VERSION_OK}"; PG_SKU="${PG_SKU_OK}"
   else
-    fail "PostgreSQL Flexible Server is not available in ${LOCATION} for this subscription.
-  Try a different region, e.g.  LOCATION=polandcentral ./scripts/deploy-azure.sh
-  Or list the regions that work:  az postgres flexible-server list-skus --location <region> -o table"
+    # Either the region really has no capacity, or this script could not read
+    # the CLI's output. Those are indistinguishable from here, and guessing
+    # wrong would block a deployment Azure would have accepted -- so report it
+    # loudly and let ARM have the final say.
+    echo "  Could not determine availability in ${LOCATION}. Azure returned:"
+    head -c 600 "${SKUS_FILE}" | sed 's/^/    /'
+    echo
+    echo "  Continuing with ${PG_TIER} / PostgreSQL ${PG_VERSION} / ${PG_SKU} and letting Azure validate."
+    echo "  If the deployment then fails on 'Version', this region likely has no capacity:"
+    echo "      az postgres flexible-server list-skus --location ${LOCATION} -o table"
+    echo "      LOCATION=polandcentral ./scripts/deploy-azure.sh"
   fi
 else
   echo "  Could not query availability — continuing and letting Azure validate."
