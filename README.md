@@ -31,6 +31,7 @@ so an agent and a human cannot get different behaviour out of the same action.
 | **REST API** | `/api/tickets` — the same operations over plain HTTP |
 | **Infrastructure** | Bicep for Container Apps, PostgreSQL, Log Analytics and ACR |
 | **Agent guides** | [Copilot Studio](docs/copilot-studio.md) · [Azure AI Foundry](docs/azure-ai-foundry.md) |
+| **Agent prompt** | [Ready-made Copilot Studio instructions](docs/copilot-studio-agent-instructions.md) |
 
 ---
 
@@ -119,6 +120,8 @@ call — usually the wrong trade for a tool an agent calls interactively.
 
 - **Copilot Studio** → [docs/copilot-studio.md](docs/copilot-studio.md)
 - **Azure AI Foundry** → [docs/azure-ai-foundry.md](docs/azure-ai-foundry.md)
+- **Agent instructions to paste in** →
+  [docs/copilot-studio-agent-instructions.md](docs/copilot-studio-agent-instructions.md)
 
 Copilot Studio connector definitions are in
 [`docs/connectors/`](docs/connectors/) — replace the `host:` line and import.
