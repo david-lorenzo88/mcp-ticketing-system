@@ -12,6 +12,7 @@
 #   PG_ADMIN_USER     PostgreSQL admin login     (default: balticadmin)
 #   PG_ADMIN_PASSWORD PostgreSQL admin password  (generated if unset)
 #   MCP_API_KEY       shared secret for /mcp     (default: empty = open, no auth)
+#                     set to "generate" to have a strong key created and printed
 #   IMAGE_TAG         container image tag        (default: current UTC timestamp)
 #
 # The image is built by `az acr build` inside Azure, so no local Docker daemon
@@ -34,6 +35,17 @@ fail() { printf '\n\033[1;31mERROR: %s\033[0m\n' "$1" >&2; exit 1; }
 
 command -v az >/dev/null 2>&1 || fail "The Azure CLI is not installed. See https://aka.ms/azure-cli"
 az account show >/dev/null 2>&1 || fail "Not signed in to Azure. Run: az login"
+
+# "generate" keeps the key out of your shell history and out of this script's
+# arguments; it is printed once at the end and stored as a Container App secret.
+if [[ "${MCP_API_KEY}" == "generate" ]]; then
+  if command -v openssl >/dev/null 2>&1; then
+    MCP_API_KEY="$(openssl rand -hex 32)"
+  else
+    MCP_API_KEY="$(LC_ALL=C tr -dc 'a-f0-9' </dev/urandom | head -c 64)"
+  fi
+  GENERATED_MCP_KEY=1
+fi
 
 if [[ -z "${PG_ADMIN_PASSWORD:-}" ]]; then
   # 24 URL-safe characters. Bicep URL-encodes it into the connection string
@@ -88,9 +100,12 @@ OUTPUTS="$(az deployment group create \
     mcpApiKey="${MCP_API_KEY}" \
   --query 'properties.outputs' -o json)"
 
-APP_URL="$(echo "${OUTPUTS}"  | python3 -c 'import json,sys; print(json.load(sys.stdin)["appUrl"]["value"])')"
-MCP_URL="$(echo "${OUTPUTS}"  | python3 -c 'import json,sys; print(json.load(sys.stdin)["mcpEndpoint"]["value"])')"
-MCP_HOST="$(echo "${OUTPUTS}" | python3 -c 'import json,sys; print(json.load(sys.stdin)["mcpHost"]["value"])')"
+read_output() { echo "${OUTPUTS}" | python3 -c "import json,sys; print(json.load(sys.stdin)['$1']['value'])"; }
+
+APP_URL="$(read_output appUrl)"
+MCP_URL="$(read_output mcpEndpoint)"
+MCP_HOST="$(read_output mcpHost)"
+MCP_AUTH="$(read_output mcpAuthMode)"
 
 # The container runs `prisma migrate deploy` on start, so the schema is already
 # in place by the time the readiness probe passes.
@@ -99,12 +114,28 @@ cat <<SUMMARY
 
   Web UI        ${APP_URL}
   REST API      ${APP_URL}/api/tickets
-  MCP endpoint  ${MCP_URL}
+  MCP endpoint  ${MCP_URL}   (auth: ${MCP_AUTH})
   Health        ${APP_URL}/healthz  ·  ${APP_URL}/readyz
 
   Connector host (Copilot Studio): ${MCP_HOST}
 
 SUMMARY
+
+if [[ -n "${GENERATED_MCP_KEY:-}" ]]; then
+  cat <<SECRET
+  An MCP API key was generated. Store it in a password manager now — it is not
+  printed again. Agents send it as the header 'x-api-key' (Copilot Studio) or
+  'Authorization: Bearer <key>':
+
+      ${MCP_API_KEY}
+
+  Verify the endpoint rejects unauthenticated calls and accepts this key:
+
+      MCP_URL=${MCP_URL} MCP_API_KEY=${MCP_API_KEY} \\
+        node scripts/smoke-test-mcp.mjs
+
+SECRET
+fi
 
 if [[ -n "${GENERATED_PASSWORD:-}" ]]; then
   cat <<SECRET

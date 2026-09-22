@@ -148,6 +148,29 @@ resource containerEnv 'Microsoft.App/managedEnvironments@2024-03-01' = {
 // string, so the admin password does not have to be URL-safe.
 var databaseUrl = 'postgresql://${postgresAdminUser}:${uriComponent(postgresAdminPassword)}@${postgres.properties.fullyQualifiedDomainName}:5432/${databaseName}?sslmode=require'
 
+// The MCP secret and its env var are only emitted when a key was supplied.
+// Container Apps rejects a secret with an empty value, so the open, no-auth
+// deployment must not declare one at all.
+var hasMcpApiKey = !empty(mcpApiKey)
+
+var mcpApiKeySecret = hasMcpApiKey
+  ? [
+      {
+        name: 'mcp-api-key'
+        value: mcpApiKey
+      }
+    ]
+  : []
+
+var mcpApiKeyEnv = hasMcpApiKey
+  ? [
+      {
+        name: 'MCP_API_KEY'
+        secretRef: 'mcp-api-key'
+      }
+    ]
+  : []
+
 resource containerApp 'Microsoft.App/containerApps@2024-03-01' = {
   name: containerAppName
   location: location
@@ -176,20 +199,19 @@ resource containerApp 'Microsoft.App/containerApps@2024-03-01' = {
           allowedHeaders: ['*']
         }
       }
-      secrets: [
-        {
-          name: 'database-url'
-          value: databaseUrl
-        }
-        {
-          name: 'mcp-api-key'
-          value: mcpApiKey
-        }
-        {
-          name: 'registry-password'
-          value: registry.listCredentials().passwords[0].value
-        }
-      ]
+      secrets: concat(
+        [
+          {
+            name: 'database-url'
+            value: databaseUrl
+          }
+          {
+            name: 'registry-password'
+            value: registry.listCredentials().passwords[0].value
+          }
+        ],
+        mcpApiKeySecret
+      )
       registries: [
         {
           server: registry.properties.loginServer
@@ -207,14 +229,10 @@ resource containerApp 'Microsoft.App/containerApps@2024-03-01' = {
             cpu: json('0.5')
             memory: '1Gi'
           }
-          env: [
+          env: concat([
             {
               name: 'DATABASE_URL'
               secretRef: 'database-url'
-            }
-            {
-              name: 'MCP_API_KEY'
-              secretRef: 'mcp-api-key'
             }
             {
               name: 'PORT'
@@ -236,7 +254,7 @@ resource containerApp 'Microsoft.App/containerApps@2024-03-01' = {
               name: 'PUBLIC_BASE_URL'
               value: 'https://${containerAppName}.${containerEnv.properties.defaultDomain}'
             }
-          ]
+          ], mcpApiKeyEnv)
           probes: [
             {
               type: 'Liveness'
@@ -290,3 +308,6 @@ output mcpHost string = containerApp.properties.configuration.ingress.fqdn
 
 @description('PostgreSQL server FQDN.')
 output postgresHost string = postgres.properties.fullyQualifiedDomainName
+
+@description('Whether the MCP endpoint requires an API key.')
+output mcpAuthMode string = hasMcpApiKey ? 'api-key' : 'open'

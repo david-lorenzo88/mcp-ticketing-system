@@ -88,9 +88,14 @@ Override anything with environment variables:
 
 ```bash
 RESOURCE_GROUP=rg-baltic LOCATION=polandcentral \
-MCP_API_KEY="$(openssl rand -hex 32)" \
+MCP_API_KEY=generate \
 ./scripts/deploy-azure.sh
 ```
+
+`MCP_API_KEY=generate` creates a 32-byte key, stores it as a Container App
+secret and prints it once at the end — so the secret never lands in your shell
+history. Pass a literal value instead if you already have one, or leave the
+variable unset to deploy with the MCP endpoint open.
 
 Migrations run automatically when the container starts (`prisma migrate deploy`
 behind a Postgres advisory lock, so parallel replicas are safe). Set
@@ -172,7 +177,7 @@ See [`packages/database/prisma/schema.prisma`](packages/database/prisma/schema.p
 | `NODE_ENV` | `development` | `development` \| `production` \| `test` |
 | `TICKET_PREFIX` | `BS26` | Prefix for printed ticket numbers |
 | `CORS_ORIGINS` | `*` | Comma-separated origins, or `*` |
-| `MCP_API_KEY` | *(empty)* | Optional shared secret for `/mcp`; empty = open |
+| `MCP_API_KEY` | *(empty)* | Optional shared secret for `/mcp` only; empty = open |
 | `MCP_JSON_RESPONSE` | `true` | JSON responses instead of SSE on `/mcp` |
 | `PUBLIC_BASE_URL` | *(empty)* | Public URL, used in logs and `/healthz` |
 | `WEB_DIST_PATH` | *(auto)* | Override where the built SPA is served from |
@@ -195,17 +200,27 @@ two files, so swapping in the official assets is a small, contained change:
 - [`apps/web/src/components/Logo.tsx`](apps/web/src/components/Logo.tsx) — plus
   [`apps/web/public/favicon.svg`](apps/web/public/favicon.svg)
 
-**There is no authentication, by design.** You asked for none, so the web UI, the
-REST API and the MCP endpoint are all open to anyone with the URL — which on a
-public Container App means the internet, and the MCP tools can create, edit and
-cancel tickets. That is fine for a demo or an internal event, and worth closing
-before real attendee data goes in. Cheapest hardening, in order:
+**There is no user authentication, by design.** You asked for none, so on a
+public Container App the web UI and the REST API are open to anyone with the
+URL — which means the internet.
 
-1. Set `MCP_API_KEY` — a shared secret on `/mcp`, no user accounts involved.
-   Both Copilot Studio and Foundry can send it.
-2. Set `CORS_ORIGINS` to your own origin instead of `*`.
-3. Restrict Container App ingress to a VNet, or put Entra ID authentication in
-   front of the app (`az containerapp auth`).
+`MCP_API_KEY` **only gates `POST /mcp`.** It deliberately does not cover
+`/api/tickets` or the UI, because the browser SPA has nowhere safe to keep a
+shared secret — shipping the key to the browser would publish it. So with
+`MCP_API_KEY` set you get: agents must authenticate, but anyone who finds the
+URL can still read and change the same data through the REST API. It raises the
+bar for the agent surface; it does not protect the data.
+
+To actually close the app off, in increasing order of effort:
+
+1. Set `CORS_ORIGINS` to your own origin instead of `*`. Stops other websites
+   calling the API from a visitor's browser; does not stop direct requests.
+2. Put Entra ID in front of the whole app with
+   [`az containerapp auth`](https://learn.microsoft.com/azure/container-apps/authentication).
+   The platform handles sign-in before requests reach the container, so the UI
+   and REST API are covered without any code change. Exclude `/mcp` from it and
+   keep `MCP_API_KEY` for the agents, which cannot do an interactive sign-in.
+3. Restrict Container App ingress to a VNet if the tooling is internal-only.
 
 ## Hardening the deployment
 
