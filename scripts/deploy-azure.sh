@@ -115,38 +115,69 @@ import json, sys
 path, want_tier, want_version, want_sku = sys.argv[1:5]
 data = json.load(open(path))
 
-# `az postgres flexible-server list-skus` has changed shape between CLI
-# versions -- tiers have appeared at the top level and nested under
-# supportedFlexibleServerEditions. Rather than pin one layout, walk the whole
-# document and pick up every object that carries supportedServerVersions.
-catalogue = {}
+# The PostgreSQL capabilities API keeps versions and SKUs in SIBLING arrays:
+#
+#   supportedServerVersions: [{"name": "16"}, ...]
+#   supportedServerEditions: [{"name": "Burstable",
+#                              "supportedServerSkus": [{"name": "Standard_B1ms"}]}]
+#
+# Older payloads instead nested supportedSkus inside each version. Both are
+# collected here, and the layout is inferred from what actually turns up rather
+# than assumed, since guessing wrong reads as "region has no capacity".
+versions_seen = set()
+edition_skus = {}   # tier -> {sku}
+nested = {}         # tier -> {version -> {sku}}   (legacy layout)
 
-def harvest(node, inherited_name=None):
+
+def note_versions(entries, tier):
+    for v in entries or []:
+        if not isinstance(v, dict) or v.get("name") is None:
+            continue
+        name = str(v["name"])
+        versions_seen.add(name)
+        skus = {s.get("name") for s in (v.get("supportedSkus") or [])
+                if isinstance(s, dict) and s.get("name")}
+        if skus:
+            nested.setdefault(str(tier), {}).setdefault(name, set()).update(skus)
+
+
+def walk(node, tier_hint=None):
     if isinstance(node, list):
         for item in node:
-            harvest(item, inherited_name)
+            walk(item, tier_hint)
         return
     if not isinstance(node, dict):
         return
 
-    name = node.get("name", inherited_name)
-    if "supportedServerVersions" in node:
-        versions = {}
-        for v in node.get("supportedServerVersions") or []:
-            if not isinstance(v, dict):
+    name = node.get("name", tier_hint)
+
+    for key in ("supportedServerEditions", "supportedFlexibleServerEditions"):
+        for ed in node.get(key) or []:
+            if not isinstance(ed, dict):
                 continue
-            skus = [s.get("name") for s in (v.get("supportedSkus") or [])
-                    if isinstance(s, dict) and s.get("name")]
-            if v.get("name") is not None:
-                versions.setdefault(str(v["name"]), []).extend(skus)
-        if versions:
-            catalogue.setdefault(str(name), {}).update(versions)
+            ed_name = str(ed.get("name"))
+            skus = {s.get("name")
+                    for s in (ed.get("supportedServerSkus") or ed.get("supportedSkus") or [])
+                    if isinstance(s, dict) and s.get("name")}
+            if skus:
+                edition_skus.setdefault(ed_name, set()).update(skus)
+            note_versions(ed.get("supportedServerVersions"), ed_name)
+
+    note_versions(node.get("supportedServerVersions"), name)
 
     for value in node.values():
         if isinstance(value, (dict, list)):
-            harvest(value, name)
+            walk(value, name)
 
-harvest(data)
+
+walk(data)
+
+catalogue = {}
+if nested:
+    catalogue = {t: {v: sorted(sk) for v, sk in vs.items()} for t, vs in nested.items()}
+elif edition_skus and versions_seen:
+    # Siblings: every edition's SKUs are offered for every supported version.
+    catalogue = {t: {v: sorted(sk) for v in versions_seen} for t, sk in edition_skus.items()}
 
 if not catalogue:
     sys.exit("could not read any PostgreSQL tiers from the CLI output")
@@ -159,7 +190,7 @@ versions = catalogue[tier]
 if want_version in versions:
     version = want_version
 else:
-    # Highest major version available, so a pinned-but-retired default still works.
+    # Highest major available, so a pinned-but-retired default still deploys.
     version = max(versions, key=lambda v: int(v) if v.isdigit() else -1)
 
 skus = versions[version]
