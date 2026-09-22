@@ -76,14 +76,41 @@ fi
 
 SUBSCRIPTION="$(az account show --query name -o tsv)"
 
+# A resource group cannot be moved between regions, so an existing one decides
+# the location for everything in it. Adopting it here keeps a re-run with a
+# different LOCATION working instead of failing on the group creation.
+EXISTING_RG_LOCATION="$(az group show --name "${RESOURCE_GROUP}" --query location -o tsv 2>/dev/null || true)"
+RELOCATED=""
+if [[ -n "${EXISTING_RG_LOCATION}" && "${EXISTING_RG_LOCATION}" != "${LOCATION}" ]]; then
+  RELOCATED="${LOCATION}"
+  LOCATION="${EXISTING_RG_LOCATION}"
+fi
+
 info "Deploying to subscription: ${SUBSCRIPTION}"
 echo "  Resource group : ${RESOURCE_GROUP}"
 echo "  Location       : ${LOCATION}"
 echo "  Image tag      : ${IMAGE_TAG}"
 echo "  MCP auth       : $([[ -n "${MCP_API_KEY}" ]] && echo 'API key' || echo 'open (no authentication)')"
 
-info "Creating resource group"
-az group create --name "${RESOURCE_GROUP}" --location "${LOCATION}" --output none
+if [[ -n "${RELOCATED}" ]]; then
+  cat <<NOTE
+
+  Note: ${RESOURCE_GROUP} already exists in ${LOCATION}, so ${RELOCATED} was
+  ignored — a resource group cannot be moved. To deploy to ${RELOCATED}, pick a
+  different group:
+
+      RESOURCE_GROUP=rg-baltic-${RELOCATED} LOCATION=${RELOCATED} ./scripts/deploy-azure.sh
+
+  or delete this one first:  az group delete --name ${RESOURCE_GROUP} --yes
+NOTE
+fi
+
+if [[ -n "${EXISTING_RG_LOCATION}" ]]; then
+  info "Using existing resource group (${LOCATION})"
+else
+  info "Creating resource group"
+  az group create --name "${RESOURCE_GROUP}" --location "${LOCATION}" --output none
+fi
 
 # Fresh subscriptions often have these unregistered, which surfaces later as
 # confusing validation errors (an empty list of allowed PostgreSQL versions,
