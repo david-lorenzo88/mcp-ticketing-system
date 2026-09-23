@@ -7,6 +7,7 @@ import { corsOrigins, env, isProduction } from './env.js';
 import { AppError } from './lib/errors.js';
 import { MCP_SERVER_NAME, MCP_SERVER_VERSION } from './mcp/server.js';
 import { mcpRouter } from './mcp/routes.js';
+import { sessionsRouter } from './sessions/routes.js';
 import { ticketsRouter } from './tickets/routes.js';
 
 /**
@@ -74,6 +75,7 @@ export function createApp(): Express {
 
   // --- API + MCP ----------------------------------------------------------
   app.use('/api/tickets', ticketsRouter);
+  app.use('/api/sessions', sessionsRouter);
   app.use('/mcp', mcpRouter);
 
   app.use('/api', (_req, res) => {

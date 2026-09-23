@@ -27,7 +27,7 @@ so an agent and a human cannot get different behaviour out of the same action.
 | --- | --- |
 | **MCP server** | Streamable HTTP at `POST /mcp`, stateless, 10 tools — tickets and the conference agenda |
 | **Database** | PostgreSQL 16 via Prisma 7 (driver adapters, no query engine binary) |
-| **Web UI** | React 19 + Vite + Tailwind CSS v4 — list, create, edit, cancel, check in |
+| **Web UI** | React 19 + Vite + Tailwind CSS v4 — tickets (list, create, edit, cancel, check in) and the session agenda (browse, filter, details) |
 | **REST API** | `/api/tickets` — the same operations over plain HTTP |
 | **Infrastructure** | Bicep for Container Apps, PostgreSQL, Log Analytics and ACR |
 | **Agent guides** | [Copilot Studio](docs/copilot-studio.md) · [Azure AI Foundry](docs/azure-ai-foundry.md) |
@@ -160,6 +160,9 @@ faults that abort its turn.
 | `PATCH` | `/api/tickets/:id` | Partial update |
 | `POST` | `/api/tickets/:id/cancel` | Cancel — body `{ "reason": "…" }` |
 | `POST` | `/api/tickets/:id/check-in` | Check in |
+| `GET` | `/api/sessions` | Agenda. `?day=&search=&speaker=&room=&track=&format=&level=&language=&tag=&from=&to=&excludeBreaks=&page=&pageSize=` |
+| `GET` | `/api/sessions/filters` | Days, rooms, tracks, formats, levels, languages and tags |
+| `GET` | `/api/sessions/:id` | One session — UUID, agenda id or exact title |
 | `GET` | `/healthz` · `/readyz` | Liveness · readiness (readiness pings the database) |
 
 `status` and `ticketType` accept a single value, a comma-separated list, or a
