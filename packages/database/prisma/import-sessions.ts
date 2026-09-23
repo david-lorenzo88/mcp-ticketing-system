@@ -30,7 +30,7 @@ interface SessionInput {
   id: string;
   title: string;
   description?: string | null;
-  day: string; // YYYY-MM-DD
+  day?: string | null; // YYYY-MM-DD; omit for a session without a slot yet
   start?: string | null; // HH:MM, local event time
   end?: string | null;
   room?: string | null;
@@ -40,6 +40,7 @@ interface SessionInput {
   language?: string | null;
   tags?: string[] | null;
   url?: string | null;
+  partnerUrl?: string | null;
   speakers?: SpeakerInput[] | null;
 }
 
@@ -94,7 +95,8 @@ function validate(file: AgendaFile): string[] {
     else if (seen.has(s.id)) problems.push(`${where}: duplicate id`);
     else seen.add(s.id);
     if (!s?.title?.trim()) problems.push(`${where}: "title" is required`);
-    if (!DAY.test(s?.day ?? '')) problems.push(`${where}: "day" must be YYYY-MM-DD`);
+    if (s?.day && !DAY.test(s.day)) problems.push(`${where}: "day" must be YYYY-MM-DD`);
+    if (!s?.day && (s?.start || s?.end)) problems.push(`${where}: "start"/"end" need a "day"`);
     if (s?.start && !TIME.test(s.start)) problems.push(`${where}: "start" must be HH:MM`);
     if (s?.end && !TIME.test(s.end)) problems.push(`${where}: "end" must be HH:MM`);
     s?.speakers?.forEach((sp, j) => {
@@ -168,9 +170,9 @@ async function main() {
     const data = {
       title: s.title.trim(),
       description: clean(s.description),
-      day: new Date(`${s.day}T00:00:00Z`),
-      startsAt: s.start ? localToUtc(s.day, s.start, timeZone) : null,
-      endsAt: s.end ? localToUtc(s.day, s.end, timeZone) : null,
+      day: s.day ? new Date(`${s.day}T00:00:00Z`) : null,
+      startsAt: s.day && s.start ? localToUtc(s.day, s.start, timeZone) : null,
+      endsAt: s.day && s.end ? localToUtc(s.day, s.end, timeZone) : null,
       room: clean(s.room),
       format: toSessionFormat(s.format),
       formatLabel: clean(s.format),
@@ -179,6 +181,7 @@ async function main() {
       language: clean(s.language),
       tags: (s.tags ?? []).map((t) => t.trim()).filter(Boolean),
       url: clean(s.url),
+      partnerUrl: clean(s.partnerUrl),
     };
 
     const links = (s.speakers ?? []).map((sp, position) => ({
@@ -208,10 +211,13 @@ async function main() {
     await prisma.speaker.deleteMany({ where: { sessions: { none: {} } } });
   }
 
-  const days = [...new Set(file.sessions.map((s) => s.day))].sort();
+  const days = [...new Set(file.sessions.flatMap((s) => (s.day ? [s.day] : [])))].sort();
+  const unscheduled = file.sessions.filter((s) => !s.day).length;
   console.log(
     `✓ Imported ${file.sessions.length} session(s) and ${speakers.size} speaker(s) ` +
-      `across ${days.length} day(s) (${days.join(', ')}) from ${path}` +
+      `across ${days.length} day(s) (${days.join(', ')})` +
+      (unscheduled ? ` plus ${unscheduled} without a slot yet` : '') +
+      ` from ${path}` +
       (prune ? `; pruned ${pruned} session(s) no longer on the agenda.` : '.'),
   );
 }

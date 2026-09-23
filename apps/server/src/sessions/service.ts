@@ -28,8 +28,9 @@ export interface SessionSummaryDto {
   id: string;
   externalId: string;
   title: string;
-  day: string;
-  dayName: string;
+  /** Null for a session that is published but has no slot yet. */
+  day: string | null;
+  dayName: string | null;
   start: string | null;
   end: string | null;
   startsAt: string | null;
@@ -50,6 +51,7 @@ export interface SessionSummaryDto {
 export interface SessionDetailDto extends Omit<SessionSummaryDto, 'speakers' | 'abstract'> {
   description: string | null;
   url: string | null;
+  partnerUrl: string | null;
   speakers: SessionSpeakerDetail[];
   /** Other sessions in the same time slot, to help pick between them. */
   concurrentSessions: Array<Pick<SessionSummaryDto, 'id' | 'title' | 'room' | 'start' | 'end'>>;
@@ -59,6 +61,8 @@ export interface SessionListResult {
   sessions: SessionSummaryDto[];
   /** How many matching sessions fall on each day, across all pages. */
   byDay: Array<{ day: string; dayName: string; sessions: number }>;
+  /** Matching sessions that have no slot on the agenda yet. */
+  unscheduled: number;
   pagination: { page: number; pageSize: number; total: number; totalPages: number };
 }
 
@@ -73,6 +77,8 @@ export interface SessionFilters {
   tags: string[];
   speakers: number;
   totalSessions: number;
+  /** Sessions published without a slot yet; they have no day or time. */
+  unscheduledSessions: number;
 }
 
 const ABSTRACT_LENGTH = 240;
@@ -93,10 +99,10 @@ function abstractOf(description: string | null): string | null {
 }
 
 function scheduleOf(row: SessionRow) {
-  const day = isoDay(row.day);
+  const day = row.day ? isoDay(row.day) : null;
   return {
     day,
-    dayName: dayName(day),
+    dayName: day ? dayName(day) : null,
     start: localTime(row.startsAt),
     end: localTime(row.endsAt),
     startsAt: row.startsAt?.toISOString() ?? null,
@@ -154,11 +160,12 @@ async function storedTags(match: (tag: string) => boolean): Promise<string[]> {
 
 async function eventDays(): Promise<string[]> {
   const rows = await getPrisma().session.findMany({
+    where: { day: { not: null } },
     distinct: ['day'],
     select: { day: true },
     orderBy: { day: 'asc' },
   });
-  return rows.map((r) => isoDay(r.day));
+  return rows.flatMap((r) => (r.day ? [isoDay(r.day)] : []));
 }
 
 async function buildWhere(input: ListSessionsInput): Promise<Prisma.SessionWhereInput> {
@@ -233,7 +240,7 @@ async function buildWhere(input: ListSessionsInput): Promise<Prisma.SessionWhere
 }
 
 const agendaOrder: Prisma.SessionOrderByWithRelationInput[] = [
-  { day: 'asc' },
+  { day: { sort: 'asc', nulls: 'last' } },
   { startsAt: { sort: 'asc', nulls: 'last' } },
   { room: { sort: 'asc', nulls: 'last' } },
   { title: 'asc' },
@@ -258,10 +265,12 @@ export async function listSessions(input: ListSessionsInput): Promise<SessionLis
 
   return {
     sessions: rows.map(toSummaryDto),
-    byDay: perDay.map((g) => {
+    byDay: perDay.flatMap((g) => {
+      if (!g.day) return [];
       const day = isoDay(g.day);
-      return { day, dayName: dayName(day), sessions: g._count._all };
+      return [{ day, dayName: dayName(day), sessions: g._count._all }];
     }),
+    unscheduled: perDay.find((g) => g.day === null)?._count._all ?? 0,
     pagination: { page, pageSize, total, totalPages: Math.max(1, Math.ceil(total / pageSize)) },
   };
 }
@@ -305,6 +314,7 @@ export async function getSession(identifier: string): Promise<SessionDetailDto> 
     ...summary,
     description: row.description,
     url: row.url,
+    partnerUrl: row.partnerUrl,
     speakers: row.speakers.map(({ speaker }) => ({
       id: speaker.id,
       name: speaker.fullName,
@@ -351,15 +361,18 @@ export async function getSessionFilters(): Promise<SessionFilters> {
 
   return {
     timezone: env.EVENT_TIMEZONE,
-    days: perDay.map((g) => {
+    days: perDay.flatMap((g) => {
+      if (!g.day) return [];
       const day = isoDay(g.day);
-      return {
-        day,
-        dayName: dayName(day),
-        sessions: g._count._all,
-        firstStart: localTime(g._min.startsAt),
-        lastEnd: localTime(g._max.endsAt),
-      };
+      return [
+        {
+          day,
+          dayName: dayName(day),
+          sessions: g._count._all,
+          firstStart: localTime(g._min.startsAt),
+          lastEnd: localTime(g._max.endsAt),
+        },
+      ];
     }),
     rooms,
     tracks,
@@ -369,5 +382,6 @@ export async function getSessionFilters(): Promise<SessionFilters> {
     tags: tags.sort((a, b) => a.localeCompare(b)),
     speakers,
     totalSessions: perDay.reduce((sum, g) => sum + g._count._all, 0),
+    unscheduledSessions: perDay.find((g) => g.day === null)?._count._all ?? 0,
   };
 }

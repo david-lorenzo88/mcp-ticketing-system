@@ -184,7 +184,7 @@ session can have several speakers, a speaker several sessions). Each session
 keeps its full description, day, start/end (stored in UTC, shown and filtered in
 `EVENT_TIMEZONE`), room, format, track, level, language and tags. The agenda is
 loaded from a JSON export of https://balticsummit.pl/sessions2026 with
-`npm run db:import-sessions`; see [`packages/database/data/README.md`](packages/database/data/README.md)
+`npm run db:import-sessions`. The repo ships the full 2026 agenda. See [`packages/database/data/README.md`](packages/database/data/README.md)
 for the file format and how to extract it.
 
 See [`packages/database/prisma/schema.prisma`](packages/database/prisma/schema.prisma).

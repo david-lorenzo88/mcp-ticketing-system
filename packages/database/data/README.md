@@ -11,6 +11,24 @@ npm run db:import-sessions -- packages/database/data/sessions2026.example.json
 DATABASE_URL="postgresql://…azure…?sslmode=require" npm run db:import-sessions -- --prune
 ```
 
+`sessions2026.json` holds the real Baltic Summit 2026 agenda: 53 sessions,
+16 breaks and other blocks, and 59 speakers. It was generated from the
+RunEvents export in [`runevents/`](runevents/), which was extracted on
+2026-09-23 from the public API behind https://balticsummit.pl/sessions2026. To
+refresh it, replace `runevents/baltic_summit_2026.json` with a new export in
+the same shape and run:
+
+```bash
+node scripts/convert-runevents-agenda.mjs \
+  packages/database/data/runevents/baltic_summit_2026.json \
+  packages/database/data/sessions2026.json
+npm run db:import-sessions -- --prune
+```
+
+The export has no speaker bios or companies, and no tracks, levels or
+languages, so those fields stay empty. One session, "What do agents REALLY
+cost?", is published without a slot. It is imported with no day or time.
+
 `sessions2026.example.json` is **made-up placeholder data** for trying the MCP
 tools locally. Don't import it into production.
 
@@ -26,7 +44,7 @@ tools locally. Don't import it into production.
       "id": "stable-unique-id",      // required: slug or id from the site
       "title": "…",                  // required
       "description": "…",            // full text, paragraphs separated by \n\n
-      "day": "2026-09-24",           // required, YYYY-MM-DD
+      "day": "2026-09-24",           // YYYY-MM-DD; omit if the session has no slot yet
       "start": "09:00",              // HH:MM, 24h
       "end": "09:45",
       "room": "Main Hall",
@@ -36,6 +54,7 @@ tools locally. Don't import it into production.
       "language": "English",
       "tags": ["Copilot", "Dataverse"],
       "url": "https://…",            // session detail page, if any
+      "partnerUrl": "https://…",     // sponsor/partner site for partner sessions
       "speakers": [
         {
           "id": "stable-speaker-id", // optional; defaults to a slug of the name
@@ -52,7 +71,7 @@ tools locally. Don't import it into production.
 }
 ```
 
-Only `id`, `title` and `day` are required; leave out anything the site doesn't
+Only `id` and `title` are required; leave out anything the site doesn't
 show. `format` is mapped onto KEYNOTE / TALK / WORKSHOP / PANEL / LIGHTNING /
 BREAK / OTHER, and the original label is kept alongside.
 

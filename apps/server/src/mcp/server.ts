@@ -242,7 +242,10 @@ export function createMcpServer(): McpServer {
       handle(async () => {
         const result = await listSessions(args);
         const { total, page, totalPages } = result.pagination;
-        const days = result.byDay.map((d) => `${d.dayName} ${d.day}: ${d.sessions}`).join(', ');
+        const days = [
+          ...result.byDay.map((d) => `${d.dayName} ${d.day}: ${d.sessions}`),
+          ...(result.unscheduled ? [`not yet scheduled: ${result.unscheduled}`] : []),
+        ].join(', ');
         return ok(
           `Found ${total} session(s)${days ? ` (${days})` : ''}. ` +
             `Showing page ${page} of ${totalPages} (${result.sessions.length} on this page).`,
@@ -265,9 +268,11 @@ export function createMcpServer(): McpServer {
     async ({ identifier }) =>
       handle(async () => {
         const session = await getSession(identifier);
-        const when = session.start
-          ? `${session.dayName} ${session.day}, ${session.start}${session.end ? `–${session.end}` : ''}`
-          : `${session.dayName} ${session.day}`;
+        const when = !session.day
+          ? 'not yet scheduled'
+          : session.start
+            ? `${session.dayName} ${session.day}, ${session.start}${session.end ? `–${session.end}` : ''}`
+            : `${session.dayName} ${session.day}`;
         const by = session.speakers.map((s) => s.name).join(', ');
         return ok(
           `"${session.title}" — ${when}${session.room ? `, ${session.room}` : ''}` +

@@ -1,0 +1,1123 @@
+{
+  "event": "Baltic Summit 2026",
+  "source": "https://balticsummit.pl/sessions2026",
+  "extractedOn": "2026-09-23",
+  "timezone": "Europe/Warsaw",
+  "sessions": [
+    {
+      "id": "runevents-session-28118",
+      "title": "Agent security and governance 101",
+      "description": "Creating a secure and governed framework for Power Platform, Copilot Studio & Copilot Studio Lite agents takes in-depth understanding of technical capabilities spread out over multiple platforms, portals and technologies, from Microsoft 365 to Purview and from Power Platform Admin Center to Entra ID.\n\nIn this tutorial, immerse yourself in the fundamentals of agent governance and security, including:\n\n* Managing sprawl - or why you should govern your agents like cattle, not pets\n* Laying the technical foundations for your tenant and environments, incl. building or tweaking your environment strategy to facilitate sustainable development of agents\n* Making the Dataverse security model work for you (and your agents)\n* Managing connectors, knowledge sources, agent authoring and publishing channels\n* Agent lifecycle & ALM patterns\n* Agent monitoring & analytics\n* Data security, audit logging and related considerations\n* Governing and securing advanced scenarios like agent-to-agent & MCP\n\nDuring the day, three seasoned pros will guide you through effective and practical agent security & governance patterns and practices, while providing experience-based tips and stories from the field to illustrate the discussed topics.\n\nThis tutorial is well-suited for Power Platform and agent admins, architects and IT Pros wanting to get a compelling look at an effective strategy for agent security and governance.",
+      "day": "2026-09-24",
+      "start": "09:00",
+      "end": "16:00",
+      "room": "Coral Room (Koralowa)",
+      "format": "Workshop",
+      "url": "https://balticsummit.pl/sessions2026",
+      "speakers": [
+        {
+          "id": "tatu-seppala",
+          "name": "Tatu Seppälä"
+        },
+        {
+          "id": "mikko-koskinen",
+          "name": "Mikko Koskinen"
+        },
+        {
+          "id": "claire-edgson",
+          "name": "Claire Edgson"
+        }
+      ]
+    },
+    {
+      "id": "runevents-session-28270",
+      "title": "Copilot Studio, Microsoft Foundry, or Both? Choosing the Right Architecture for Intelligent Agents",
+      "description": "Building intelligent agents is no longer the hard part.\nThe real challenge is deciding which technology to use, for which problem, and why.\n\nThis hands-on workshop focuses on a single, practical question:\nWhen should you use Copilot Studio, when should you use Microsoft Foundry, and when does it make sense to combine both?\n\nParticipants work through the same business scenario using different approaches:\n✔️ implementing the solution with Copilot Studio as part of a business workflow (Work IQ)\n✔️ implementing the same logic with Microsoft Foundry as a dedicated intelligence layer (Foundry IQ)\n✔️ combining both into a single, well-structured architecture\n\nBy building and comparing these approaches side by side, participants gain a clear, experience-based understanding of:\n✅ the boundaries of low-code agents\n✅ the strengths and responsibilities of a Foundry-based AI layer\n✅ the trade-offs between speed, control, governance, and maintainability\n\nThe workshop is practical, architectural, and decision-oriented.\nNo hype, no generic AI promises, and no “one tool fits all” answers.\n\nWho should attend:\nThis workshop is designed for architects, technical leads, and Power Platform professionals who need to make informed, defensible technology choices when designing intelligent solutions.\n\nParticipants leave with concrete criteria they can apply immediately in real projects, not just another demo.",
+      "day": "2026-09-24",
+      "start": "09:00",
+      "end": "16:00",
+      "room": "Room D",
+      "format": "Workshop",
+      "url": "https://balticsummit.pl/sessions2026",
+      "speakers": [
+        {
+          "id": "katerina-chernevskaya",
+          "name": "Katerina Chernevskaya"
+        }
+      ]
+    },
+    {
+      "id": "runevents-session-28224",
+      "title": "[Sold out] The Future is Now! The Next Generation of Power App Development Workshop",
+      "description": "The future of app development isn’t coming… it’s already here. And it’s moving fast.\n\nIn this hands-on workshop, you’ll dive into the next generation of Power Apps development - where traditional boundaries between low-code and pro-code are disappearing, and AI is changing how everything gets built.\n\nWe’ll start with the foundations - canvas apps and model-driven apps - and quickly move beyond them into the new wave of capabilities reshaping the platform. You’ll get hands-on experience with model-driven app generative pages, explore emerging concepts like code apps and vibe apps, and see how AI can take you from idea to working solution faster than ever.\n\nThis is not a sit-back-and-watch session. You’ll build. A lot.\n\nThrough guided exercises that ramp up in complexity, you’ll experiment with different ways of creating apps - from traditional approaches to AI-assisted and prompt-driven development. You’ll learn how to choose the right approach for the right scenario, and how to combine them to deliver powerful, real-world solutions.\n\nWe’ll also step into pro-code territory, using tools like Visual Studio Code to extend and customise your apps, giving you the flexibility to go deeper when low-code alone isn’t enough.\n\nBy the end of the day, you won’t just understand where Power Apps is heading - you’ll have built across the spectrum and experienced it for yourself.\n\nWhat you’ll cover:\n- The Foundations Still Matter - Building with canvas apps and model-driven apps\n- AI Changes Everything - Using Copilots and AI-assisted experiences to accelerate development\n- Generative Experiences - Creating model-driven app generative pages with minimal effort\n- New Ways to Build - Exploring code apps and the rise of vibe apps\n- Build Your Way - Choosing between low-code, pro-code, or a blend of both\n- Pro-Code Extensions - Using Visual Studio Code to customise and extend solutions\n- Real-World Scenarios - Applying the right approach to the right problem\n\nWhat you’ll walk away with:\n- A clear understanding of the evolving Power Apps landscape and where it’s heading\n- Practical experience building apps using multiple approaches, including AI-assisted techniques\n- Confidence to combine low-code and pro-code to create faster, smarter, and more flexible solutions\n\nIf you want to stop just keeping up with the platform and start getting ahead of it, this workshop is for you.",
+      "day": "2026-09-24",
+      "start": "09:00",
+      "end": "16:00",
+      "room": "Room E",
+      "format": "Workshop",
+      "tags": [
+        "Sold out"
+      ],
+      "url": "https://balticsummit.pl/sessions2026",
+      "speakers": [
+        {
+          "id": "keith-atherton",
+          "name": "Keith Atherton"
+        }
+      ]
+    },
+    {
+      "id": "runevents-session-27987",
+      "title": "Talk to the Future: Building Voice Agents with Azure AI Foundry and the Realtime API",
+      "description": "What\nA 7-hour hands-on workshop that teaches you how to design, build, and deploy production-ready voice agents using Azure AI Foundry and the GPT-4o Realtime API — covering the full architecture from audio capture and real-time speech processing through to natural language understanding, tool integration, and speech output, built entirely in your own environment.\n\nWhy\nVoice is the most natural human interface — and the GPT-4o Realtime API makes enterprise-grade conversational voice agents achievable for the first time without complex custom speech pipelines. Yet most organisations have no clear path from seeing an impressive voice demo to building something reliable, secure, and scalable in their own environment. This workshop bridges that gap entirely — covering the architecture, the implementation, the failure modes, and the production patterns that separate a compelling demo from a trustworthy enterprise voice agent.\n\nHow\nThe workshop runs across 7 hours structured as follows:\n\n1. Architecture and environment check — 60 minutes: Voice agent architecture deep dive — audio capture and streaming, GPT-4o Realtime API capabilities, Azure AI Foundry as the deployment platform, latency management, interruption handling, and security considerations. Environment verification before labs begin.\n2. Lab 1 — Foundation — 70 minutes: Setting up Azure AI Foundry, configuring the GPT-4o Realtime API endpoint, establishing the WebSocket connection, and building the first working voice interaction — a basic but complete voice agent handling real conversational turns with context retention.\n3. Lab 2 — Natural conversation — 80 minutes: Making the voice agent feel genuinely conversational — handling natural interruptions, managing multi-turn context, tuning response latency, and implementing fallback handling for edge cases that expose the gap between demo-quality and production-quality voice behaviour.\n4. Lab 3 — Tool integration — 80 minutes: Connecting the voice agent to real enterprise data and actions — integrating Power Automate flows and Azure Functions as tools the voice agent can invoke during live conversations, demonstrated against real business scenarios including live data lookup and action execution triggered entirely through voice.\n5. Lab 4 — Model comparison — 45 minutes: Switching the same voice agent between GPT and Claude models — comparing processing speed, response naturalness, reasoning depth, and tool invocation accuracy across identical voice scenarios to give attendees an evidence-based model selection framework for their own voice agent implementations.\n6. Production readiness — 30 minutes: Hosting options, cost management at voice scale, monitoring conversation quality in production, security hardening, and honest lessons learned from taking voice agents from prototype to production in real enterprise environments.\n7. Q&A and open discussion — 30 minutes: Architecture decisions, Azure AI Foundry configuration, real-world implementation challenges, and guidance on applying voice agent patterns back at work.\n\nAttendees bring their own laptop and environment. No lab infrastructure provided — prerequisites must be completed before arrival.\n\nWho\nDevelopers, solution architects, and technical leads building or evaluating voice-enabled AI experiences on the Microsoft AI platform. Skill level: Advanced.\n\nPrerequisites:\n- Active Azure subscription with Azure AI Foundry access enabled\n- Active Power Platform environment with Copilot Studio and Power Automate enabled\n- Basic familiarity with Azure portal and Azure AI services\n- Basic understanding of WebSocket communication patterns\n- Working knowledge of REST APIs and JSON\n- Familiarity with either Python or JavaScript — in-browser editing used throughout, no local tooling required\n\nTop 3 Key Takeaways\n1. A complete architectural understanding of production-grade voice agents on Azure AI Foundry and the GPT-4o Realtime API — including latency management, interruption handling, and tool integration patterns that make voice agents feel genuinely natural rather than robotic.\n2. Hands-on experience building a voice agent that handles real conversational scenarios, live data lookup, and action execution through voice — in your own environment against real business scenarios, not a pre-configured demo tenant.\n3. An evidence-based model comparison across GPT and Claude on identical voice scenarios — giving you the practical insight to make informed model selection decisions for your own voice agent implementations from day one.",
+      "day": "2026-09-24",
+      "start": "09:00",
+      "end": "16:00",
+      "room": "Room F",
+      "format": "Workshop",
+      "url": "https://balticsummit.pl/sessions2026",
+      "speakers": [
+        {
+          "id": "samir-makwana",
+          "name": "Samir Makwana"
+        },
+        {
+          "id": "david-lorenzo-lopez",
+          "name": "David Lorenzo López"
+        }
+      ]
+    },
+    {
+      "id": "runevents-session-29469",
+      "title": "Train the Trainer workshop: Empowering our colleagues to build apps and reports themselves",
+      "description": "Are you a technical leader that wants to share your expertise with others?\nTraining is a skill that we can all learn, but when we first consider creating sessions and standing in front of our colleagues it can feel overwhelming\nOn this day’s workshop you will learn how to create a training plan, implement tried-and-tested classroom techniques and hear tips for being effective\nNeil Rowlands is an experienced Microsoft Certified Trainer who has trained hundreds of people in the last few years and will condense his experience into a single day, leaving you with everything that you need to upskill your teams",
+      "day": "2026-09-24",
+      "start": "09:00",
+      "end": "16:00",
+      "room": "Room G",
+      "format": "Workshop",
+      "url": "https://balticsummit.pl/sessions2026",
+      "speakers": [
+        {
+          "id": "neil-rowlands",
+          "name": "Neil Rowlands"
+        }
+      ]
+    },
+    {
+      "id": "runevents-block-15801",
+      "title": "Welcome",
+      "day": "2026-09-25",
+      "start": "09:00",
+      "end": "09:20",
+      "room": "Room C (Auditorium)",
+      "format": "Ceremony"
+    },
+    {
+      "id": "runevents-block-16351",
+      "title": "Find Your Session",
+      "day": "2026-09-25",
+      "start": "09:20",
+      "end": "09:30",
+      "room": "Room C (Auditorium)",
+      "format": "Ceremony"
+    },
+    {
+      "id": "runevents-session-29539",
+      "title": "Build Once, Reuse Everywhere: Top 10 Reusable Patterns I Use in Every Power Platform Project",
+      "description": "Most Power Platform projects do not struggle because of missing features. They struggle because of duplicated logic inconsistent implementations and solutions that become difficult to maintain as they grow beyond the first release. Through real world delivery experience, I have learned that long term success comes from designing for reuse across the platform rather than assembling features project by project.\n\nIn this session I will share how I design and apply reusable patterns across Power Apps, Power Automate, Power Pages and Dataverse to build solutions that are easier to extend troubleshoot and maintain over time. Instead of focusing on individual features this session looks at how to structure solutions using reusable building blocks that can be applied consistently across multiple projects.\n\nWe will explore practical examples such as reusable UI components in Power Apps standardized automation patterns in Power Automate configurable components in Power Pages and Dataverse building blocks including custom APIs shared business logic and reusable data and integration patterns. These approaches help reduce rework improve consistency and support clean scalable solution design.\n\nThis session is designed for app makers and developers and focuses on creating reusable building blocks instead of one-off solutions. It shows how Power Platform implementations can scale across projects teams and long-term evolution. Attendees will leave with a pattern driven mindset and practical ideas that can be applied immediately to real world projects.\n\n3 Key Session Takeaways:\n\n1. Learn how to build reusable components and patterns across Power Apps, Power Automate, Power Pages, and Dataverse to improve development speed and consistency.\n2. Understand how reuse simplifies troubleshooting, maintenance, and team onboarding, reducing rework and long-term technical debt.\n3. Shift from one-off app development to reusable building blocks that scale across projects, teams, and future enhancements.",
+      "day": "2026-09-25",
+      "start": "09:30",
+      "end": "10:15",
+      "room": "Room A (Cinema)",
+      "format": "Talk",
+      "url": "https://balticsummit.pl/sessions2026",
+      "speakers": [
+        {
+          "id": "arpit-shrivastava",
+          "name": "Arpit Shrivastava"
+        }
+      ]
+    },
+    {
+      "id": "runevents-session-29383",
+      "title": "A Mad Scientist’s Guide to Testing M365 Copilot and Copilot Studio Agents (Without losing your job)",
+      "description": "Testing and breaking Copilots without code to understand what your governance and agent controls are missing.\n\nEveryone is shipping AI. Almost no one is testing it.\nAnd those who are… have the thousand-yard stare of people who’ve seen a model rewrite HR policy at 2 a.m.\nYour organisation just unleashed Copilot licences on thousands of unsuspecting users. Somewhere in the building, three Copilot Studio agents were stitched together late last Tuesday. Two can email customers. One can read finance data. None of them have been tested. At all.\nThis session is for the brave experimenter now responsible for that creature.\nTogether we’ll descend into the lab and become the agent’s least favourite person: the one who breaks it on purpose—before someone with a Reddit account, a grudge, and a free afternoon does it for you. You’ll see why chat-based Copilot and action-based agents are entirely different species, why most disasters aren’t caused by brilliant attackers but by boring sludge (a 300 page PDF, a forwarded email chain, a forgotten SharePoint site), and why “it worked in the demo” is the most expensive sentence ever spoken in enterprise AI.\nExpect two live experiments. No code. No smoke machines. Just consequences.\n•\tExperiment One: We gently poison an HR Copilot Studio agent using a single SharePoint document and watch it cheerfully violate its own rules. Then we stabilise the specimen using configuration alone.\n•\tExperiment Two: We wire two agents together and observe what happens when a harmless looking summary step quietly launders a prompt injection between them. One guardrail later, the monster behaves. Same input. Completely different outcome.\nAlong the way we’ll dissect:\nprompt injection without the scary jargon, the four kinds of tests most teams mysteriously skip, the ethical decisions hiding behind perfectly innocent configuration toggles, and what really changes the moment you let agents talk to each other (spoiler: your bill screams first).\nIt’s technical. It’s entertaining. You will leave with a test plan small enough to actually run on Monday—no torches required.\n________________________________________\nWhat You’ll Take Away 🧪\nA five minute surface map\nFour questions you must answer before any test plan exists:\nwhat your agent can read, what it can write, who it thinks it is, and who is allowed to talk to it.\nThe four tests teams pretend they don’t need\nFunctional, behavioural, adversarial, and evaluative testing—plus concrete examples for both chatty copilots and action wielding agents.\nA reusable adversarial playbook\nSix cheap, repeatable attack patterns you can unleash on any Copilot or Copilot Studio agent:\ndirect override, indirect injection, role play laundering, scope drift, tool coercion, and output smuggling.\nHow to break agents without touching code\nUsing only materials a normal user can produce: documents, emails, transcripts, and “helpful” knowledge sources no one groomed.\nA multi agent failure mode checklist\nPrompt laundering, identity confusion, runaway loops, silent disagreement—what they look like, why they happen, and how to test for each before they escape the lab.\nA six step test plan you can steal\nSmall enough to fit on a single page. Tough enough to survive a model update on a Tuesday morning.\nClearer sight of the ethics panel you never convened\nGroundedness vs honest uncertainty. Helpful retrieval vs oversharing. Autonomy vs ask first—each hiding behind a deceptively friendly checkbox.\n________________________________________\nWho Should Attend 🧠\nSolution architects, makers, admins, governance leads, and the QA curious.\nAnyone who is now responsible for an AI system they didn’t build, don’t fully control, and can’t quite see inside.\nBring scepticism.\nLeave with a checklist.\nAnd maybe label your switches more carefully.",
+      "day": "2026-09-25",
+      "start": "09:30",
+      "end": "10:15",
+      "room": "Room C (Auditorium)",
+      "format": "Talk",
+      "url": "https://balticsummit.pl/sessions2026",
+      "speakers": [
+        {
+          "id": "claire-edgson",
+          "name": "Claire Edgson"
+        },
+        {
+          "id": "jon-edgson",
+          "name": "Jon Edgson"
+        }
+      ]
+    },
+    {
+      "id": "runevents-session-32701",
+      "title": "Beyond the \"Publish\" Button: Designing for Adoption in Power Platform",
+      "description": "You build the app, the flow, the agent. UAT passes. You hit Publish. A month later you learn that usage came back at flat zero.\n\nThe problem usually isn't the solution. It's the gap between deploying technology and changing how people actually work — and AI has only made that gap more dangerous: we can now build in days what used to take weeks, but adoption still takes exactly as long as it always did.\n\nThis session makes the case that adoption isn't a \"people\" workstream bolted on at the end — it's a delivery discipline you can design into your project from day one.\n\nYou'll leave with:\n\nA way to spot the adoption risk in a technical milestone before it bites you at go-live\nA portable checklist of adoption tasks and questions you can run on your next project\nA sharper read on why building faster raises the adoption stakes instead of lowering them",
+      "day": "2026-09-25",
+      "start": "09:30",
+      "end": "10:15",
+      "room": "Room D",
+      "format": "Talk",
+      "url": "https://balticsummit.pl/sessions2026",
+      "speakers": [
+        {
+          "id": "natalia-kuros",
+          "name": "Natalia Kuroś"
+        }
+      ]
+    },
+    {
+      "id": "runevents-session-29567",
+      "title": "Untapped Power of Custom Connectors: Helping Makers Take Their First Steps Beyond Low Code",
+      "description": "Power Automate is an incredibly effective low-code platform, and for many scenarios, flows are all you need. But as solutions grow, makers often find themselves maintaining flows with dozens, sometimes hundreds, of steps just to handle validation, transformation, or something that feels so simple.\n\nThis session explores how adding a small amount of pro-code can actually make solutions simpler, not more complex. Instead of managing fragile 100-step flows, you’ll see how custom connectors can move that complexity into a small, reusable integration layer, allowing makers to work with cleaner, more readable flows.\n\nUsing real-world examples, we’ll look at common scenarios where flows start to struggle and show how simple C# techniques can encapsulate logic once and expose it safely through a custom connector. The focus is on mindset and approach rather than deep coding: understanding when a flow has outgrown its comfort zone, how little code is often enough, and how this pattern reduces long-term maintenance rather than increasing it.\n\nThis is not a coding workshop and assumes no prior C# experience. The goal is to build confidence and give makers a practical mental model for recognising when taking a small step beyond low code can make their Power Automate solutions easier to build, understand, and support.\n\nKey takeaways\n\nRecognise when large, fragile flows are a signal to introduce a custom connector\n\nUnderstand how small, focused amounts of C# can replace complex flow logic\n\nGain confidence to take first steps into pro-code without leaving the Power Platform",
+      "day": "2026-09-25",
+      "start": "09:30",
+      "end": "10:15",
+      "room": "Room E",
+      "format": "Talk",
+      "url": "https://balticsummit.pl/sessions2026",
+      "speakers": [
+        {
+          "id": "ian-tweedie",
+          "name": "Ian Tweedie"
+        }
+      ]
+    },
+    {
+      "id": "runevents-block-16346",
+      "title": "Coffee Break",
+      "day": "2026-09-25",
+      "start": "10:15",
+      "end": "10:40",
+      "room": "Room C (Auditorium)",
+      "format": "Break"
+    },
+    {
+      "id": "runevents-session-27989",
+      "title": "From Chaos to Symphony: Orchestrating Agents with Microsoft Agent Framework",
+      "description": "What\nA demo-driven session showing how to design and orchestrate multi-agent systems using the Microsoft Agent Framework — moving beyond single-agent solutions into coordinated agent networks that handle complex enterprise workflows reliably in production.\n\nWhy\nSingle agents have limits. Complex workflows spanning multiple systems and requiring specialised reasoning demand a different architectural approach. Most organisations attempting multi-agent architectures do it without a structured framework — resulting in brittle systems that work in demo but fail in production when agents loop, disagree, or produce outputs that cannot be audited. This session shows the right way — with honest coverage of failure modes and governance patterns most conference sessions never address.\n\nHow\n- Architecture overview — orchestrator and specialist agents, communication protocols, handoff mechanisms, shared context management, and failure handling\n- Live demo of multiple agents orchestrated against a real enterprise workflow — delegation, parallel execution, context passing, and live tool invocation demonstrated end to end\n- Honest coverage of production failure modes — infinite loops, agent disagreement, timeout scenarios, and graceful degradation\n- Q&A on architecture decisions, governance, cost management, and real-world implementation challenges\n\nWho\nSolution architects, enterprise developers, and technical leads designing multi-agent AI systems. Solid experience with Copilot Studio, Azure AI Foundry, or the Microsoft 365 Agents SDK required. Skill level: Advanced.\n\nTop 3 Key Takeaways\n1. A complete architectural understanding of multi-agent orchestration — communication patterns, handoff mechanisms, and failure handling that make multi-agent systems reliable in production.\n2. First-hand experience seeing multiple specialised agents working together live on a real enterprise workflow including delegation, parallel execution, and context passing.\n3. A practical governance and production readiness framework covering monitoring, auditability, and the failure points that only reveal themselves when real users interact with a live multi-agent system.",
+      "day": "2026-09-25",
+      "start": "10:40",
+      "end": "11:25",
+      "room": "Room A (Cinema)",
+      "format": "Talk",
+      "url": "https://balticsummit.pl/sessions2026",
+      "speakers": [
+        {
+          "id": "samir-makwana",
+          "name": "Samir Makwana"
+        },
+        {
+          "id": "david-lorenzo-lopez",
+          "name": "David Lorenzo López"
+        }
+      ]
+    },
+    {
+      "id": "runevents-session-32585",
+      "title": "The Bots Maze: From FAQ Bots to AI Avatars",
+      "description": "A long time ago in a galaxy far, far away, most enterprise chatbots had one superpower: they could confidently misunderstand you.\nIf you happened to ask exactly the question their creator expected, everything worked perfectly. If not, welcome to the conversational equivalent of \"Press 1 to hear these options again\" or being transferred directly to a human agent who could hopefully understand what you actually wanted.\nToday, we're living in a completely different galaxy.\nMicrosoft's conversational technologies have evolved at lightspeed: from FAQ bots and Teams assistants, through Copilots and voice experiences, all the way to autonomous AI agents and digital avatars that can speak, reason, access enterprise knowledge, and perform real business actions.\nIn this session, we'll follow that evolution, or perhaps revolution, step by step. We'll explore what actually changed, why it matters, and where the real business value emerges.\nThe session concludes with a live demonstration of Helena, an Azure AI Foundry Avatar prototype that combines conversational AI, enterprise knowledge, automation, voice interaction, and digital presence into a single experience.\nBecause apparently a chatbot answering questions was only Episode I, today we're somewhere around Episode VI of bot saga - if the last few years have taught us anything, nobody really knows what Episode IX will look like.",
+      "day": "2026-09-25",
+      "start": "10:40",
+      "end": "11:25",
+      "room": "Room C (Auditorium)",
+      "format": "Talk",
+      "tags": [
+        "Partner session"
+      ],
+      "url": "https://balticsummit.pl/sessions2026",
+      "partnerUrl": "https://www.capgemini.com/pl-pl",
+      "speakers": [
+        {
+          "id": "andrzej-bukowski",
+          "name": "Andrzej Bukowski"
+        },
+        {
+          "id": "jakub-jassak",
+          "name": "Jakub Jassak"
+        }
+      ]
+    },
+    {
+      "id": "runevents-session-29447",
+      "title": "Scaling Project Portfolio Management with Model-Driven Apps: Project Accelerator Deep Dive",
+      "description": "Discover how Model-Driven Apps unlock advanced project management capabilities. MDA architecture enables sophisticated features like PCFs, Generative Pages and Copilot integration all integrated within a single, governed platform. I'll show you how MDAs handle the complexity of project processes, task management and resource allocation without requiring a separate system. This integrated approach reduces maintenance burden, improves data consistency, and accelerates time-to-value.",
+      "day": "2026-09-25",
+      "start": "10:40",
+      "end": "11:25",
+      "room": "Room D",
+      "format": "Talk",
+      "url": "https://balticsummit.pl/sessions2026",
+      "speakers": [
+        {
+          "id": "filip-giermek",
+          "name": "Filip Giermek"
+        }
+      ]
+    },
+    {
+      "id": "runevents-session-29548",
+      "title": "Deep Dive on The Power Platform ToolBox",
+      "description": "XrmToolBox has helped millions of people by simplifying their life with Tools. But it is limited to Windows. A group of community members created a cross-platform application that offers modern tools that simplify your daily work with the Power Platform in the same way as XrmToolBox did.\n\nIn this session we are going over all the features of Power Platform ToolBox. And we are going to talk about some best practices when creating our own tools.",
+      "day": "2026-09-25",
+      "start": "10:40",
+      "end": "11:25",
+      "room": "Room E",
+      "format": "Talk",
+      "url": "https://balticsummit.pl/sessions2026",
+      "speakers": [
+        {
+          "id": "betim-beja",
+          "name": "Betim Beja"
+        }
+      ]
+    },
+    {
+      "id": "runevents-block-15808",
+      "title": "Break",
+      "day": "2026-09-25",
+      "start": "11:25",
+      "end": "11:45",
+      "room": "Room C (Auditorium)",
+      "format": "Break"
+    },
+    {
+      "id": "runevents-session-29531",
+      "title": "Power Platform ALM with Git: Making the Right Trade‑Offs in Real Projects",
+      "description": "As Power Platform solutions evolve from small automations into shared, business‑critical applications, Application Lifecycle Management becomes unavoidable. Many teams try to introduce git‑based workflows.\n\nIn this session, we take a practical look at Power Platform ALM through real project experience, focusing on how git actually works with solutions in day‑to‑day development. Instead of starting from theory or ideal architectures, we explore the concrete trade‑offs teams face when choosing between Power Platform Pipelines, Azure DevOps and GitHub Actions.\n\nWe will cover:\n- How Power Platform solutions are represented in git\n- Where Power Platform Pipelines work well for real‑world teams\n- Azure DevOps and GitHub Actions: when they add value and when they create unnecessary overhead\n- Typical ALM pitfalls found in Power Platform projects\n\nRather than promoting a single “correct” ALM setup, this session focuses on a comparison. The goal is to help teams make informed ALM choices that fit their solution complexity, team structure and delivery context without over‑engineering their Power Platform landscape.\n\nYou’ll leave with:\n- A realistic view of what git‑based ALM looks like in Power Platform projects\n- Clear criteria to decide which ALM approach fits your situation\n- Practical insights you can apply immediately in your own environments",
+      "day": "2026-09-25",
+      "start": "11:45",
+      "end": "12:30",
+      "room": "Room A (Cinema)",
+      "format": "Talk",
+      "url": "https://balticsummit.pl/sessions2026",
+      "speakers": [
+        {
+          "id": "feline-parein",
+          "name": "Feline Parein"
+        }
+      ]
+    },
+    {
+      "id": "runevents-session-29346",
+      "title": "Smarter Work, Safer AI: Copilot & Agents in the Financial Sector",
+      "description": "You already implemented M365 Copilot & Agents, but what about governance ?\nJoin this session to learn how to effectively govern M365 Copilot & Agents in your environment and set your organization up for success.\nBased on a real-world example at Raiffeisen Bank International with 45.000 employees, we will demonstrate how to manage and monitor M365 Copilot & Agents governance to address oversharing, protect sensitive data, and increase productivity.\n The session will also include recommendations for automation, as well as guidance on weekly, monthly, and quarterly governance tasks, so that you feel confident to start your own governance journey.",
+      "day": "2026-09-25",
+      "start": "11:45",
+      "end": "12:30",
+      "room": "Room C (Auditorium)",
+      "format": "Talk",
+      "url": "https://balticsummit.pl/sessions2026",
+      "speakers": [
+        {
+          "id": "manfred-koch",
+          "name": "Manfred Koch"
+        },
+        {
+          "id": "mihaela-ruxandra-stancu",
+          "name": "Mihaela-Ruxandra Stancu"
+        }
+      ]
+    },
+    {
+      "id": "runevents-session-29481",
+      "title": "Microsoft Dataverse Plug-ins 101",
+      "description": "When working with model-driven apps targeting Microsoft Dataverse, you have a lot of capability to automate your processes, enforce business logic and perform complex calculations without needing to resort to code. However, there will be specific situations where you'll need to look at cracking open Visual Studio and putting together a C# script to perform the operations you need - knowing the when, where and how behind all of this can be challenging though. In this session, we'll provide a beginners overview of what plug-ins are, the scenarios where they are most appropriate for use and an end-to-end demonstration of how to build one from scratch. Attendees will gain a high-level understanding of how plug-ins operate at the platform level, the overall process of how to deploy them out and some useful guidance on how to utilise them within current or future projects.",
+      "day": "2026-09-25",
+      "start": "11:45",
+      "end": "12:30",
+      "room": "Room D",
+      "format": "Talk",
+      "url": "https://balticsummit.pl/sessions2026",
+      "speakers": [
+        {
+          "id": "joe-griffin",
+          "name": "Joe Griffin"
+        }
+      ]
+    },
+    {
+      "id": "runevents-session-29517",
+      "title": "Building Modern UI/Applications with Power Apps CodeApps: Architecture, Philosophy, and Use Cases",
+      "description": "There is a new Sheriff in town - CodeApps.\n\nThe first question that often arises is: \"Why do we need this when we already have Canvas Apps, PCF, and web resources?\"\n In an era dominated by the \"low-code\" movement, why are we being introduced to a \"pro-code\" tool? Are we simply returning to old-school programming?\n\nThe answer is a mix of yes, no, and maybe. To clarify this evolution, this session will cover:\n\n   - Architecture: A deep dive into how CodeApps is structured and composed.\n   - Demystifying the Philosophy: Exploring why Microsoft launched this initiative and the specific problems it is designed to solve within the Power Platform.\n   - Live Demo: I will also show you how to build and deploy your first CodeApps to your Power Platform environment in less than 15 min. And then we will explore real-world use cases and integrations of CodeApps applications.\n\nBy the end of this session, you will have a comprehensive overview of CodeApps architecture, practical use cases, and the knowledge required to build and deploy your first CodeApps to a Power Platform managed environment.",
+      "day": "2026-09-25",
+      "start": "11:45",
+      "end": "12:30",
+      "room": "Room E",
+      "format": "Talk",
+      "url": "https://balticsummit.pl/sessions2026",
+      "speakers": [
+        {
+          "id": "adilson-capaia",
+          "name": "Adilson Capaia"
+        }
+      ]
+    },
+    {
+      "id": "runevents-block-15806",
+      "title": "Lunch",
+      "day": "2026-09-25",
+      "start": "12:30",
+      "end": "13:40",
+      "room": "Room A (Cinema)",
+      "format": "Meal break"
+    },
+    {
+      "id": "runevents-session-33059",
+      "title": "Is it bigger or smaller than a 43-inch TV - fixing terrible voice menus using AI",
+      "description": "A quick lunch break inspiration on how to think about AI from the perspective of your grandma, beyond just the cool technology",
+      "day": "2026-09-25",
+      "start": "13:00",
+      "end": "13:30",
+      "room": "Room C (Auditorium)",
+      "format": "Talk",
+      "tags": [
+        "Partner session"
+      ],
+      "url": "https://balticsummit.pl/sessions2026",
+      "partnerUrl": "https://www.capgemini.com/pl-pl",
+      "speakers": [
+        {
+          "id": "vassil-stoitsev",
+          "name": "Vassil Stoitsev"
+        },
+        {
+          "id": "paul-harrison",
+          "name": "Paul Harrison"
+        }
+      ]
+    },
+    {
+      "id": "runevents-session-28301",
+      "title": "It’s Not About Age – From “Too Quiet” to Tech Speaker",
+      "description": "A real story for introverts, late starters and “not good enough” minds:\n\nAt 54, neurodivergent, introvert, mum, gamer, non-native English speaker and working in a niche – I spent years believing I was “too quiet” for the stage. Tech conferences looked full of confident, fast-talking, fluent people. I didn’t recognise myself in any of them.\n\nAnd yet, step by step, I ended up speaking at events like ECS, Experts Live and ESPC.\n\nThis session is the honest story of how that happened: no overnight success, no “just be more confident”, no perfect English. Just a long series of small risks, rejected submissions, shaky first talks, saying yes even when my voice was shaking – and learning to use my age, my background and my quiet personality as strengths instead of excuses.\n\nWe’ll talk about what it really feels like to start speaking when you think you’re too old, too quiet, too busy with family, too “not enough”. You’ll hear practical ideas on how to find your topics, write submissions, start small and grow at your own pace – without pretending to be a rockstar speaker.\n\nThis session is an invitation: if you’ve ever thought “that’s not for someone like me”, maybe it is.",
+      "day": "2026-09-25",
+      "start": "13:40",
+      "end": "14:25",
+      "room": "Room A (Cinema)",
+      "format": "Talk",
+      "url": "https://balticsummit.pl/sessions2026",
+      "speakers": [
+        {
+          "id": "sandra-kiel",
+          "name": "Sandra Kiel"
+        }
+      ]
+    },
+    {
+      "id": "runevents-session-29731",
+      "title": "Straight Outa Prompton - Humans wit attitude!",
+      "description": "Shift your career right now into the AI verse. Stop thinking this is going away or going to get more simple, Because it's not.... so nows the time... lot me show you how!!\n\nIn this session ill talk about the current global state of AI with a lense on the Microsoft ecosystem and how things are shaping up for all of us.\n\nWhat can you do to change your flow of work and become more relevant. The time is now... so let's stay extra human and do things differently.",
+      "day": "2026-09-25",
+      "start": "13:40",
+      "end": "14:25",
+      "room": "Room C (Auditorium)",
+      "format": "Talk",
+      "url": "https://balticsummit.pl/sessions2026",
+      "speakers": [
+        {
+          "id": "chris-huntingford",
+          "name": "Chris Huntingford"
+        }
+      ]
+    },
+    {
+      "id": "runevents-session-28271",
+      "title": "Who Gave the Agent Admin Rights?! Governance in Copilot Studio",
+      "description": "Your organization has Agents everywhere - chatting with customers, updating records, summarizing meetings - and everyone’s proud… until one of them confidently rewrites your HR policy. This session is for teams that know “we’ll handle governance later” really means “we’ll be in damage control forever”.\n\nWe’ll move past static documents and checkbox compliance to show how to design, document, and enforce governance for Copilot Studio Agents using the Cloud Adoption Framework (CAF) and enterprise best practices. This is about making governance real, not ornamental.\n\nYou’ll learn how to:\n- Define governance objectives aligned with CAF disciplines - policy, identity, cost, operations, and security.\n- Turn written policies into living controls embedded in environments, roles, and ALM pipelines.\n- Apply Responsible AI principles - data boundaries, transparency, and content moderation that actually work.\n- Automate guardrails with environment policies, DLP rules, and deployment gates.\n- Build a Center of Excellence that enforces consistency without suffocating innovation.\n\nBecause the real question isn’t “Who gave the Agent admin rights?” - it’s “Who thought governance was optional?”",
+      "day": "2026-09-25",
+      "start": "13:40",
+      "end": "14:25",
+      "room": "Room D",
+      "format": "Talk",
+      "url": "https://balticsummit.pl/sessions2026",
+      "speakers": [
+        {
+          "id": "katerina-chernevskaya",
+          "name": "Katerina Chernevskaya"
+        }
+      ]
+    },
+    {
+      "id": "runevents-session-28186",
+      "title": "Behind the wall of fire: Navigating Power Platform Networking",
+      "description": "Do you think your Power Platform VNET injection is going to be smooth? Think again.\nAfter spending over five years debugging Power Platform at enterprise scale - including one of the world's 100 largest companies - I've seen firsthand how enabling VNET injection can silently break custom connectors or  SQL Server connections, how DNS misconfigurations can make entire environments unresponsive, and how Microsoft's own connector implementation doesn't fully route traffic through the gateway it's supposed to use. Yes, you read that right.\n\nIn this session, I'll explain basics and walk you through the real-world chaos of Power Platform networking in corporate environments, armed with actual error logs, HAR traces, and debugging war stories. This session covers what Microsoft's documentation won't give you.\n\nWe will talk about:\n- VNET Injection Pitfalls - How enabling VNET injection can break existing resources, including On-Premises Data Gateway connections and SQL Server operations\n- DNS: The Silent Killer - Understanding the critical differences between External DNS, Internal DNS, and Azure Resource DNS in corporate environments - and why DNS fallback to the internet can cause false \"Unavailable\" errors.\n- Private Endpoints & VNET Peering - What you can (and can't) create Private Endpoints for, and the address planning mistakes that haunt you later.\n- The Golden Rule - Don't trust anyone, anywhere... including Microsoft. A live debugging methodology for when three parties are pointing fingers, and nothing works.\n\nBy the end, you'll have a practical playbook for navigating Power Platform networking in complex enterprise environments - and know exactly where the landmines are buried before you step on them.",
+      "day": "2026-09-25",
+      "start": "13:40",
+      "end": "14:25",
+      "room": "Room E",
+      "format": "Talk",
+      "url": "https://balticsummit.pl/sessions2026",
+      "speakers": [
+        {
+          "id": "jan-chlebek",
+          "name": "Jan Chlebek"
+        }
+      ]
+    },
+    {
+      "id": "runevents-block-15809",
+      "title": "Break",
+      "day": "2026-09-25",
+      "start": "14:25",
+      "end": "14:45",
+      "room": "Room C (Auditorium)",
+      "format": "Break"
+    },
+    {
+      "id": "runevents-session-29425",
+      "title": "Claude Meets Power Platform: Canvas Apps, Code Apps and Everything in Between",
+      "description": "The AI landscape is changing. Microsoft has officially integrated Anthropic's Claude models into Microsoft 365 Copilot – but did you know you can already use Claude inside Power Apps today, even without Copilot?\n\nIn this session, we go beyond the hype and show you how to leverage Claude AI as a practical, powerful assistant for building both Canvas Apps and Code Apps. Through live demonstrations, you will see three distinct integration paths: the official Anthropic Claude connector, the Model Context Protocol (MCP) for Claude Desktop, and the newly supported Claude Code for Power Platform (including the Power Platform Skills plugin).\n\nWhat you will witness live:\n- Canvas App in minutes – Using Claude Code to generate complete, production‑ready YAML code from a simple prompt, then pasting it directly into Power Apps Studio.\n- Code App in seconds – Asking Claude to deploy React App from Figma Make for Dataverse with business logic, error handling, and even unit tests.\n- Claude vs. Copilot – An honest comparison of strengths, weaknesses, and when to use which model for your specific task.\n\nYou will leave with:\n- A clear understanding of three ways to integrate Claude into your Power Platform workflow\n- Practical prompts and patterns for generating Canvas UI, Power Fx logic, and React app\n- Cost estimates and licensing considerations (API vs. Claude Pro)\n- A decision framework for choosing between Claude, Copilot, or both",
+      "day": "2026-09-25",
+      "start": "14:45",
+      "end": "15:30",
+      "room": "Room A (Cinema)",
+      "format": "Talk",
+      "url": "https://balticsummit.pl/sessions2026",
+      "speakers": [
+        {
+          "id": "lukas-pavelka",
+          "name": "Lukas Pavelka"
+        }
+      ]
+    },
+    {
+      "id": "runevents-session-29508",
+      "title": "Power Platform at Scale: Infrastructure‑as‑Code with Terraform",
+      "description": "Infrastructure-as-Code has become the standard for managing cloud resources—but Power Platform is still often handled through manual “ClickOps”. In this session, I’ll show how Terraform brings Power Platform into modern DevOps workflows.\nWe’ll start with a quick overview of IaC concepts and how the Terraform ecosystem works in practice, then dive into real-world scenarios: managing environments, enforcing consistency, and scaling governance. We’ll also explore the often overlooked boundary between infrastructure and application lifecycle—where managing the platform ends and deployment processes begin—and how this distinction impacts real enterprise setups.\nThe session will include live demos showing how to define, deploy, and manage Power Platform resources as code, along with a look at how AI can accelerate this process—from generating configurations to simplifying workflows and reducing operational overhead.\nIf you’re looking to move beyond manual configuration and treat Power Platform like the rest of your cloud stack, this session will give you the tools and patterns to get started.",
+      "day": "2026-09-25",
+      "start": "14:45",
+      "end": "15:30",
+      "room": "Room C (Auditorium)",
+      "format": "Talk",
+      "url": "https://balticsummit.pl/sessions2026",
+      "speakers": [
+        {
+          "id": "mateusz-wasilewski",
+          "name": "Mateusz Wasilewski"
+        }
+      ]
+    },
+    {
+      "id": "runevents-session-29552",
+      "title": "Dataverse event pipeline, plugins and Custom APIs",
+      "description": "How the Dataverse event execution pipeline actually works, developing testable plugins using base class patterns, debugging with tracing tools, handling long-running operations with Background Operations, and building Custom APIs for reusable business logic.\n\nTopics:\n\n* Event execution pipeline mechanics: Knowing stages and understanding when rollbacks occur and how Depth prevents infinite loops\n\n* What are plugins? Event-driven custom business logic triggered by Dataverse operations written in C# and registered to execute in response to events\n\n* Plugin base class patterns: encapsulating context extraction, service proxies with timing, tracing with timestamps, accessing everything efficiently\n\n* Synchronous vs asynchronous execution: Right now or soon and why care?\n\n* Debugging plugins with Plugin Trace Viewer: analyzing execution timing, tracing calls, troubleshooting issues, using CanaryTracer for event tracing across the pipeline\n\n* Custom APIs for reusable business logic: typed request/response parameters, binding types, MainOperation stage execution\n\n* Background Operations for long-running work: async Custom APIs with callback URLs, polling status monitor resources, retry with exponential backoff",
+      "day": "2026-09-25",
+      "start": "14:45",
+      "end": "15:30",
+      "room": "Room D",
+      "format": "Talk",
+      "url": "https://balticsummit.pl/sessions2026",
+      "speakers": [
+        {
+          "id": "jonas-rapp",
+          "name": "Jonas Rapp"
+        }
+      ]
+    },
+    {
+      "id": "runevents-session-29417",
+      "title": "Bridging Teams and ServiceNow with Copilot Studio Agents",
+      "description": "Users want Teams. IT needs ServiceNow. Nobody wins.\n\nThis session demonstrates how autonomous Copilot Studio agents solve this conflict. Multi-agent systems monitor collaboration channels, detect real incidents, and create fully-tracked ITSM tickets—without forcing users to change behavior.\n\nSee production-ready patterns for building agent systems that bridge communication tools and business platforms. Learn multi-agent orchestration through Dataverse, AI-powered context enrichment, and bidirectional linking that keeps everyone happy.\n\nWalk away with architectural patterns you can apply to any autonomous agent scenario beyond ITSM.",
+      "day": "2026-09-25",
+      "start": "14:45",
+      "end": "15:30",
+      "room": "Room E",
+      "format": "Talk",
+      "url": "https://balticsummit.pl/sessions2026",
+      "speakers": [
+        {
+          "id": "michael-megel",
+          "name": "Michael Megel"
+        }
+      ]
+    },
+    {
+      "id": "runevents-block-16345",
+      "title": "Break",
+      "day": "2026-09-25",
+      "start": "15:30",
+      "end": "15:50",
+      "room": "Room C (Auditorium)",
+      "format": "Break"
+    },
+    {
+      "id": "runevents-session-29729",
+      "title": "Turbocharging Model-Driven Apps with Dataverse Plug-ins and Custom API",
+      "description": "We'll take a simple model-driven app and turn it into a tool that enriches its own business data. Using Dataverse plug-ins and a Custom API, we'll call an external service, pull in additional information related to a record, store the result in Dataverse, and surface it directly in the app — with no context switching for the user.\nWorking through a concrete business example (enriching customer/order data with information from an external service), we'll follow the full pattern end to end: registering a plug-in, designing a Custom API as a clean entry point, calling the external service, and handling errors. We'll also cover when a plug-in is the right choice versus when Power Automate or Code Apps is the better fit, and how to apply the same pattern to real scenarios like integration, validation, and automatic data enrichment.",
+      "day": "2026-09-25",
+      "start": "15:50",
+      "end": "16:35",
+      "room": "Room A (Cinema)",
+      "format": "Talk",
+      "url": "https://balticsummit.pl/sessions2026",
+      "speakers": [
+        {
+          "id": "dawid-szpyra",
+          "name": "Dawid Szpyra"
+        }
+      ]
+    },
+    {
+      "id": "runevents-session-30386",
+      "title": "The Architecture Heavyweight Championship - Two Architects Enter. One Platform Leaves.",
+      "description": "Where Should Enterprise Apps Be Built in 2026?\n\nEvery organisation wants modern, scalable, AI-powered business applications. But where should they be built?\n\nIn this lively debate, two architects take opposing sides.\n\nPiotr argues that Power Platform has evolved far beyond simple low-code tools and now provides enterprise-grade options through Canvas Apps, Code Apps, Dataverse and AI-powered development experiences.\n\nMarcin takes the role of sceptic and challenges every assumption. Why not build applications using Azure App Services, Static Web Apps, Container Apps and modern development frameworks instead?\n\nAcross a series of real-world scenarios, architecture battles and live demonstrations, we'll compare both approaches and discover where each shines—and where each falls short.\n\nExpect strong opinions, practical guidance and perhaps even a final verdict.",
+      "day": "2026-09-25",
+      "start": "15:50",
+      "end": "16:35",
+      "room": "Room C (Auditorium)",
+      "format": "Talk",
+      "url": "https://balticsummit.pl/sessions2026",
+      "speakers": [
+        {
+          "id": "piotr-maciej-rusak",
+          "name": "Piotr Maciej Rusak"
+        },
+        {
+          "id": "marcin-wojciechowski",
+          "name": "Marcin Wojciechowski"
+        }
+      ]
+    },
+    {
+      "id": "runevents-session-29649",
+      "title": "Why Citizen Developers Fail with Low Code - Lessons Learned at Enterprise Scale",
+      "description": "Low code enables business users to build solutions close to their daily work. In large organizations, this often leads to quick early wins. Over time, however, many citizen developer initiatives struggle to scale, maintain quality, or survive beyond the first few releases.\n\nThis session is based on practical experience from many low code trainings (Power Apps, Power Automate and Copilot Studio), enablement programs, and hands‑on workshops carried out in large organizations with complex structures and thousands of employees. While industries and use cases differ, the same challenges appear again and again.\n\nThe session looks at citizen developer failure from both a technical and organizational perspective. It shows how low code tools influence early decisions around data, structure, automation, and ownership, and why these decisions often become painful later on.\n\nRather than blaming people or platforms, the talk focuses on patterns that repeat across organizations and what companies can realistically do to improve outcomes.\n\nTopics covered:\n• Typical failure patterns seen after low code trainings\n• Why motivation and training are not enough on their own\n• How low code platforms hide complexity in early phases\n• The gap between prototype success and production reality\n• Where organizations unintentionally set citizen developers up to fail\n\nKey takeaways:\n• A clear understanding of why citizen developer initiatives struggle at scale\n• A realistic view of what citizen developers can and cannot handle\n• Practical ideas to improve enablement without slowing innovation\n• A framework to rethink low code adoption in large organizations",
+      "day": "2026-09-25",
+      "start": "15:50",
+      "end": "16:35",
+      "room": "Room D",
+      "format": "Talk",
+      "url": "https://balticsummit.pl/sessions2026",
+      "speakers": [
+        {
+          "id": "marlon-konig",
+          "name": "Marlon König"
+        }
+      ]
+    },
+    {
+      "id": "runevents-session-29738",
+      "title": "Secure AI ready permissions for any scale",
+      "description": "Enterprise AI tools like Microsoft 365 Copilot are exposing a hidden but critical vulnerability: permission creep and data oversharing.\n\nCopilot operates strictly within existing user permissions, meaning it can surface any data a user can access - even if that access was granted years ago through nested groups, forgotten sharing links, or overly broad defaults. In large organizations, understanding who truly has access to what is no longer feasible using traditional methods. The result is a major blocker to safe AI adoption.\n\nThis session introduces a practical approach to solving this problem using Data Security Posture Management (DSPM) and automated identity and access mapping. We will explore how graph-based analysis can be used to calculate effective access - also known as blast radius - across Microsoft 365 environments, uncovering hidden access paths such as nested group inheritance, dormant accounts, and external guest exposure.\n\nAttendees will learn how to move from reactive auditing to continuous, automated access governance. The session will demonstrate how to correlate signals from Entra ID, SharePoint, and Purview to identify and remediate excessive permissions, and how to prepare environments for AI deployment using principles aligned with Zero Trust.\n\nThe key takeaway: AI readiness is fundamentally a data access problem. By gaining visibility into real permission structures and systematically reducing unnecessary access, organizations can safely unlock AI productivity while minimizing security, compliance, and reputational risks.",
+      "day": "2026-09-25",
+      "start": "15:50",
+      "end": "16:35",
+      "room": "Room E",
+      "format": "Talk",
+      "url": "https://balticsummit.pl/sessions2026",
+      "speakers": [
+        {
+          "id": "mateusz-olek",
+          "name": "Mateusz Olek"
+        },
+        {
+          "id": "adam-zaczek",
+          "name": "Adam Żaczek"
+        }
+      ]
+    },
+    {
+      "id": "runevents-session-28319",
+      "title": "SharePoint Knowledge Agent: AI Took My Job as SharePoint Consultant",
+      "description": "The SharePoint Knowledge Agent has arrived, and it’s already making waves! Join Marijn Somers as he explores how this groundbreaking AI tool is reshaping the role of SharePoint consultants.\nIn this session, you'll get a first look at the new agent design language, its capabilities, and the current limitations. Whether you're building or managing intranets, knowledge hubs, or team sites, you'll discover how the Knowledge Agent can transform your approach to content, collaboration, and knowledge management.\nIs this the end of traditional SharePoint consulting—or just the beginning of something smarter?",
+      "day": "2026-09-26",
+      "start": "09:00",
+      "end": "09:45",
+      "room": "Room A (Cinema)",
+      "format": "Talk",
+      "url": "https://balticsummit.pl/sessions2026",
+      "speakers": [
+        {
+          "id": "marijn-somers",
+          "name": "Marijn Somers"
+        }
+      ]
+    },
+    {
+      "id": "runevents-session-29520",
+      "title": "AI in Action: Process Automation with Power Automate and Azure OpenAI",
+      "description": "Discover how Large Language Models (LLMs) can expand the range of tasks you can automate using Power Automate, from triaging emails to processing unstructured data and generating content on demand.\n\nIn this practical session, you will learn what AI Builder is, where it works well, and why it can be limiting in cost, flexibility, and control. We will compare it to Azure OpenAI, showing how calling GPT models via APIs gives you more transparency, better results, and often much lower costs, while giving you full control over how your AI works.\n\nYou will also learn the basics of prompt engineering, including proven techniques for getting more reliable and accurate outputs.\n\nWe will wrap up with live demos of real-world use cases such as email triage, text classification, and AI-driven content creation, so you leave with ideas you can start applying right away.",
+      "day": "2026-09-26",
+      "start": "09:00",
+      "end": "09:45",
+      "room": "Room C (Auditorium)",
+      "format": "Talk",
+      "url": "https://balticsummit.pl/sessions2026",
+      "speakers": [
+        {
+          "id": "denes-halasz",
+          "name": "Dénes Halász"
+        }
+      ]
+    },
+    {
+      "id": "runevents-session-29720",
+      "title": "Dashboard in a Day? Nah. Let’s Do One in 45 Minutes.  A live, end-to-end Power BI build",
+      "description": "A live, end-to-end Power BI build\n\nThis is a demo-first session. No slide decks full of theory. No pre-built models. No “imagine if” examples.\n\nThe only slides you’ll see at the start are my face and a highlight reel of things I’m unreasonably proud of—purely for credibility, ego maintenance, and to prove I’ve broken Power BI in enough ways to know what actually matters. Then we switch straight into Power BI and build a real dashboard from scratch in 45 minutes.\n\nWe’ll start with raw, messy data and finish with something you’d genuinely feel comfortable putting in front of stakeholders.\n\nAlong the way, you’ll see:\n\nHow to decide what not to build (the fastest win in Power BI)\n\nA practical approach to modelling without overengineering\n\nThe small number of measures that usually drive the most value\n\nLayout and visual choices that prioritise clarity over decoration\n\nHow to keep momentum when time, scope, and attention are limited\n\nThis session is about decision-making under constraint—the same constraint most of us work under every day.\n\nYou’ll leave with a repeatable approach you can use when “Dashboard in a Day” simply isn’t realistic.",
+      "day": "2026-09-26",
+      "start": "09:00",
+      "end": "09:45",
+      "room": "Room D",
+      "format": "Talk",
+      "url": "https://balticsummit.pl/sessions2026",
+      "speakers": [
+        {
+          "id": "duncan-boyne",
+          "name": "Duncan Boyne"
+        }
+      ]
+    },
+    {
+      "id": "runevents-session-28300",
+      "title": "Heist Mode: Stealing Game UX Patterns for Better Power Apps",
+      "description": "Most internal apps focus on “getting the job done.” Games focus successfully since the 80th on making the next step obvious, progress visible, and feedback rewarding. The good news: those patterns work incredibly well for business apps too.\n\nIn this session, i will introduce a working set of game UX patterns that drive adoptionby clear objectives (“quest thinking”), strong feedback states, visible progress, and controlled variety to reduce repetition. For each pattern, i will show a quick before/after example. Then we will build live a small prototype for one of these pattern in Power Apps to show what it takes to translate these ideas into real app behavior and UI—practical, maker-friendly, and immediately reusable.\n\nExpect a session that is equal parts inspiration and implementation: you will leave with patterns you can apply the same day across Microsoft 365 solutions and Power Platform experiences.",
+      "day": "2026-09-26",
+      "start": "09:00",
+      "end": "09:45",
+      "room": "Room E",
+      "format": "Talk",
+      "url": "https://balticsummit.pl/sessions2026",
+      "speakers": [
+        {
+          "id": "sandra-kiel",
+          "name": "Sandra Kiel"
+        }
+      ]
+    },
+    {
+      "id": "runevents-block-16352",
+      "title": "Coffee Break",
+      "day": "2026-09-26",
+      "start": "09:45",
+      "end": "10:05",
+      "room": "Room C (Auditorium)",
+      "format": "Break"
+    },
+    {
+      "id": "runevents-session-28325",
+      "title": "Copilot Won’t Fix Your Chaos: Rethinking Data Work in Fabric Era",
+      "description": "Microsoft Fabric and Copilot are changing how we build and interact with data solutions. Tasks that used to take hours can now be done in minutes.\n\nBut here’s the uncomfortable truth: speeding up broken processes doesn’t create value — it scales chaos.\n\nMany teams operate in environments that are called “agile”, but in reality are driven by constant re-planning, unclear ownership, and reactive decision-making. Adding Copilot into this mix often amplifies the problem instead of solving it.\n\nThis session is for data professionals working with Power BI, Fabric, and modern data platforms who want to use AI effectively — not just faster.\n\nWe’ll explore:\n\nwhere Copilot actually helps (and where it doesn’t) in Power BI & Fabric\ncommon anti-patterns in “agile” data teams\nwhy faster development ≠ better outcomes\nhow to design workflows that make Copilot useful\nhow to combine technical capabilities with better decision-making\n\nYou’ll leave with a practical framework for working with Copilot and Fabric in a way that improves clarity, not just speed.",
+      "day": "2026-09-26",
+      "start": "10:05",
+      "end": "10:50",
+      "room": "Room A (Cinema)",
+      "format": "Talk",
+      "url": "https://balticsummit.pl/sessions2026",
+      "speakers": [
+        {
+          "id": "joanna-hryniewicz",
+          "name": "Joanna Hryniewicz"
+        }
+      ]
+    },
+    {
+      "id": "runevents-session-29459",
+      "title": "From bricks to gears: Extending Copilot Agents with custom MCP servers",
+      "description": "Copilot Agents are easy to put together with building blocks. But what if you need gears instead of bricks? That’s where Model Context Protocol (MCP) comes in.\n\nWe’ll first check the building instructions: what MCP is, why it matters, and how it compares to APIs. Then it’s time to build. We’ll create a simple API in Visual Studio Code, expose it as an MCP server in Azure, and connect it to a Copilot Agent so the gears start turning.\n\nExperience how the speed of low-code and the flexibility of pro-code come together, so your Copilot Agents can handle more advanced scenarios.",
+      "day": "2026-09-26",
+      "start": "10:05",
+      "end": "10:50",
+      "room": "Room C (Auditorium)",
+      "format": "Talk",
+      "url": "https://balticsummit.pl/sessions2026",
+      "speakers": [
+        {
+          "id": "tom-mullens",
+          "name": "Tom Mullens"
+        }
+      ]
+    },
+    {
+      "id": "runevents-session-29545",
+      "title": "Think Like an Architect: Architecture & Best Practices in Dynamics 365",
+      "description": "Understanding the architecture of Dynamics 365 CRM is key to building scalable, secure, and high-performing business applications. This session provides a concise deep dive into the core architectural layers of Dataverse-driven solutions—covering client, business logic, data, and integration layers—along with real-world design patterns.\n\nWe will explore proven best practices around security, performance optimization, ALM, integrations, and customization strategies to help you avoid common pitfalls and design enterprise-ready solutions.\n\nBy the end, attendees will gain practical insights to architect robust Dynamics 365 applications aligned with modern Microsoft Power Platform and Copilot-driven scenarios.",
+      "day": "2026-09-26",
+      "start": "10:05",
+      "end": "10:50",
+      "room": "Room D",
+      "format": "Talk",
+      "url": "https://balticsummit.pl/sessions2026",
+      "speakers": [
+        {
+          "id": "ambesh-singh",
+          "name": "Ambesh Singh"
+        }
+      ]
+    },
+    {
+      "id": "runevents-session-28251",
+      "title": "AI, AI… What’s Next? A Guide for the Confused",
+      "description": "AI is everywhere — Copilots, agents, automations, generative models. The slides look great, roadmaps are packed, and expectations keep growing. But what actually makes sense for your organization?\n\nThis session is a practical guide for leaders and decision-makers who feel overwhelmed by the growing number of AI options. We’ll walk through the Power Platform and AI landscape from a business perspective: when to use Copilots, when agents or traditional automation are a better fit — and when it’s perfectly valid to not use AI at all.\n\nWe’ll cover:\n\t•\thow to make technology decisions in the middle of AI hype,\n\t•\treal costs (licensing, implementation, and organizational impact),\n\t•\tlimitations and risks that rarely show up in demos,\n\t•\tand how to avoid overengineering and “AI for the sake of AI”.",
+      "day": "2026-09-26",
+      "start": "10:05",
+      "end": "10:50",
+      "room": "Room E",
+      "format": "Talk",
+      "url": "https://balticsummit.pl/sessions2026",
+      "speakers": [
+        {
+          "id": "paulina-paczynska",
+          "name": "Paulina Pałczyńska"
+        }
+      ]
+    },
+    {
+      "id": "runevents-block-15826",
+      "title": "Break",
+      "day": "2026-09-26",
+      "start": "10:50",
+      "end": "11:10",
+      "room": "Room C (Auditorium)",
+      "format": "Break"
+    },
+    {
+      "id": "runevents-session-28020",
+      "title": "Back to the terminal, where GitHub Copilot CLI meets the Power Platform",
+      "description": "Thought the terminal was only for hardcore developers? Yeah… think again.\n\nIn this session, I’m taking you back to the terminal, but not the one you remember. With GitHub Copilot CLI, the terminal becomes something completely different: a smart, AI-powered workspace that actually works with you. Fast. Flexible. And… pretty fun.\n\nWe’ll kick things off with the basics: how to get started and what Copilot CLI can really do. But that’s just the warm-up.\n\nBecause the real game changer? Plugins.\nI’ll show you how they’re structured, how to use them in your daily workflow, and how to build your own, so Copilot starts working exactly the way you want.\n\nAnd then we take it further. We bridge into the Power Platform.\nFrom your terminal, we’ll build code apps, generate pages for model-driven apps, and even create Power Pages solutions.\nYes, directly from your terminal.\n\nThis session is for consultants, developers, and solution architects who want to move faster, work smarter, and actually use AI instead of just talking about it. Expect live demos. Expect practical insights. And expect at least a few moments where you think: “Okay, I’m trying this tomorrow.”",
+      "day": "2026-09-26",
+      "start": "11:10",
+      "end": "11:55",
+      "room": "Room A (Cinema)",
+      "format": "Talk",
+      "url": "https://balticsummit.pl/sessions2026",
+      "speakers": [
+        {
+          "id": "arjan-rijsdijk",
+          "name": "Arjan Rijsdijk"
+        }
+      ]
+    },
+    {
+      "id": "runevents-session-32681",
+      "title": "Copilot Studio Agents: Marketing Demos vs. Real Enterprise Practice",
+      "description": "Marketing demos show that building AI agents in Copilot Studio is fast and simple. However, real-world deployment tells a very different story. Research shows that over 80% of AI projects fail to reach production, 95% fail to produce clear financial returns, and Gartner predicts that 40% of agentic AI projects will be canceled by 2027 due to high operational costs and unreliable outputs. - AI agents do not behave like standard, predictable Power Platform applications\n- Treating an autonomous agent like a simple IT project creates major hidden risks\n\nDrawing from real enterprise projects, this session looks past the keynote hype to examine real operational problems:\n- Unexpected costs: Pay-as-you-go billing and multi-step reasoning loops consuming Copilot Credits unexpectedly\n- Data and knowledge delays: SharePoint syncs taking 2 to 3 days instead of a few hours to update knowledge\n- User interface friction: Confusing Dataverse connection popups that look like system errors to end users\n- Human risk (\"Cognitive Surrender\"): Studies showing that users accept incorrect AI logic up to 73.2% of the time without double-checking\n- Attendees will get a clear, practical playbook to control AI costs, assign risk ownership to business leaders, and properly monitor agent performance\n\nKey Takeaways\n- Understand the Real Cost Model: Learn how models, runtime, context, and tools consume Copilot Credits\n—and how to set spending caps to prevent budget shocks\n- Fix Data Foundations First: Avoid slow or poor SharePoint search by setting up clean data quality standards and proper search indexing\n- Assign Clear Risk Ownership: Shift risk responsibility back to business leaders and governance boards instead of leaving it all on developers\n- Monitor What Matters: Look beyond basic server uptime to track reasoning steps, error chains, and user acceptance rates\n\nTarget Audience\nPower Platform Developers, Enterprise and Solution Architects, AI Leads, and IT Decision-Makers who manage risk, budget, and governance for company AI projects.",
+      "day": "2026-09-26",
+      "start": "11:10",
+      "end": "11:55",
+      "room": "Room C (Auditorium)",
+      "format": "Talk",
+      "tags": [
+        "Partner session"
+      ],
+      "url": "https://balticsummit.pl/sessions2026",
+      "partnerUrl": "https://www.capgemini.com/pl-pl",
+      "speakers": [
+        {
+          "id": "gleb-kanunnikau",
+          "name": "Gleb Kanunnikau"
+        },
+        {
+          "id": "bartosz-kopania",
+          "name": "Bartosz Kopania"
+        }
+      ]
+    },
+    {
+      "id": "runevents-session-29689",
+      "title": "When Custom Agents Meet Enterprise Data: Governing AI Apps with Microsoft Purview",
+      "description": "Custom agents are easy to build, but things get interesting when they start working with enterprise data.\nWho can access what, which data is sensitive, and where do risks become visible?\nIn this session, we look at how Microsoft Purview can help organizations govern custom AI apps and agents beyond Microsoft 365 Copilot.\nWe will discuss visibility, classification, protection, auditability, and risk signals across enterprise data scenarios.\nThe focus is on practical governance questions rather than product hype.\nDepending on what is technically feasible, we may also show examples of how Purview signals can be used in agent scenarios.\nAttendees will leave with a clearer view of what needs to be considered before custom agents are allowed to work with business-critical data.",
+      "day": "2026-09-26",
+      "start": "11:10",
+      "end": "11:55",
+      "room": "Room D",
+      "format": "Talk",
+      "url": "https://balticsummit.pl/sessions2026",
+      "speakers": [
+        {
+          "id": "julian-kusenberg",
+          "name": "Julian Kusenberg"
+        },
+        {
+          "id": "luise-freese",
+          "name": "Luise Freese"
+        }
+      ]
+    },
+    {
+      "id": "runevents-session-32717",
+      "title": "MCP vs. A2A - Bridging the security & governance gap for agentic AI in Power Platform",
+      "description": "As AI in Power Platform and Copilot Studio shifts from isolated agents and LLM calls to networks of automation, two models are emerging for “how stuff talks to other stuff”: Model Context Protocol (MCP) providing server-backed tool exposure, and agent-to-agent (A2A) orchestration. They overlap, but they’re not the same — and that includes the crucial security and governance controls we can apply to each.\n\nThis session unpacks that difference and how they can be governed and secured today.\n\nWe’ll look at MCP as the “USB-C for AI”: a predictable, admin-governable way to expose capabilities, data and actions to AI models and agents. Then, we'll contrast it with Agent-to-Agent patterns, where one agent calls or delegates to another - a flexible model, but harder to control and predict with different risks: who can call whom, with what data, and under which contexts.\n\nWhat you’ll learn:\n1. Where MCP is stronger than A2A, and how to discover and manage MCP servers across your tenant to define ownership and access\n2. Where A2A could be preferable to MCP, including considerations for multi-cloud scenarios\n3. A practical roadmap - which security & governance actions to take now, and what to watch for going forward\n\nThis session is aimed at Power Platform admins, security/governance leads, and platform owners who need to let AI connect to real systems without losing control. You’ll leave with a side-by-side mental model of MCP vs. Agent-to-Agent, and a list of guardrails you can actually implement.",
+      "day": "2026-09-26",
+      "start": "11:10",
+      "end": "11:55",
+      "room": "Room E",
+      "format": "Talk",
+      "url": "https://balticsummit.pl/sessions2026",
+      "speakers": [
+        {
+          "id": "tatu-seppala",
+          "name": "Tatu Seppälä"
+        },
+        {
+          "id": "claire-edgson",
+          "name": "Claire Edgson"
+        }
+      ]
+    },
+    {
+      "id": "runevents-block-15816",
+      "title": "Meal",
+      "day": "2026-09-26",
+      "start": "11:55",
+      "end": "12:55",
+      "room": "Room C (Auditorium)",
+      "format": "Meal break"
+    },
+    {
+      "id": "runevents-session-28009",
+      "title": "Unifying Data and Intelligence: From Fabric Pipelines to AI-Powered Agents",
+      "description": "Today, data professionals are expected to do more than just manage and transform data-they need to unlock intelligence, automation, and actionable insights from it.\n\nIn this session, we’ll explore how Microsoft Fabric makes data engineering simpler with powerful pipelines, and how these pipelines can feed AI-powered Data Agents. These agents don’t just analyze data—they reason over it, provide contextual insights, and surface intelligence through Power Platform apps, Copilot Studio, and AI Foundry, making insights and actions accessible to both internal and external users.\n\nThrough a live, step-by-step demo, you’ll see how to:\n\n-Build a Fabric data pipeline to ingest, clean, and transform raw data\n-Publish curated data into a Lakehouse and semantic model for business-ready insights\n-Create a Data Agent that can reason over Fabric data\n-Connect the agent to Copilot Studio, and AI Foundry, enabling intelligence and automation to flow into apps, workflows, and external systems\n\nThis session is designed for data professionals familiar with SQL and analytics platforms who want to take their skills to the next level—moving from pipelines and dashboards to intelligent, agent-driven solutions. Attendees will leave with practical knowledge and a clear roadmap to turn their data into actionable AI-powered experiences.\n\nKey Takeaways\n\n-Understand Microsoft Fabric’s role as the backbone for intelligent data solutions\n-Learn how to build and orchestrate scalable Fabric pipelines\n-Discover how to create AI-powered Data Agents that interact with enterprise data\n-See how to connect agents with Copilot Studio, and AI Foundry to expose intelligence externally\n-Gain hands-on, demo-driven insights to implement agentic data solutions in real-world projects",
+      "day": "2026-09-26",
+      "start": "12:55",
+      "end": "13:40",
+      "room": "Room A (Cinema)",
+      "format": "Talk",
+      "url": "https://balticsummit.pl/sessions2026",
+      "speakers": [
+        {
+          "id": "mitul-tailor",
+          "name": "Mitul Tailor"
+        }
+      ]
+    },
+    {
+      "id": "runevents-block-16778",
+      "title": "Discussion Panel",
+      "day": "2026-09-26",
+      "start": "12:55",
+      "end": "13:40",
+      "room": "Room C (Auditorium)",
+      "format": "Panel discussion"
+    },
+    {
+      "id": "runevents-session-29535",
+      "title": "Good news: Power Automate is not the future. But who decides now - you, your flow, or your agent?",
+      "description": "For a long time, automation followed one fundamental rule: you can only automate what is standardized. So we standardized - with if-then logic, flowcharts and process rules that tried to compress human decisions into deterministic sequences. The result were systems that worked, as long as reality played along.\n\nAI agents change the game fundamentally. Not because they are yet another technical upgrade, but because they reframe the question we ask when automating. That has consequences - for everyone who works with processes today, and for everyone who makes decisions about them tomorrow.\n\nIn this session, Andreas Schlüter explores what this shift means in practice for people who work with processes every day, and for those who shape them strategically. With a clear perspective on what truly changes, what remains - and what that means for all of us.",
+      "day": "2026-09-26",
+      "start": "12:55",
+      "end": "13:40",
+      "room": "Room D",
+      "format": "Talk",
+      "url": "https://balticsummit.pl/sessions2026",
+      "speakers": [
+        {
+          "id": "andreas-schluter",
+          "name": "Andreas Schlüter"
+        }
+      ]
+    },
+    {
+      "id": "runevents-session-28181",
+      "title": "I broke it so you don't have to, surviving Power Platform at scale",
+      "description": "Alright, so this session is basically everything I wish someone had told me before I shipped solutions I'm not proud of.\nWe're going to talk about the real stuff , the decisions that felt totally fine at the time and then completely fell apart in production. Skipping ALM because \"it's just a small project.\" Picking the wrong connector and only finding out it's a problem six months later. Building components that made sense to me but nobody else could maintain or understand.\nI've made these mistakes. I've learned from them the hard way. And that's exactly what this session is about.\nWe'll go through ALM, not the Microsoft docs version, but how to actually think about environments, pipelines, and source control in a way that makes your life easier, not harder. We'll talk about connectors, when standard is fine, when you need premium, and how that one choice can haunt your whole solution. And we'll get into components ,what reusable actually means, how to structure them so they scale, and why copy-pasting across 40 apps is not a strategy.\nIf you build on Power Platform , whether you're just getting started or you've been doing this for years ,you're going to leave with things you can use immediately.\nLet's get into it.",
+      "day": "2026-09-26",
+      "start": "12:55",
+      "end": "13:40",
+      "room": "Room E",
+      "format": "Talk",
+      "url": "https://balticsummit.pl/sessions2026",
+      "speakers": [
+        {
+          "id": "elvira-cekrezi",
+          "name": "Elvira Cekrezi"
+        }
+      ]
+    },
+    {
+      "id": "runevents-block-15827",
+      "title": "Break",
+      "day": "2026-09-26",
+      "start": "13:40",
+      "end": "14:00",
+      "room": "Room C (Auditorium)",
+      "format": "Break"
+    },
+    {
+      "id": "runevents-session-29480",
+      "title": "Stop clicking, start prompting! Visual Studio Code and Agentic AI for Power Platform builders",
+      "description": "Most Power Platform makers have heard the phrase \"fusion development\" but haven't crossed the line yet. Visual Studio Code can feel like a developer tool, and not a maker tool. In this session I hope to change that perception. Visual Studio Code is not that scary!\n\nIn this hands-on intro, I'll walk you through setting up Visual Studio Code specifically for Power Platform work: what extensions matter, how to connect GitHub Copilot and Claude Code as your agentic pair-programmers, how to add and create skills, and how MCP servers can wire your AI tools directly into your Power Platform environment.\n\nWe'll look at how makers like yourselves can use natural language to build code-first Power Apps, single-page application websites, and generative pages, all without needing to memorize complex syntax or switch mental models entirely.\n\nThis isn't a \"here's what's theoretically possible\" session. It's a practical starting point for Power Platform makers who want to move faster, build more ambitious things, and get on the AI wave that's already reshaping the pro-code world.\n\nThis is for Power Platform makers who want to take their first serious step into code-first development, no prior Visual Studio Code experience required!\n\nAre you ready to make the leap?",
+      "day": "2026-09-26",
+      "start": "14:00",
+      "end": "14:45",
+      "room": "Room A (Cinema)",
+      "format": "Talk",
+      "url": "https://balticsummit.pl/sessions2026",
+      "speakers": [
+        {
+          "id": "nick-doelman",
+          "name": "Nick Doelman"
+        }
+      ]
+    },
+    {
+      "id": "runevents-session-29550",
+      "title": "You’re Not “Just” a Canvas Apps Developer",
+      "description": "Low-code didn’t remove complexity, it just hid it. When you start moving beyond Canvas Apps,  it can feel like you’re starting from scratch again. Most people assume they are.\nBut that doesn’t have to be true.\nIf you've been building Canvas Apps for a while, you've been making real architectural calls the whole time: Dataverse or SharePoint? Where does business logic actually live? Those aren't \"low-code\" questions. They're the same questions every developer wrestles with, just wrapped in a different interface.\n\nTransitioning from Canvas Apps into more code approaches, doesn’t mean starting from scratch, it means revealing more parts of the machinery that was always running underneath.\nIn this session, I’ll walk through what skills carry over as you get closer to code, so you’re not treating everything as completely new.\nWe’ll also cover what Canvas Apps was quietly handling for you, and what you need to take a stance on yourself. Things like version control, pipelines, and infrastructure.\n\nBy the end, you’ll have a much clearer picture of how to move from Canvas Apps into agentic development. You’ll understand where your knowledge is already strong, and where you may have gaps to fill out.\nSpoiler: you’re in a much stronger position than you might think.",
+      "day": "2026-09-26",
+      "start": "14:00",
+      "end": "14:45",
+      "room": "Room C (Auditorium)",
+      "format": "Talk",
+      "url": "https://balticsummit.pl/sessions2026",
+      "speakers": [
+        {
+          "id": "chris-hansen",
+          "name": "Chris Hansen"
+        }
+      ]
+    },
+    {
+      "id": "runevents-session-29600",
+      "title": "Agentic Automation with Copilot Studio: Computer Use and Intelligent Workflows",
+      "description": "Discover how the latest Copilot Studio innovations are transforming business automation through AI-powered workflows and Computer Use.\nWith Computer Use, agents can interact with desktop applications and websites just like a human user—clicking, typing, navigating screens, and working with systems that don't expose APIs. This enables automation across legacy applications, data-entry processes, invoice handling, and other previously difficult-to-automate scenarios.\nThe new Workflows experience takes automation further by introducing native AI actions that bring intelligence directly into business processes. Workflows can call Copilot Studio agents, invoke Microsoft 365 Copilot agents, classify content, extract information from documents, and orchestrate complex decision-making within end-to-end automations. This allows organizations to combine deterministic process execution with AI-powered reasoning, understanding, and action.\nTogether, Computer Use and intelligent Workflows enable a new generation of agentic business processes that span structured and unstructured data, modern and legacy systems, and human and AI collaboration.",
+      "day": "2026-09-26",
+      "start": "14:00",
+      "end": "14:45",
+      "room": "Room D",
+      "format": "Talk",
+      "url": "https://balticsummit.pl/sessions2026",
+      "speakers": [
+        {
+          "id": "marco-rocca",
+          "name": "Marco Rocca"
+        }
+      ]
+    },
+    {
+      "id": "runevents-session-32621",
+      "title": "From Excel to enterprise Apps and Agents. Choosing the right experience as business needs grow.",
+      "description": "What starts as a simple Excel file often becomes one of the most critical systems in the company. we will explore how business solutions naturally evolve from Excel to Microsoft Lists, Power Apps, Dataverse and finally AI-powered Agents. Along the way, we will discuss when it makes sense to stay simple, when to scale, and how to choose the right experience for users. This session is not about products. It is about recognizing the moment when a successful solution outgrows its current architecture and understanding how the Power Platform can support that evolution. If you've ever seen a spreadsheet become \"too important to fail\", this session is for you.",
+      "day": "2026-09-26",
+      "start": "14:00",
+      "end": "14:43",
+      "room": "Room E",
+      "format": "Talk",
+      "tags": [
+        "Partner session"
+      ],
+      "url": "https://balticsummit.pl/sessions2026",
+      "partnerUrl": "https://www.capgemini.com/pl-pl",
+      "speakers": [
+        {
+          "id": "marta-januszek",
+          "name": "Marta Januszek"
+        },
+        {
+          "id": "jakub-blaszczynski",
+          "name": "Jakub Blaszczynski"
+        }
+      ]
+    },
+    {
+      "id": "runevents-block-15828",
+      "title": "Break",
+      "day": "2026-09-26",
+      "start": "14:45",
+      "end": "15:05",
+      "room": "Room C (Auditorium)",
+      "format": "Break"
+    },
+    {
+      "id": "runevents-session-28297",
+      "title": "Copilot Studio + Claude Code: From Idea to Agent in Minutes",
+      "description": "Building AI agents usually involves writing instructions, defining skills, structuring knowledge sources, and configuring actions. But what if AI could help you build those agents faster? In this session, we’ll explore a new development pattern where AI assists the creation of other AI agents by combining Copilot Studio with Claude Code.\n\nInstead of manually configuring every element inside the Copilot Studio interface, you’ll see how Claude Code can accelerate the process by generating agent instructions, structuring skills, and organizing knowledge sources automatically. Using a real example, a FinOps expert agent grounded on Microsoft Learn content about Microsoft 365, Fabric, Foundry, and Copilot, we’ll demonstrate how an agent can be designed, refined, and deployed in minutes rather than hours.",
+      "day": "2026-09-26",
+      "start": "15:05",
+      "end": "15:50",
+      "room": "Room A (Cinema)",
+      "format": "Talk",
+      "url": "https://balticsummit.pl/sessions2026",
+      "speakers": [
+        {
+          "id": "renato-romao-de-souza",
+          "name": "Renato Romao de Souza"
+        }
+      ]
+    },
+    {
+      "id": "runevents-session-28225",
+      "title": "The Future is Now! The Next Generation of Power App Development",
+      "description": "The way we build Power Apps is changing fast. Really fast.\n\nWhat used to be a choice between canvas apps and model-driven apps has exploded into a full spectrum of possibilities. Now we’ve got AI-powered generative pages, code apps, and even vibe apps where describing what you want is half the job done.\n\nIn this session, we’ll take a fast-paced tour through the evolving world of Power Apps - from the foundations you know to the cutting-edge capabilities you probably haven’t tried yet. We’ll explore how AI is transforming not just how apps are built, but who can build them and how quickly they can go from idea to reality.\n\nAnd yes, this is not just low-code anymore. We’ll also dive into how pro-code tools like Visual Studio Code fit into the picture, giving you the power to go deeper, extend further, and truly build your way.\n\nExpect demos, real scenarios, and a few “wait… you can do THAT now?” moments.\n\nWhether you’re a low-code builder, a pro developer, or somewhere in between, you’ll leave with a clear view of where things are heading and how to stay ahead of the curve.",
+      "day": "2026-09-26",
+      "start": "15:05",
+      "end": "15:50",
+      "room": "Room C (Auditorium)",
+      "format": "Talk",
+      "url": "https://balticsummit.pl/sessions2026",
+      "speakers": [
+        {
+          "id": "keith-atherton",
+          "name": "Keith Atherton"
+        }
+      ]
+    },
+    {
+      "id": "runevents-block-15869",
+      "title": "KTBNet",
+      "day": "2026-09-26",
+      "start": "15:05",
+      "end": "15:50",
+      "room": "Room D",
+      "format": "Sponsor slot"
+    },
+    {
+      "id": "runevents-session-29555",
+      "title": "Software Design as Code - from Concepts to AI-driven Automation",
+      "description": "Designing software no longer needs to be a manual, disconnected, and documentation-heavy. This session shows how to treat design as code - versioned, automated, and integrated into your development lifecycle.\n\nWe’ll move from simple markdown-based sketches to structured notations like UML, BPMN, and C4, all generated and maintained as code with tools such as Mermaid, PlantUML, Structurizr, etc. Learn how architecture decisions or diagrams can be tracked, validated, and evolved automatically.\n\nFinally, we’ll explore how AI takes this even further - generating diagrams, ADRs, and documentation, and keeping designs in sync with your codebase. Real-world examples will illustrate how AI-assisted tools and LLM-based solutions (like Copilot) can support smarter documentation and architecture evolution.\n\nWhether you’re a developer, architect, or DevOps engineer, you’ll leave this session with practical insights into:\n- Choosing the right level of design automation for your context\n- Integrating diagrams, ADRs, and docs directly into your codebase and CI/CD\n- Leveraging AI to close the loop between design, implementation, and documentation\n\nJoin us to discover how to make your software design process as agile, automated, and intelligent as the code you write.",
+      "day": "2026-09-26",
+      "start": "15:05",
+      "end": "15:50",
+      "room": "Room E",
+      "format": "Talk",
+      "url": "https://balticsummit.pl/sessions2026",
+      "speakers": [
+        {
+          "id": "marcin-samsonowski",
+          "name": "Marcin Samsonowski"
+        }
+      ]
+    },
+    {
+      "id": "runevents-block-16494",
+      "title": "Let's come togethet to the auditorium",
+      "day": "2026-09-26",
+      "start": "15:50",
+      "end": "16:00",
+      "room": "Room C (Auditorium)",
+      "format": "Ceremony"
+    },
+    {
+      "id": "runevents-block-16349",
+      "title": "Closure + give aways",
+      "day": "2026-09-26",
+      "start": "16:00",
+      "end": "16:30",
+      "room": "Room C (Auditorium)",
+      "format": "Ceremony"
+    },
+    {
+      "id": "runevents-session-29407",
+      "title": "What do agents REALLY cost? Agent examples, licenses and credit costs",
+      "description": "Microsoft Copilot Studio enables organizations to build AI agents that go far beyond chatbots: agents that answer questions using enterprise data, execute business processes, and even operate autonomously across Microsoft 365, Dynamics 365, and the Power Platform.\n\nYet as soon as teams move from experimentation to production, one topic consistently slows adoption down: licensing and cost predictability.\n\nQuestions like “Do we need Microsoft 365 Copilot for this?”, “When do Copilot Studio credits apply?”, and “What will this agent actually cost per month?” often remain unanswered until after the first invoice arrives.\n\nThis session brings clarity by shifting the conversation away from abstract SKUs and towards concrete, real world Copilot Studio agents, and their measurable credit impact.\n\nRather than starting with licensing tables, we start with recognizable business scenarios and work backwards. For each agent, we explore what it does, who uses it, where it runs, and how that translates into Copilot Credit consumption and supporting licenses.\n\nRob will show practical agent examples, for example:\n- Product Advisor Agent\n- Buyer Assistant Agent\n- Retailer Advisor Agent\n- Customer Feedback Agent\n\nWondering how Rob explains these agents? Take a look at the recording of the Microsoft AI Tour: https://youtu.be/ZZaY9SK_AwY?si=Sd-hHSBSZ3DOeypA\n\nFor each example, attendees will see:\n- the functional behavior of the agent\n- the relevant licensing context (Microsoft 365 Copilot, Copilot Chat, Copilot Studio)\n- the expected Copilot Credit consumption\n\nBy mapping agent behavior directly to credits, generative answers, data grounding, and actions, the session demonstrates how to estimate costs using realistic order‑of‑magnitude thinking, rather than chasing perfect numbers.\n\nThe talk also highlights common mistakes seen in the field, such as assuming Microsoft 365 Copilot covers all agents.\n\nThe goal is not to turn attendees into licensing specialists, but to give them a clear mental model that enables better decisions during design, architecture, and rollout.\n\nAttendees will leave with the ability to confidently answer:\n\n“Given what this agent does and who uses it, this is the licensing setup and this is the realistic cost.”\n\nNo SKU bingo. No surprises. Just practical clarity for building Copilot Studio agents that scale.",
+      "url": "https://balticsummit.pl/sessions2026",
+      "speakers": [
+        {
+          "id": "rob-kuijpers",
+          "name": "Rob Kuijpers"
+        }
+      ]
+    }
+  ]
+}

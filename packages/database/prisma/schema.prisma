@@ -111,7 +111,8 @@ model Session {
 
   // --- Schedule ---------------------------------------------------------
   /// Calendar day of the event (Europe/Warsaw), used for per-day filtering.
-  day      DateTime  @db.Date
+  /// Null for a session that is published but not yet given a slot.
+  day      DateTime? @db.Date
   startsAt DateTime? @db.Timestamptz(6)
   endsAt   DateTime? @db.Timestamptz(6)
   room     String?   @db.VarChar(100)
@@ -124,7 +125,8 @@ model Session {
   language    String?       @db.VarChar(50)
   tags        String[]      @default([])
 
-  url String? @db.VarChar(500) /// Session detail page, when the agenda has one
+  url        String? @db.VarChar(500) /// Session detail page, when the agenda has one
+  partnerUrl String? @db.VarChar(500) /// Sponsor/partner website for partner-delivered sessions
 
   speakers SessionSpeaker[]
 
