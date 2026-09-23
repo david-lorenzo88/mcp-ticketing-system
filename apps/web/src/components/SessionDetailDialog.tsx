@@ -1,13 +1,77 @@
 import { useEffect, useState } from 'react';
-import { getSession, type SessionDetail } from '../lib/sessions';
-import { initialsOf, formatDayLong, formatTimeRange } from '../lib/format';
+import { getSession, type SessionDetail, type SessionSpeakerDetail } from '../lib/sessions';
+import { formatDayLong, formatTimeRange } from '../lib/format';
 import { Modal } from './Modal';
-import { FormatBadge, TagBadge } from './SessionBadges';
+import { FormatBadge, SpeakerBadge, TagBadge } from './SessionBadges';
+import { SpeakerAvatar } from './SpeakerAvatar';
 
 interface SessionDetailDialogProps {
   sessionId: string;
   onClose: () => void;
   onOpenSession: (id: string) => void;
+}
+
+const LINK_LABELS: Record<string, string> = { linkedin: 'LinkedIn', twitter: 'X / Twitter', website: 'Website' };
+
+/** Long bios are clamped to a few lines until expanded. */
+const BIO_CLAMP_CHARS = 360;
+
+function SpeakerProfile({ speaker }: { speaker: SessionSpeakerDetail }) {
+  const [expanded, setExpanded] = useState(false);
+  const longBio = (speaker.bio?.length ?? 0) > BIO_CLAMP_CHARS;
+  const subtitle = [speaker.jobTitle, speaker.company].filter(Boolean).join(' · ');
+  const links = Object.entries(speaker.links ?? {});
+
+  return (
+    <li className="flex gap-3">
+      <SpeakerAvatar name={speaker.name} photoUrl={speaker.photoUrl} />
+      <div className="min-w-0 flex-1 text-sm">
+        <div className="flex flex-wrap items-center gap-1.5">
+          <span className="font-medium text-slate-900">{speaker.name}</span>
+          {speaker.badges.map((badge) => (
+            <SpeakerBadge key={badge} badge={badge} />
+          ))}
+        </div>
+        {subtitle && <div className="text-xs font-medium text-slate-600">{subtitle}</div>}
+        {speaker.tagline && <div className="text-xs text-slate-500">{speaker.tagline}</div>}
+        {speaker.bio && (
+          <div className="mt-1.5">
+            <p
+              className={`text-sm whitespace-pre-line text-slate-600 ${
+                longBio && !expanded ? 'line-clamp-4' : ''
+              }`}
+            >
+              {speaker.bio}
+            </p>
+            {longBio && (
+              <button
+                type="button"
+                onClick={() => setExpanded((v) => !v)}
+                className="mt-0.5 cursor-pointer text-xs font-medium text-baltic-700 hover:text-baltic-900"
+              >
+                {expanded ? 'Show less' : 'Read full bio'}
+              </button>
+            )}
+          </div>
+        )}
+        {links.length > 0 && (
+          <div className="mt-1 flex flex-wrap gap-x-3 text-xs">
+            {links.map(([kind, url]) => (
+              <a
+                key={kind}
+                href={url}
+                target="_blank"
+                rel="noreferrer"
+                className="text-baltic-700 underline underline-offset-2 hover:text-baltic-900"
+              >
+                {LINK_LABELS[kind] ?? kind}
+              </a>
+            ))}
+          </div>
+        )}
+      </div>
+    </li>
+  );
 }
 
 function whenLabel(session: SessionDetail): string {
@@ -85,32 +149,9 @@ export function SessionDetailDialog({ sessionId, onClose, onOpenSession }: Sessi
           {session.speakers.length > 0 && (
             <section>
               <h3 className="label">{session.speakers.length === 1 ? 'Speaker' : 'Speakers'}</h3>
-              <ul className="space-y-3">
+              <ul className="space-y-4">
                 {session.speakers.map((speaker) => (
-                  <li key={speaker.id} className="flex gap-3">
-                    {speaker.photoUrl ? (
-                      <img
-                        src={speaker.photoUrl}
-                        alt=""
-                        className="h-9 w-9 shrink-0 rounded-full object-cover"
-                      />
-                    ) : (
-                      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-baltic-100 text-xs font-semibold text-baltic-800">
-                        {initialsOf(speaker.name)}
-                      </span>
-                    )}
-                    <div className="min-w-0 text-sm">
-                      <div className="font-medium text-slate-900">{speaker.name}</div>
-                      {(speaker.jobTitle || speaker.company) && (
-                        <div className="text-xs text-slate-500">
-                          {[speaker.jobTitle, speaker.company].filter(Boolean).join(' · ')}
-                        </div>
-                      )}
-                      {speaker.bio && (
-                        <p className="mt-1 text-sm whitespace-pre-line text-slate-600">{speaker.bio}</p>
-                      )}
-                    </div>
-                  </li>
+                  <SpeakerProfile key={speaker.id} speaker={speaker} />
                 ))}
               </ul>
             </section>

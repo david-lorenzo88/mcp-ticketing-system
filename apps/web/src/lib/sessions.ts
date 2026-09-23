@@ -26,12 +26,14 @@ export interface SessionSpeaker {
   id: string;
   name: string;
   company: string | null;
+  badges: string[];
+  photoUrl: string | null;
 }
 
 export interface SessionSpeakerDetail extends SessionSpeaker {
   jobTitle: string | null;
+  tagline: string | null;
   bio: string | null;
-  photoUrl: string | null;
   links: Record<string, string> | null;
 }
 
@@ -86,6 +88,7 @@ export interface SessionFilters {
   levels: string[];
   languages: string[];
   tags: string[];
+  badges: Array<{ badge: string; speakers: number }>;
   speakers: number;
   totalSessions: number;
   unscheduledSessions: number;
@@ -97,6 +100,7 @@ export interface SessionQuery {
   room?: string;
   format?: SessionFormat;
   tag?: string;
+  badge?: string;
   excludeBreaks?: boolean;
 }
 
@@ -112,6 +116,7 @@ export function listSessions(query: SessionQuery): Promise<SessionListResult> {
   if (query.room) params.set('room', query.room);
   if (query.format) params.set('format', query.format);
   if (query.tag) params.set('tag', query.tag);
+  if (query.badge) params.set('badge', query.badge);
   if (query.excludeBreaks) params.set('excludeBreaks', 'true');
   params.set('pageSize', String(MAX_PAGE_SIZE));
   return request<SessionListResult>(`${BASE}?${params}`);

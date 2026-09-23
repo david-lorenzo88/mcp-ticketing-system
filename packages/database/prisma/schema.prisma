@@ -149,6 +149,10 @@ model Speaker {
   fullName String  @db.VarChar(150)
   company  String? @db.VarChar(150)
   jobTitle String? @db.VarChar(150)
+  /// Profile headline as published, e.g. "Microsoft MVP | Power Platform Architect".
+  tagline  String? @db.Text
+  /// Recognitions shown on the profile, e.g. MVP, MCT.
+  badges   String[] @default([])
   bio      String? @db.Text
   photoUrl String? @db.VarChar(500)
   /// Profile links keyed by kind, e.g. { "linkedin": "...", "twitter": "..." }.

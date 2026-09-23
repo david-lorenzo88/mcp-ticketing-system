@@ -17,15 +17,30 @@
       "speakers": [
         {
           "id": "tatu-seppala",
-          "name": "Tatu Seppälä"
+          "name": "Tatu Seppälä",
+          "tagline": "Microsoft MVP | Data Security, Insider Threat, Power Platform & agents security and governance",
+          "company": "Sulava",
+          "badges": [
+            "MVP"
+          ],
+          "bio": "Microsoft MVP Security. Deep experience in consultancy, advisory and architectural roles in the Microsoft cloud tech space. Special focus on insider risk, compliance and data security.",
+          "photoUrl": "https://cdn.runevents.net/speaker-profile-images/f7e7fa71-af39-4995-8bef-f0575edcad04"
         },
         {
           "id": "mikko-koskinen",
-          "name": "Mikko Koskinen"
+          "name": "Mikko Koskinen",
+          "tagline": "MVP Copilot Studio, AI & Copilot Lead @ForwardForever",
+          "company": "Forward Forever",
+          "bio": "I work as an AI & Copilot Lead at Forward Forever, focusing on helping organizations adopt AI, Copilot, and agent-based solutions in a practical, well-governed, and scalable way. My work spans customer advisory, solution and system architecture, pre-sales support, and internal capability development across AI and Copilot solutions.\n\nI have over 20 years of experience in the Microsoft ecosystem, working with solutions ranging from intranets, document and case management systems to modern digital workplaces and collaboration platforms. Over the years, my role has evolved from solution designer to lead architect, trainer, and advisor, with a strong focus on how technology actually supports everyday work.",
+          "photoUrl": "https://cdn.runevents.net/speaker-profile-images/83a480f5-fcfe-4584-9eaf-4d0cfbadfcc4"
         },
         {
           "id": "claire-edgson",
-          "name": "Claire Edgson"
+          "name": "Claire Edgson",
+          "tagline": "European Microsoft CX CTO and Security Specalist",
+          "company": "Capgemini",
+          "bio": "Microsoft Fast Track Recognised Architect. I have 30+ years experience in Data Analytics, Infrastructure and Integration Architecture. 20+ years of Microsoft Business Applications and Azure, including SharePoint, Microsoft 365, Dynamics 365CE, FO & HR. Business experience as IT Manager and IT Director allows Claire to work closely with customer IT teams and understand their pain through transformation programs.\n6 years experience with Power platform architecture and design, with Dataverse (CDS), SharePoint, SQL , Azure cognitive services, Azure Blob and Azure datalakes. I am passionate about Learning new things and sharing that knowledge with others as well as being incredibly passionate about the outcomes we give our customers.\nMy prime focus is on Security, Governance and Integrations with the PowerPlatform.",
+          "photoUrl": "https://cdn.runevents.net/speaker-profile-images/b7cd0312-91d6-47a4-90be-0089343b0904"
         }
       ]
     },
@@ -42,7 +57,14 @@
       "speakers": [
         {
           "id": "katerina-chernevskaya",
-          "name": "Katerina Chernevskaya"
+          "name": "Katerina Chernevskaya",
+          "tagline": "AI Practice Lead | MVP | MCT",
+          "badges": [
+            "MCT",
+            "MVP"
+          ],
+          "bio": "Katerina, an MVP, MCT, and renowned public speaker, focuses on Power Platform & AI. With twenty years of experience and key certifications in PROSCI, PMI, Power Platform Solution Architect, she leads in app development, AI, and adaptive work models. Active in the Microsoft community, Katerina mentors new tech talent and supports innovation. Katerina takes part in the #SharingIsCaring initiative, guiding community contributions to the Microsoft Sample Solution Gallery.",
+          "photoUrl": "https://cdn.runevents.net/speaker-profile-images/1d352d82-9fad-4f48-8d5a-e72383bbfbee"
         }
       ]
     },
@@ -62,7 +84,15 @@
       "speakers": [
         {
           "id": "keith-atherton",
-          "name": "Keith Atherton"
+          "name": "Keith Atherton",
+          "tagline": "Power Platform & AI Solution Architect | Microsoft MVP | MCT | 11x Microsoft Certified | User Group Leader | LinkedIn Learning Instructor | Speaker | Podcaster | Women in Power (Platform) Mentor",
+          "company": "Capgemini",
+          "badges": [
+            "MCT",
+            "MVP"
+          ],
+          "bio": "Power Platform & AI Solution Architect, Microsoft MVP for Business Applications, Microsoft Certified Trainer (MCT), 11x Microsoft certified, published LinkedIn Learning instructor, public speaker, Power Platform Community High Five user group founder, On Air in the Cloud podcast host, and Women in Power (Platform) mentor.",
+          "photoUrl": "https://cdn.runevents.net/speaker-profile-images/629f9824-dc22-49c1-9604-3521940b9a92"
         }
       ]
     },
@@ -79,11 +109,25 @@
       "speakers": [
         {
           "id": "samir-makwana",
-          "name": "Samir Makwana"
+          "name": "Samir Makwana",
+          "tagline": "MVP (Copilot Studio)| Founder of Cloudtrify | Cloud Solution Architect",
+          "company": "Cloudtrify",
+          "badges": [
+            "MVP"
+          ],
+          "bio": "Samir Makwana builds enterprise AI ecosystems that last.\n\nAs the Founder of Cloudtrify and a Microsoft MVP in AI & Copilot Studio, Samir works at the intersection of architecture, governance, and real-world execution — helping organizations move from AI curiosity to enterprise-wide impact.\n\nWith over 18 years in enterprise IT across North America, EMEA, and APAC, Samir has led large-scale Microsoft cloud and AI initiatives where security, compliance, and scalability are non-negotiable. His work spans the full AI stack — Azure OpenAI, Cognitive Services, Semantic Kernel, Copilot Studio, and Power Platform AI — applying deep prompt engineering, RAG patterns, and grounding techniques to deliver production-grade outcomes, not just proof-of-concepts.\n\nSamir is also a global speaker, sharing practical insights on Copilot strategy, Azure AI architecture, and responsible AI adoption grounded not in theory, but in real enterprise deployments.\n\nAt Deloitte, Samir designed and delivered a 3-week Copilot Studio enablement program, empowering teams to confidently build and deploy production-ready AI agents — alongside a reusable component strategy built for long-term scalability and governance.\n\nThrough Cloudtrify, Samir has supported enterprise and public sector leaders including the Bank of Canada, City of Toronto, Peel Regional Police, The Ottawa Hospital, and Voya Financial.\n\nHis belief is simple: AI is not a feature. It is an architectural decision. And when implemented without governance, it becomes risk — not advantage.\n\nFor organizations serious about Copilot, Azure AI, and enterprise-grade AI strategy — Samir Makwana is the architect to call.",
+          "photoUrl": "https://cdn.runevents.net/speaker-profile-images/e8988363-881c-40c1-8aad-796a7821d23f"
         },
         {
           "id": "david-lorenzo-lopez",
-          "name": "David Lorenzo López"
+          "name": "David Lorenzo López",
+          "tagline": "Microsoft MVP Power Apps | Power Platform Solutions Architect at Prodware",
+          "company": "Prodware Spain",
+          "badges": [
+            "MVP"
+          ],
+          "bio": "Father of a princess, husband of a queen. Since 2010 working in the .NET world, designing and building solutions based on Azure. Since 2020 more focused more on the Power Platform and Artificial Intelligence world. Love football, play guitar, listen music and share time with my family and friends.  One of my favorites hobbies is to share knowledge with the tech community, assist to events to speak and to learn from other community members. Also I like a lot to help young people that is giving its first steps in this world to get used to it, guide them through this walking of knowledge and see how them grow and become great professionals.",
+          "photoUrl": "https://cdn.runevents.net/speaker-profile-images/10111c9e-d23a-445c-a41b-242e0cc2e681"
         }
       ]
     },
@@ -100,7 +144,15 @@
       "speakers": [
         {
           "id": "neil-rowlands",
-          "name": "Neil Rowlands"
+          "name": "Neil Rowlands",
+          "tagline": "Power Platform Consultant, Architect and Freelance Trainer",
+          "company": "Intellectual Property Office",
+          "badges": [
+            "MCT",
+            "Microsoft Global Community Regional Leader"
+          ],
+          "bio": "- I'm a senior Power Platform and Power BI practitioner-trainer with a previous career in digital marketing and data analysis.\n- I am a regular speaker at UK user groups and a co-host of D365PPUG South-West and Power Platform User Group Wales, which meet quarterly in Bristol and Cardiff. In 2026 I am mentoring 6 people to become community speakers at these events.\n- I hold 9 certifications: AB-100, AB-730, AB-731, MB-280, PL-100, PL-200, PL-300, PL-400, PL-500 & PL-600 plus 6 Fundamentals.\n- I am an experienced Microsoft Certified Trainer and have introduced hundreds of people to Power BI and Power Platform.\n- Instead of presenting technical walkthroughs which are passive for the audience, I treat each session like a mini-training session, creating opportunities for attendees to engage their minds and contribute.",
+          "photoUrl": "https://cdn.runevents.net/speaker-profile-images/e7989e36-5162-4753-b23a-642bb237ed14"
         }
       ]
     },
@@ -135,7 +187,11 @@
       "speakers": [
         {
           "id": "arpit-shrivastava",
-          "name": "Arpit Shrivastava"
+          "name": "Arpit Shrivastava",
+          "tagline": "Microsoft MVP (5x) | MCT | Power Platform Architect | Author | Global Speaker & Trainer | Content Creator",
+          "company": "Capgemini",
+          "bio": "Hi, I am Arpit - a 5× Microsoft MVP and MCT with a deep focus on Power Platform, Azure, and Dynamics 365 CE. I work with organizations around the world to design intelligent, secure, and scalable solutions that combine the best of low‑code, pro‑code, and AI. Alongside consulting, I’m an author, global speaker, and trainer, and I lead the Power Community User Group.\n\nMy passion lies in sharing real-world patterns, reusable architectures, and practical techniques that help teams build faster and build better. Whether I am speaking on stage, writing content, or teaching workshops, I keep things grounded in actual project experience with no fluff, no hype, just real tech that works. My goal is always the same: empower makers, developers, and consultants to deliver solutions with confidence and clarity.",
+          "photoUrl": "https://cdn.runevents.net/speaker-profile-images/53aa5ca8-76b5-4f6b-bf2c-3ced646b6a66"
         }
       ]
     },
@@ -152,11 +208,19 @@
       "speakers": [
         {
           "id": "claire-edgson",
-          "name": "Claire Edgson"
+          "name": "Claire Edgson",
+          "tagline": "European Microsoft CX CTO and Security Specalist",
+          "company": "Capgemini",
+          "bio": "Microsoft Fast Track Recognised Architect. I have 30+ years experience in Data Analytics, Infrastructure and Integration Architecture. 20+ years of Microsoft Business Applications and Azure, including SharePoint, Microsoft 365, Dynamics 365CE, FO & HR. Business experience as IT Manager and IT Director allows Claire to work closely with customer IT teams and understand their pain through transformation programs.\n6 years experience with Power platform architecture and design, with Dataverse (CDS), SharePoint, SQL , Azure cognitive services, Azure Blob and Azure datalakes. I am passionate about Learning new things and sharing that knowledge with others as well as being incredibly passionate about the outcomes we give our customers.\nMy prime focus is on Security, Governance and Integrations with the PowerPlatform.",
+          "photoUrl": "https://cdn.runevents.net/speaker-profile-images/b7cd0312-91d6-47a4-90be-0089343b0904"
         },
         {
           "id": "jon-edgson",
-          "name": "Jon Edgson"
+          "name": "Jon Edgson",
+          "tagline": "I brake it so you don’t raise tickets",
+          "company": "Vantage365",
+          "bio": "First Line support that tests and breaks software and Power Apps. Uses AI to break things write dummy data and write scripts",
+          "photoUrl": "https://cdn.runevents.net/speaker-profile-images/76cfbc8f-fedb-4705-bd64-c6c5e263b14b"
         }
       ]
     },
@@ -173,7 +237,10 @@
       "speakers": [
         {
           "id": "natalia-kuros",
-          "name": "Natalia Kuroś"
+          "name": "Natalia Kuroś",
+          "tagline": "Adoption and Change Management Consultant",
+          "bio": "I'm often like a guide in a maze built of Microsoft 365 apps and services, which can be quite difficult for businesses and users to understand. I stand in the middle of business goals, employee experience, old habits (that die hard), and processes that need digitalization. My best friends on this road are SharePoint Online, MS Teams, Viva apps, and Copilot for Microsoft 365. I believe that the true magic of change lies in communication, transparency, and engagement, and that we should start all projects with \"why.\"",
+          "photoUrl": "https://cdn.runevents.net/speaker-profile-images/147baffd-728b-4ad9-8487-3bdf1c068b66"
         }
       ]
     },
@@ -190,7 +257,11 @@
       "speakers": [
         {
           "id": "ian-tweedie",
-          "name": "Ian Tweedie"
+          "name": "Ian Tweedie",
+          "tagline": "Senior Technical Architect | 32x Certified | Blogger | Power Apps Super User | Tech Coach | Black Belt",
+          "company": "Capgemini",
+          "bio": "As a Senior Technical Architect at Capgemini, Ian Tweedie is a driving force in the Power Platform and cloud technology space. With an impressive 32 certifications, majority in Microsoft, he has a proven track record of bridging the gap between low-code solutions and pro-code development.\n\nIan's journey from IT Manager to a leading Power Platform Technical Architect showcases his passion for continuous learning and adaptation. His blog, TechTweedie, is a go-to resource for peers, and his certified Power Automate connector demonstrates his ability to deliver real-world solutions. A Lean Six Sigma Black Belt, Ian brings a strategic and process-oriented mindset to every project.\n\nBeyond his technical achievements, Ian is committed to giving back to the community, serving as a trustee for digital transformation for Prosper Learning Trust.",
+          "photoUrl": "https://cdn.runevents.net/speaker-profile-images/2b064f5b-89ee-46f0-a025-1266f455927c"
         }
       ]
     },
@@ -216,11 +287,25 @@
       "speakers": [
         {
           "id": "samir-makwana",
-          "name": "Samir Makwana"
+          "name": "Samir Makwana",
+          "tagline": "MVP (Copilot Studio)| Founder of Cloudtrify | Cloud Solution Architect",
+          "company": "Cloudtrify",
+          "badges": [
+            "MVP"
+          ],
+          "bio": "Samir Makwana builds enterprise AI ecosystems that last.\n\nAs the Founder of Cloudtrify and a Microsoft MVP in AI & Copilot Studio, Samir works at the intersection of architecture, governance, and real-world execution — helping organizations move from AI curiosity to enterprise-wide impact.\n\nWith over 18 years in enterprise IT across North America, EMEA, and APAC, Samir has led large-scale Microsoft cloud and AI initiatives where security, compliance, and scalability are non-negotiable. His work spans the full AI stack — Azure OpenAI, Cognitive Services, Semantic Kernel, Copilot Studio, and Power Platform AI — applying deep prompt engineering, RAG patterns, and grounding techniques to deliver production-grade outcomes, not just proof-of-concepts.\n\nSamir is also a global speaker, sharing practical insights on Copilot strategy, Azure AI architecture, and responsible AI adoption grounded not in theory, but in real enterprise deployments.\n\nAt Deloitte, Samir designed and delivered a 3-week Copilot Studio enablement program, empowering teams to confidently build and deploy production-ready AI agents — alongside a reusable component strategy built for long-term scalability and governance.\n\nThrough Cloudtrify, Samir has supported enterprise and public sector leaders including the Bank of Canada, City of Toronto, Peel Regional Police, The Ottawa Hospital, and Voya Financial.\n\nHis belief is simple: AI is not a feature. It is an architectural decision. And when implemented without governance, it becomes risk — not advantage.\n\nFor organizations serious about Copilot, Azure AI, and enterprise-grade AI strategy — Samir Makwana is the architect to call.",
+          "photoUrl": "https://cdn.runevents.net/speaker-profile-images/e8988363-881c-40c1-8aad-796a7821d23f"
         },
         {
           "id": "david-lorenzo-lopez",
-          "name": "David Lorenzo López"
+          "name": "David Lorenzo López",
+          "tagline": "Microsoft MVP Power Apps | Power Platform Solutions Architect at Prodware",
+          "company": "Prodware Spain",
+          "badges": [
+            "MVP"
+          ],
+          "bio": "Father of a princess, husband of a queen. Since 2010 working in the .NET world, designing and building solutions based on Azure. Since 2020 more focused more on the Power Platform and Artificial Intelligence world. Love football, play guitar, listen music and share time with my family and friends.  One of my favorites hobbies is to share knowledge with the tech community, assist to events to speak and to learn from other community members. Also I like a lot to help young people that is giving its first steps in this world to get used to it, guide them through this walking of knowledge and see how them grow and become great professionals.",
+          "photoUrl": "https://cdn.runevents.net/speaker-profile-images/10111c9e-d23a-445c-a41b-242e0cc2e681"
         }
       ]
     },
@@ -241,11 +326,18 @@
       "speakers": [
         {
           "id": "andrzej-bukowski",
-          "name": "Andrzej Bukowski"
+          "name": "Andrzej Bukowski",
+          "tagline": "Senior Power Platform & Dynamics 365 applications developer, Business Analyst",
+          "company": "Capgemini",
+          "bio": "An experienced Microsoft Dynamics 365 and Power Platform professional with expertise spanning solution architecture, application development, business analysis, and process improvement. He has delivered solutions using Dynamics 365, Power Apps, Power Automate, Power BI, SharePoint, and Copilot Studio, helping organizations turn complex business requirements into practical digital solutions.",
+          "photoUrl": "https://cdn.runevents.net/speaker-profile-images/6c366193-3b38-42af-9191-b4d5cffdc0ba"
         },
         {
           "id": "jakub-jassak",
-          "name": "Jakub Jassak"
+          "name": "Jakub Jassak",
+          "company": "Capgemini",
+          "bio": "Developer by profession, problem solver by habit. Since 2024, I've been working at Capgemini, specializing in Dynamics 365 Contact Center and Copilot Studio while continuously expanding my expertise across the Microsoft Power Platform ecosystem.",
+          "photoUrl": "https://cdn.runevents.net/speaker-profile-images/5a3bb14a-1bf0-49dd-8538-7479cbffda0c"
         }
       ]
     },
@@ -262,7 +354,10 @@
       "speakers": [
         {
           "id": "filip-giermek",
-          "name": "Filip Giermek"
+          "name": "Filip Giermek",
+          "company": "ABB",
+          "bio": "Filip Giermek - Functional Analyst w ABB oraz absolwent geoinformatyki na AGH. Specjalizuje się w rozwiązaniach klasy PPM opartych na Power Platform dla globalnych zespołów. Koncentruje się na dostarczaniu intuicyjnych narzędzi, które eliminują bariery technologiczne i naturalnie wpisują się w codzienny workflow użytkowników. Po pracy gra w badmintona 🏸",
+          "photoUrl": "https://cdn.runevents.net/speaker-profile-images/78ef5e35-ff7e-4fcf-92ae-1e4a7ede291d"
         }
       ]
     },
@@ -279,7 +374,13 @@
       "speakers": [
         {
           "id": "betim-beja",
-          "name": "Betim Beja"
+          "name": "Betim Beja",
+          "company": "Shko Online",
+          "badges": [
+            "MVP"
+          ],
+          "bio": "Currently focused on helping local professionals in Albania produce high-quality software by organizing events and sharing Open-Source tools.",
+          "photoUrl": "https://cdn.runevents.net/speaker-profile-images/26e2c453-c0b5-4fbb-ad57-c5d8d89629f6"
         }
       ]
     },
@@ -305,7 +406,13 @@
       "speakers": [
         {
           "id": "feline-parein",
-          "name": "Feline Parein"
+          "name": "Feline Parein",
+          "company": "Capgemini",
+          "badges": [
+            "MVP"
+          ],
+          "bio": "Feline Parein is a business consultant with a big focus on all things Microsoft. She’s a certified Power Platform consultant and has hands-on experience with setting up enterprise-level applications and processes within the Power Platform.",
+          "photoUrl": "https://cdn.runevents.net/speaker-profile-images/e0276642-9079-420a-a637-b47e8b51bd72"
         }
       ]
     },
@@ -322,11 +429,20 @@
       "speakers": [
         {
           "id": "manfred-koch",
-          "name": "Manfred Koch"
+          "name": "Manfred Koch",
+          "company": "Raiffeisen Informatik",
+          "photoUrl": "https://cdn.runevents.net/speaker-profile-images/363b06b7-9dac-45d2-9c3e-59d5cdf9e792",
+          "links": {
+            "linkedin": "https://www.linkedin.com/in/manfredkoch"
+          }
         },
         {
           "id": "mihaela-ruxandra-stancu",
-          "name": "Mihaela-Ruxandra Stancu"
+          "name": "Mihaela-Ruxandra Stancu",
+          "tagline": "M365 Goverance is my superpower",
+          "company": "Raiffeisen Informatik",
+          "bio": "M365 Consultant focusing on collaboration, innovation & governance\n\n@ Raiffeisen Informatik - currently working as Expert in Collaboration since 2024,supporting Raiffeisen Bank International with M365 Governance topics, focusing on M365Copilot & Agents\n\nI'm passionate about helping organizations achieve secure & efficient adoption of modern workplace tools.\n\nView my full profile @ https://www.linkedin.com/in/mihaela-ruxandra-stancu",
+          "photoUrl": "https://cdn.runevents.net/speaker-profile-images/52e66680-ba19-47e6-b818-e471f0a96141"
         }
       ]
     },
@@ -343,7 +459,15 @@
       "speakers": [
         {
           "id": "joe-griffin",
-          "name": "Joe Griffin"
+          "name": "Joe Griffin",
+          "tagline": "Business Applications MVP and CEO @ proMX UK Limited",
+          "company": "proMX UK Limited",
+          "badges": [
+            "MCT",
+            "MVP"
+          ],
+          "bio": "My name’s Joe Griffin, and I’m CEO of proMX UK, a Microsoft Inner Circle partner within the proMX group of companies. I hold various Microsoft certifications in Dynamics CRM/365 Customer Engagement, Azure, Power BI and SQL Server and am also a PRINCE2 Project Manager and Agile Practitioner. I have a broad knowledge of working with and managing projects involving Dynamics 365 Customer Engagement, Azure, Power BI, .NET and other technologies within the Microsoft cloud stack. During this time, I’ve developed a keen interest in coding, and love working with Transact-SQL, JScript, PowerShell, DAX & C#. Thanks to my previous experience, I have practical knowledge operating within the energy efficiency, managed services, retail, print & direct mail and utility sectors. I love getting involved as part of the Business Applications technical community and was very fortunate to receive the Most Valuable Professional (MVP) award from Microsoft in 2020, in recognition of my contributions in this area. When I’m not blogging or tinkering, I enjoy reading, catching up on the latest films/TVs, and learning about and studying history.",
+          "photoUrl": "https://cdn.runevents.net/speaker-profile-images/a19328be-b796-44cc-83cc-fb622cf7400e"
         }
       ]
     },
@@ -360,7 +484,11 @@
       "speakers": [
         {
           "id": "adilson-capaia",
-          "name": "Adilson Capaia"
+          "name": "Adilson Capaia",
+          "tagline": "Tech Lead D365 & Power Platfrom",
+          "company": "Avanade",
+          "bio": "Blogger and founder of \"The Rational Developer\" blog, I'm old school in the AI era - maintaining a Craftsmanship approach while staying pragmatic and modern. Newly married and passionate about Microsoft technologies, with 8+ years of experience across D365, Power Platform, .NET, and Azure, I evangelize my audience by tackling essential topics without the \"Bullshit\".",
+          "photoUrl": "https://cdn.runevents.net/speaker-profile-images/a0a92ac4-c660-4548-9d3c-d6727893b655"
         }
       ]
     },
@@ -390,11 +518,18 @@
       "speakers": [
         {
           "id": "vassil-stoitsev",
-          "name": "Vassil Stoitsev"
+          "name": "Vassil Stoitsev",
+          "company": "Capgemini",
+          "bio": "Vassil is a Microsoft AI & CX Business Lead and Microsoft Solution Architect at Capgemini. With deep architectural and technical expertise on Dynamics 365 and Power Platform built up for more than 15 years, Vassil designs solutions and advises customers on the best use of Microsoft Biz Apps technologies. Vassil has wide experience with different industry sectors, projects of different scale, and Agile methodologies.",
+          "photoUrl": "https://cdn.runevents.net/speaker-profile-images/c093b846-bb4f-40f9-9ab0-e18ba47577d0"
         },
         {
           "id": "paul-harrison",
-          "name": "Paul Harrison"
+          "name": "Paul Harrison",
+          "tagline": "Paul Harrison",
+          "company": "Capgemini",
+          "bio": "Paul is a technology leader who enables clients to reap maximum benefit from innovative yet pragmatic solutions across the breadth of the Microsoft platform. He works with global clients to drive business value and growth and empower customers and employees alike. He is a champion of using technology for good and driving positive change in our communities and the environment.",
+          "photoUrl": "https://cdn.runevents.net/speaker-profile-images/86a27d12-63fe-493c-9daa-a679afe1a4d8"
         }
       ]
     },
@@ -411,7 +546,11 @@
       "speakers": [
         {
           "id": "sandra-kiel",
-          "name": "Sandra Kiel"
+          "name": "Sandra Kiel",
+          "tagline": "Managing Director",
+          "company": "Event Punks GmbH",
+          "bio": "I’m Sandra Kiel – gamer, Playpreneur and founder of Event Punks. I help organisations turn dry, complex topics into playful experiences: from gamified Power Apps and Copilot adoption journeys to learning quests in Microsoft 365 and Gaming Platforms like Minecraft.\n\nMy heart lives where people, play and technology meet. I work with game design principles, storytelling and UX to make change, learning and new tools feel less scary and more human. As an introvert, a mum and a non-native English speaker, I don’t fit the classic “loud tech speaker” stereotype – and I’m totally fine with that.\n\nOn stage, I share real-world projects, honest lessons and practical patterns teams can reuse the next day. My talks are for people who want less buzzword bingo and more concrete ideas on how to bring play, curiosity and adoption into their everyday work.",
+          "photoUrl": "https://cdn.runevents.net/speaker-profile-images/380cf815-2697-4d64-9ee8-2df8865b78a7"
         }
       ]
     },
@@ -428,7 +567,11 @@
       "speakers": [
         {
           "id": "chris-huntingford",
-          "name": "Chris Huntingford"
+          "name": "Chris Huntingford",
+          "tagline": "Absence of evidence is not evidence of absence",
+          "company": "Cloud Lighthouse",
+          "bio": "Keynote Speaker Chris Huntingford is known for bringing unapologetic energy, disruptive thinking, and a radically human approach to technology-driven transformation. As a global voice on innovation, Responsible AI, and collaborative culture, Chris has earned a reputation for connecting people, technology, and purpose in ways that spark real organizational change.\n\nWith a background rooted in solution architecture and tech strategy, Chris goes beyond buzzwords. His keynotes combine hands-on experience, thought-provoking insight, and magnetic storytelling to help businesses navigate complexity, embrace innovation, and unleash the creative potential of their teams.\n\nChris is a self-described “dot connector,” known for turning scattered ideas into powerful, actionable strategies that drive growth and cultural change. Whether he’s challenging teams to break away from traditional thinking or exploring how AI can be harnessed ethically and effectively, his messages leave lasting impact.",
+          "photoUrl": "https://cdn.runevents.net/speaker-profile-images/f215b96c-66ee-42f7-baaa-8c966d9a34d9"
         }
       ]
     },
@@ -445,7 +588,14 @@
       "speakers": [
         {
           "id": "katerina-chernevskaya",
-          "name": "Katerina Chernevskaya"
+          "name": "Katerina Chernevskaya",
+          "tagline": "AI Practice Lead | MVP | MCT",
+          "badges": [
+            "MCT",
+            "MVP"
+          ],
+          "bio": "Katerina, an MVP, MCT, and renowned public speaker, focuses on Power Platform & AI. With twenty years of experience and key certifications in PROSCI, PMI, Power Platform Solution Architect, she leads in app development, AI, and adaptive work models. Active in the Microsoft community, Katerina mentors new tech talent and supports innovation. Katerina takes part in the #SharingIsCaring initiative, guiding community contributions to the Microsoft Sample Solution Gallery.",
+          "photoUrl": "https://cdn.runevents.net/speaker-profile-images/1d352d82-9fad-4f48-8d5a-e72383bbfbee"
         }
       ]
     },
@@ -462,7 +612,14 @@
       "speakers": [
         {
           "id": "jan-chlebek",
-          "name": "Jan Chlebek"
+          "name": "Jan Chlebek",
+          "tagline": "Business Applications & Automation CoE Lead @ Clouds On Mars",
+          "company": "Clouds On Mars",
+          "badges": [
+            "MCT"
+          ],
+          "bio": "I’m a Microsoft-certified Power Platform Expert and Tech Lead at Clouds On Mars. My passion lies in transforming ideas into powerful, efficient solutions that maximize the potential of Microsoft Power Platform. Whether it’s simplifying complex workflows or building hyper-optimized applications, I’m always seeking smarter ways to get things done. I’m also deeply committed to empowering others. Through blogging, running workshops, and sharing resources like my technical interview question sets, I aim to make tech more accessible and help professionals grow. Teaching and mentoring aren’t just things I do - they’re at the heart of what drives me.",
+          "photoUrl": "https://cdn.runevents.net/speaker-profile-images/400d9d85-4db7-466a-9364-045d4f6863fe"
         }
       ]
     },
@@ -488,7 +645,14 @@
       "speakers": [
         {
           "id": "lukas-pavelka",
-          "name": "Lukas Pavelka"
+          "name": "Lukas Pavelka",
+          "tagline": "Innovation enthusiasts for Power Platform",
+          "company": "MyCondy",
+          "badges": [
+            "MVP"
+          ],
+          "bio": "I have been working in IT for 20 years. In this rich way, I gained a lot of experience with development in the IT, Banking, Telecommunication, and Heavy Industry areas. I could help with Microsoft Power Platform technologies.",
+          "photoUrl": "https://cdn.runevents.net/speaker-profile-images/0ee40a80-a236-468a-bfdc-221badf59cee"
         }
       ]
     },
@@ -505,7 +669,13 @@
       "speakers": [
         {
           "id": "mateusz-wasilewski",
-          "name": "Mateusz Wasilewski"
+          "name": "Mateusz Wasilewski",
+          "company": "Microsoft",
+          "badges": [
+            "Microsoft"
+          ],
+          "bio": "I’m a Senior Software Engineer at Microsoft working in Industry Solutions Engineering (ISE), where I build cloud, data, and AI-driven solutions for real-world customer scenarios. My work spans enterprise platforms, AI-powered automation, and analytics, with a focus on bringing Copilot and agentic AI into production environments for enterprise customers.",
+          "photoUrl": "https://cdn.runevents.net/speaker-profile-images/cbfda891-093c-4769-a360-6c4b4538e0ab"
         }
       ]
     },
@@ -522,7 +692,14 @@
       "speakers": [
         {
           "id": "jonas-rapp",
-          "name": "Jonas Rapp"
+          "name": "Jonas Rapp",
+          "tagline": "Lazy Techy who builds tools and systems",
+          "company": "CRMK",
+          "badges": [
+            "MVP"
+          ],
+          "bio": "I'm lazy, and I'm proud of it.\nI build tools in my free time, so my workdays are more productive.\nI build tools for you as well.\nI work hard daily to not create a career.",
+          "photoUrl": "https://cdn.runevents.net/speaker-profile-images/601aa248-7e6c-41d4-97cc-7840b97a0352"
         }
       ]
     },
@@ -539,7 +716,9 @@
       "speakers": [
         {
           "id": "michael-megel",
-          "name": "Michael Megel"
+          "name": "Michael Megel",
+          "bio": "Michael Megel is an evangelist for cloud-first technologies with extensive experience across Microsoft Azure, Amazon AWS, Generative AI, Azure DevOps, Microsoft BizApps, Low-Code solutions with PowerApps, IoT, and Big Data. In addition, he has a unique hands-on expertise in integrating microservices as part of traditional BizApps architectures. This broad spectrum of technologies helps him to turn customer challenges into solutions, find new business approaches and shape the future.\n\nMichael regularly shares knowledge with others through his blog, conferences, and community events. He is a strong believer that you \"Never-Stop-Learning\" something new.",
+          "photoUrl": "https://cdn.runevents.net/speaker-profile-images/d8667d9d-71e4-4e86-970e-6270bd396e0b"
         }
       ]
     },
@@ -565,7 +744,10 @@
       "speakers": [
         {
           "id": "dawid-szpyra",
-          "name": "Dawid Szpyra"
+          "name": "Dawid Szpyra",
+          "tagline": "Power Platform Developer | Automation enthusiast",
+          "bio": "Power Platform specialist with deep expertise in Power Apps and Power Automate, helping organizations do more with less code. I've delivered solutions across HR, finance, and data privacy, turning manual processes into streamlined Power Apps (Canvas, Model-Driven), automated workflows, SharePoint and databases integrations. With a foundation in management engineering, I bridge the gap between business needs and technical execution - translating real-world problems into tools people actually want to use.",
+          "photoUrl": "https://cdn.runevents.net/speaker-profile-images/f989fe1c-3a92-4649-ad8c-771afba81fe7"
         }
       ]
     },
@@ -582,11 +764,16 @@
       "speakers": [
         {
           "id": "piotr-maciej-rusak",
-          "name": "Piotr Maciej Rusak"
+          "name": "Piotr Maciej Rusak",
+          "company": "Bossard AG",
+          "bio": "I am experienced M365 and Power Platform Architect (with 18 years experience).\nI touched everything in Power Platform (maybe not too much Power BI 😉)",
+          "photoUrl": "https://cdn.runevents.net/speaker-profile-images/c4d33868-9289-4abb-a5a4-2fda33b5a9e4"
         },
         {
           "id": "marcin-wojciechowski",
-          "name": "Marcin Wojciechowski"
+          "name": "Marcin Wojciechowski",
+          "bio": "SharePoint developer for 10 years. Consulted mostly for enterprise level companies, currently M365 Competence Center Leader at Avenga.\nHeavily focused on OOP and SOLID concepts applied to SharePoint development.",
+          "photoUrl": "https://cdn.runevents.net/speaker-profile-images/9b949f83-e131-4f09-a9e8-5e2dd8797b66"
         }
       ]
     },
@@ -603,7 +790,11 @@
       "speakers": [
         {
           "id": "marlon-konig",
-          "name": "Marlon König"
+          "name": "Marlon König",
+          "tagline": "Power Platform Evangelist @ Dataciders GmbH",
+          "company": "Dataciders GmbH",
+          "bio": "I’m a Power Platform enthusiast and solution builder with a strong focus on bridging the gap between low-code/no-code and pro-code development. Over the past years, I’ve delivered numerous trainings for beginners and intermediates on Copilot Studio, Power Apps, Power Automate and Power Platform Governance helping makers and developers unlock productivity and confidence in building modern business solutions.",
+          "photoUrl": "https://cdn.runevents.net/speaker-profile-images/fb9faf4a-1584-45ed-80e4-60d527d3e73c"
         }
       ]
     },
@@ -620,11 +811,21 @@
       "speakers": [
         {
           "id": "mateusz-olek",
-          "name": "Mateusz Olek"
+          "name": "Mateusz Olek",
+          "company": "1Security",
+          "bio": "Bio\n\nCo-founder and COO of 1Security, combining a strong product mindset with hands-on experience in building and scaling technology businesses. He has worked across strategy, product, and go-to-market, turning early-stage ideas into products with real market traction. Previously, he helped build and launch a developer assessment and hiring platform that grew into a community of more than 100,000 engineers.",
+          "photoUrl": "https://cdn.runevents.net/speaker-profile-images/2248fc7c-e36b-403e-b847-6da26f889fff"
         },
         {
           "id": "adam-zaczek",
-          "name": "Adam Żaczek"
+          "name": "Adam Żaczek",
+          "tagline": "cybersecurity, M365, permissions, AI safety, Copilot",
+          "company": "1Security",
+          "badges": [
+            "MVP"
+          ],
+          "bio": "Adam Żaczek is the Founder, CEO, and CTO of 1Security, a cybersecurity platform dedicated to bringing clarity and control to the Microsoft 365 ecosystem. Prior to 1Security, his technology ventures secured multi-stage funding from top-tier VC funds and successfully supported the growth of tens of thousands of users. The vision for 1Security was born when Adam realized a critical flaw in enterprise IT: even the most advanced organizations struggle to answer the fundamental question of who has access to their sensitive data and why. Recognizing that traditional access management models were failing at the scale of modern, decentralized cloud data, he built 1Security. Today, Adam focuses on engineering solutions that untangle permission chaos, enforce Zero Trust, and prepare enterprises for the secure adoption of AI, emphasizing deep visibility, intuitive forensics, and automated remediation.",
+          "photoUrl": "https://cdn.runevents.net/speaker-profile-images/db42c921-5070-49fd-970b-68a5494ff149"
         }
       ]
     },
@@ -641,7 +842,15 @@
       "speakers": [
         {
           "id": "marijn-somers",
-          "name": "Marijn Somers"
+          "name": "Marijn Somers",
+          "tagline": "Microsoft 365 Spirit Guide, MVP, MCT",
+          "company": "Balestra",
+          "badges": [
+            "MCT",
+            "MVP"
+          ],
+          "bio": "Results-driven Microsoft365 consultant with a passion for helping organizations work more efficiently. With my business-focused approach, I specialize in getting my hands dirty in different applications to drive productivity and optimize workflows. I have worked in various roles such as project manager, business analyst, trainer, specialist, and productivity coach, which has given me a unique perspective on how to implement Microsoft365 tools to drive business success.\n\nAs a speaker, I have had the privilege of presenting at various international events, where I share my expertise on topics such as governance, training, coaching, and user adoption. My presentations are always informative, engaging, and tailored to the specific needs of the audience.\n\nIn addition to my consulting and speaking work, I help run the \"Office 365 Distilled\" podcast, where I share my insights and experiences with a global audience.\nIf you're looking to optimize your organization's use of Microsoft365, I am here to help. Let's connect to discuss how we can work together to achieve your business goals.",
+          "photoUrl": "https://cdn.runevents.net/speaker-profile-images/7f3d1a57-6752-4953-8912-e77f9418ea88"
         }
       ]
     },
@@ -658,7 +867,13 @@
       "speakers": [
         {
           "id": "denes-halasz",
-          "name": "Dénes Halász"
+          "name": "Dénes Halász",
+          "tagline": "Certified Data Analyst | Power Platform Developer | Content Creator | User Group Co-Lead",
+          "badges": [
+            "MCT"
+          ],
+          "bio": "Denes Halasz is a freelance Power Platform expert and co-leader of the Hungary Power Platform User Group. He began his journey in 2018 by developing company-wide Power BI solutions and quickly expanded into the broader Power Platform, becoming a citizen developer. With expertise in Power Apps, Power BI, Power Automate and other low-code tools, Dénes helps individuals and businesses streamline processes and create impactful solutions.\n\nIn addition to his consulting work, Dénes runs a YouTube channel focused on the Power Platform, where he shares career development advice, tips on getting started with low-code, and guidance for becoming a successful freelancer or citizen developer.\nHe is passionate about mentoring and building supportive communities, organizing events to empower others to succeed in their careers with low-code skills.",
+          "photoUrl": "https://cdn.runevents.net/speaker-profile-images/12b9acc9-8ff8-4746-8ed9-6830f51ff383"
         }
       ]
     },
@@ -675,7 +890,11 @@
       "speakers": [
         {
           "id": "duncan-boyne",
-          "name": "Duncan Boyne"
+          "name": "Duncan Boyne",
+          "tagline": "The Power BI kinda guy",
+          "company": "CpIO",
+          "bio": "I’m a Power BI and Power Platform consultant with a background in turning messy, real-world data into something people actually want to use.\n\nI spend most of my time working with Power BI, Dataverse, Power Apps, and Power Automate, helping organisations move from “we have data” to “we trust our data”. I’m particularly interested in report design, semantic models, governance, and making complex concepts feel simple.\n\nOutside of client work, I’m heavily involved in the Power Platform community. I run the Norfolk Power Platform User Group, help organise regional events, and regularly speak at user groups and conferences across the UK.\n\nMy sessions are practical, honest, and based on lessons learned the hard way, with a focus on things you can apply the next day.",
+          "photoUrl": "https://cdn.runevents.net/speaker-profile-images/36d27aa0-17e4-45e7-9498-8c25ffee39ba"
         }
       ]
     },
@@ -692,7 +911,11 @@
       "speakers": [
         {
           "id": "sandra-kiel",
-          "name": "Sandra Kiel"
+          "name": "Sandra Kiel",
+          "tagline": "Managing Director",
+          "company": "Event Punks GmbH",
+          "bio": "I’m Sandra Kiel – gamer, Playpreneur and founder of Event Punks. I help organisations turn dry, complex topics into playful experiences: from gamified Power Apps and Copilot adoption journeys to learning quests in Microsoft 365 and Gaming Platforms like Minecraft.\n\nMy heart lives where people, play and technology meet. I work with game design principles, storytelling and UX to make change, learning and new tools feel less scary and more human. As an introvert, a mum and a non-native English speaker, I don’t fit the classic “loud tech speaker” stereotype – and I’m totally fine with that.\n\nOn stage, I share real-world projects, honest lessons and practical patterns teams can reuse the next day. My talks are for people who want less buzzword bingo and more concrete ideas on how to bring play, curiosity and adoption into their everyday work.",
+          "photoUrl": "https://cdn.runevents.net/speaker-profile-images/380cf815-2697-4d64-9ee8-2df8865b78a7"
         }
       ]
     },
@@ -718,7 +941,10 @@
       "speakers": [
         {
           "id": "joanna-hryniewicz",
-          "name": "Joanna Hryniewicz"
+          "name": "Joanna Hryniewicz",
+          "company": "ABC Joanna Hryniewicz - Analytics, BI, Coaching",
+          "bio": "Power BI Developer/ Admin/ Fabric Data Engineer/ Architect/ Self-Service Community Manager",
+          "photoUrl": "https://cdn.runevents.net/speaker-profile-images/5b2db00e-1b90-41ef-a48e-d00d6d80ca0b"
         }
       ]
     },
@@ -735,7 +961,10 @@
       "speakers": [
         {
           "id": "tom-mullens",
-          "name": "Tom Mullens"
+          "name": "Tom Mullens",
+          "company": "Vivicta",
+          "bio": "As a Microsoft 365 Advisor, I help clients get the most out of their Microsoft Cloud solutions. I started my journey as a SharePoint developer in Belgium and later transitioned into a more business consulting role. Today, I focus on guiding organizations to optimize their processes and drive successful adoption of Microsoft 365 tools.",
+          "photoUrl": "https://cdn.runevents.net/speaker-profile-images/37c6510d-fc94-41c3-9c48-5da28abe5aaf"
         }
       ]
     },
@@ -752,7 +981,14 @@
       "speakers": [
         {
           "id": "ambesh-singh",
-          "name": "Ambesh Singh"
+          "name": "Ambesh Singh",
+          "tagline": "Ex-Microsoft | MVP | Dynamics 365 CE Architect | Azure | Power Platform | Power Pages & Copilot Studio (MVP | MCP | MCTS | MCSA | MCSE)",
+          "company": "Visionet Deutschland",
+          "badges": [
+            "MVP"
+          ],
+          "bio": "Solution Architect in Avanade having 16+ years of rich experience on the Microsoft stack including integration, AI and low-code technologies like Azure, Power Platform, Dynamics 365, and Copilot, mostly worked with Microsoft in Product group and Global deliveries.\n\nhttps://www.linkedin.com/in/ambesh-singh/\nhttps://www.youtube.com/@AmbeshSingh\nhttps://www.youtube.com/@PowerPlatformLearners",
+          "photoUrl": "https://cdn.runevents.net/speaker-profile-images/b0c74db3-6d0d-4ebb-8433-410b22d3eeea"
         }
       ]
     },
@@ -769,7 +1005,8 @@
       "speakers": [
         {
           "id": "paulina-paczynska",
-          "name": "Paulina Pałczyńska"
+          "name": "Paulina Pałczyńska",
+          "photoUrl": "https://cdn.runevents.net/speaker-profile-images/268105a4-9036-463b-b808-9f1596a3c4c9"
         }
       ]
     },
@@ -795,7 +1032,14 @@
       "speakers": [
         {
           "id": "arjan-rijsdijk",
-          "name": "Arjan Rijsdijk"
+          "name": "Arjan Rijsdijk",
+          "tagline": "Power Platform Consultant & Developer | Microsoft Power Apps MVP",
+          "company": "Powerbouwer",
+          "badges": [
+            "MVP"
+          ],
+          "bio": "I'm a Power Platform enthusiast, or as I like to call myself, a Power Addict, based in the Rotterdam area in the Netherlands. I work at Powerbouwer on some of the coolest Power Platform projects, always focused on creating real added value for users.\n\nMy first introduction to the Power Platform showed me how much impact smart low-code solutions can have. Since then, I’ve kept building, experimenting and learning. What I enjoy most? Working with other Power Platform experts and pushing each other to the next level.\n\nI also love sharing that passion as a speaker. At events and sessions, I talk about the Power Platform, my experiences and the lessons I pick up along the way.\n\nLearn something new every day. Stay Hungry. Stay Foolish.",
+          "photoUrl": "https://cdn.runevents.net/speaker-profile-images/092763d6-1de6-4fab-b2af-ef3abf796545"
         }
       ]
     },
@@ -816,11 +1060,17 @@
       "speakers": [
         {
           "id": "gleb-kanunnikau",
-          "name": "Gleb Kanunnikau"
+          "name": "Gleb Kanunnikau",
+          "company": "Capgemini",
+          "bio": "Senior Business Architect | Agentic AI, Copilot agents | Power Platform | Enterprise Process Automation | Capgemini\nI design business systems that actually work—connecting high-level strategy directly to day-to-day operations.\n\nOver my 25-year career, my focus has spanned large-scale operations at European industry clients, media corporations, financial data and due diligence for Wall Street clients, and leading enterprise CRM and AI programs. For the past four years at Capgemini, I have been delivering complex agentic solutions for energy, HR and other sectors, as well as portfolio management and business process automation solutions on the Power Platform with focus on Copilot studio, and Azure.\n\nCurrently, my work focuses heavily on Agentic AI implementations using Microsoft Copilot Studio. As an AB-100 Certified Architect, I am a strong advocate for pragmatic innovation. While the shift toward autonomous agents is incredibly promising, I do not believe in building AI for the sake of AI. I build secure, governed architectures that rely on clean underlying data and manageable technical debt.",
+          "photoUrl": "https://cdn.runevents.net/speaker-profile-images/a1689411-1b17-4528-a205-886dd1b0cc84"
         },
         {
           "id": "bartosz-kopania",
-          "name": "Bartosz Kopania"
+          "name": "Bartosz Kopania",
+          "company": "Capgemini",
+          "bio": "I’m a Computer Science graduate from Gdańsk University of Technology, working with Microsoft Power Platform since July 2024. I focus on combining low‑code and pro‑code approaches to build scalable, modern solutions. I mainly focuses on Copilot Studio projects.",
+          "photoUrl": "https://cdn.runevents.net/speaker-profile-images/036beed7-d880-419e-958e-c630f4610fe9"
         }
       ]
     },
@@ -837,11 +1087,24 @@
       "speakers": [
         {
           "id": "julian-kusenberg",
-          "name": "Julian Kusenberg"
+          "name": "Julian Kusenberg",
+          "tagline": "Microsoft Purview MVP",
+          "company": "SoftwareONE Deutschland GmbH",
+          "badges": [
+            "MVP"
+          ],
+          "bio": "Julian Kusenberg is a Microsoft MVP for Purview and Senior Consultant at SoftwareOne AG and an expert in Microsoft 365 compliance, with a particular focus on Microsoft Purview. In his role, he supports organizations in implementing holistic security and governance strategies – from deploying sensitivity labels to Insider Risk Management, Data Loss Prevention, and eDiscovery.\n\nWith an academic background in physics from Heinrich Heine University Düsseldorf, Julian combines analytical thinking with deep technical expertise. Previously, he worked at FTI Consulting, where he led international Microsoft 365 compliance projects.\n\nHis focus lies in the practical implementation of compliance frameworks within Microsoft environments, the development of information protection strategies, and the intelligent use of automation and governance features. Julian is a regular speaker at conferences, known for presenting complex technical topics in a clear, structured, and practical manner.",
+          "photoUrl": "https://cdn.runevents.net/speaker-profile-images/18306c81-f5eb-4e84-9656-f3b1a06b336c"
         },
         {
           "id": "luise-freese",
-          "name": "Luise Freese"
+          "name": "Luise Freese",
+          "tagline": "Changing the world one app at a time",
+          "badges": [
+            "MVP"
+          ],
+          "bio": "Luise is an Azure & Power Platform Architect based in Germany. She is an awarded Microsoft Most Valuable Professional (MVP) working with organizations that want to move beyond digital theatre. Her focus is on AI-enabled solutions that are designed to last in real-world environments. She helps teams build accessible apps, robust data models, and automation that respects governance, compliance, and human effort. A recurring theme in her work is making the invisible visible: unmeasured work, emotional load, operational friction, and the real cost of “quick wins”. Her motto \"Changing the world one app at a time\" stems from her extensive work with non-profit organizations.\n\nAlongside client work, Luise writes and speaks about productivity myths, pseudo-agile practices, AI readiness, and why many digital initiatives fail long before technology becomes the problem. She is known for combining clear technical guidance with a sharp eye for organizational patterns; and for asking the uncomfortable questions others tend to avoid.\n\nWhen not working and traveling, she is a runner, a mother of (teenage) dragons, a LEGO-builder and a lover of the number 42. Her favorite color is #ff69b4.",
+          "photoUrl": "https://cdn.runevents.net/speaker-profile-images/3e8f2de3-0e2e-47f3-809a-4b1a600a8575"
         }
       ]
     },
@@ -858,11 +1121,22 @@
       "speakers": [
         {
           "id": "tatu-seppala",
-          "name": "Tatu Seppälä"
+          "name": "Tatu Seppälä",
+          "tagline": "Microsoft MVP | Data Security, Insider Threat, Power Platform & agents security and governance",
+          "company": "Sulava",
+          "badges": [
+            "MVP"
+          ],
+          "bio": "Microsoft MVP Security. Deep experience in consultancy, advisory and architectural roles in the Microsoft cloud tech space. Special focus on insider risk, compliance and data security.",
+          "photoUrl": "https://cdn.runevents.net/speaker-profile-images/f7e7fa71-af39-4995-8bef-f0575edcad04"
         },
         {
           "id": "claire-edgson",
-          "name": "Claire Edgson"
+          "name": "Claire Edgson",
+          "tagline": "European Microsoft CX CTO and Security Specalist",
+          "company": "Capgemini",
+          "bio": "Microsoft Fast Track Recognised Architect. I have 30+ years experience in Data Analytics, Infrastructure and Integration Architecture. 20+ years of Microsoft Business Applications and Azure, including SharePoint, Microsoft 365, Dynamics 365CE, FO & HR. Business experience as IT Manager and IT Director allows Claire to work closely with customer IT teams and understand their pain through transformation programs.\n6 years experience with Power platform architecture and design, with Dataverse (CDS), SharePoint, SQL , Azure cognitive services, Azure Blob and Azure datalakes. I am passionate about Learning new things and sharing that knowledge with others as well as being incredibly passionate about the outcomes we give our customers.\nMy prime focus is on Security, Governance and Integrations with the PowerPlatform.",
+          "photoUrl": "https://cdn.runevents.net/speaker-profile-images/b7cd0312-91d6-47a4-90be-0089343b0904"
         }
       ]
     },
@@ -888,7 +1162,14 @@
       "speakers": [
         {
           "id": "mitul-tailor",
-          "name": "Mitul Tailor"
+          "name": "Mitul Tailor",
+          "tagline": "Sr. Data Engineer/Solution Architect",
+          "company": "Long View Systems",
+          "badges": [
+            "MCT"
+          ],
+          "bio": "I am a Microsoft Certified Trainer (MCT) and Senior Data & AI Engineer at Long View Systems, specializing in Azure services, data engineering, and AI-driven solutions. I work extensively with Azure Data Factory, Microsoft Fabric, Copilot Studio, and enterprise data migration, delivering scalable and efficient production-grade data platforms.\n\nI hold a Post Graduate Certificate in Generative AI, a PG Diploma in ML & AI, and a Bachelor’s degree in Computer Science. I am DP-600 and AI-102 certified, with strong expertise in Microsoft Azure data and AI solutions. I also have hands-on experience with Retrieval-Augmented Generation (RAG) and Azure AI Foundry, applying these technologies to build intelligent automation and insight-driven systems.\n\nRecognized by clients for clear, precise solution delivery and technical communication, I am passionate about automation, AI, and robotics. Outside of work, I enjoy traveling and have a strong interest in cars.",
+          "photoUrl": "https://cdn.runevents.net/speaker-profile-images/df37c97f-1531-48b7-876d-ff9bdfff4d00"
         }
       ]
     },
@@ -914,7 +1195,11 @@
       "speakers": [
         {
           "id": "andreas-schluter",
-          "name": "Andreas Schlüter"
+          "name": "Andreas Schlüter",
+          "tagline": "Execution, not hype. AI, processes and leadership in practice.",
+          "company": "GEDL UG",
+          "bio": "Andreas Schlüter is a practitioner for process automation, AI and digital work. He supports organizations in using technology not as an end in itself, but as a practical and effective part of how work, processes and leadership actually function.\n\nHis focus lies on execution: how AI, automation and platforms can be integrated into everyday operations in a way that creates real value. Andreas combines strategic perspective with hands-on implementation and acts as a bridge between leadership, business teams and IT.\n\nAs a speaker, Andreas deliberately moves between two worlds. He addresses strategic questions around responsibility, decision-making and leadership in the age of AI, while also delivering concrete technical and operational sessions based on real-world projects. His talks range from C-level keynotes to deep-dive and hands-on formats covering process automation, the Power Platform and AI.\n\nWhat characterizes his sessions is a clear stance: execution over hype. Complex topics are put into context rather than simplified, always with a strong focus on what actually works in practice.\n\nAndreas is a Microsoft MVP and Microsoft Certified Trainer. He brings many years of project, consulting and speaking experience from mid-sized and enterprise environments and is known for making technology actionable rather than impressive.",
+          "photoUrl": "https://cdn.runevents.net/speaker-profile-images/c6f090ba-8ea4-41a4-9df2-79098322d574"
         }
       ]
     },
@@ -931,7 +1216,10 @@
       "speakers": [
         {
           "id": "elvira-cekrezi",
-          "name": "Elvira Cekrezi"
+          "name": "Elvira Cekrezi",
+          "tagline": "Build, Automate, Empower, Repeat",
+          "bio": "I’m drawn to complexity, I love untangling it and turning it into something clear, structured, and effortless.\nThrough smart automation and Power Platform solutions, I build systems that just flow.\nI love connecting with people, exchanging knowledge, and staying open to new ideas and growth.",
+          "photoUrl": "https://cdn.runevents.net/speaker-profile-images/ce886d4c-f9f0-4b9f-bbc8-946e38cd25bb"
         }
       ]
     },
@@ -957,7 +1245,15 @@
       "speakers": [
         {
           "id": "nick-doelman",
-          "name": "Nick Doelman"
+          "name": "Nick Doelman",
+          "tagline": "World's strongest Power Platform specialist",
+          "company": "ReadyBMS Ltd",
+          "badges": [
+            "MCT",
+            "MVP"
+          ],
+          "bio": "Nick is an independent Power Platform specialist, trainer and coach. Nick delivers presentations, workshops and collaborates on Power Platform, Power Pages, and Dynamics CRM/365 projects worldwide. From 2021 to 2023, Nick worked as a Senior Content Developer at Microsoft where he worked on documentation and learning content for Power Pages, Power Automate, and other parts of the Power Platform.\nNick has been awarded the Microsoft Most Valuable Professional (MVP) and is a Microsoft Certified Trainer (MCT) since 2019. Nick is a cohost on the Power Platform BOOST podcast with MVP Ulrikke Akerbæk. Nick is also a competitive Powerlifter and is a member of Team Canada competing at various international events.\n\nhttps://www.linkedin.com/in/nickdoelman/\nhttps://bsky.app/profile/readyxrm.bsky.social",
+          "photoUrl": "https://cdn.runevents.net/speaker-profile-images/e6b1f609-a46c-4f6b-881f-67665adc8dff"
         }
       ]
     },
@@ -974,7 +1270,9 @@
       "speakers": [
         {
           "id": "chris-hansen",
-          "name": "Chris Hansen"
+          "name": "Chris Hansen",
+          "bio": "Avid gamer (PlayStation, Nintendo, PC), Basketball fan and general techy. I also want to get back into skydiving!\n\nI love technology, and I love teaching other individuals about technology. Originally that started with Excel, but has since grown into Power BI, Automate and Apps. The quick wow-effect you can get from people, as to how easy it sometimes can be to build the stuff, you never imagined you were able to, is one of my true motivations. The Power Platform in particular is an accelerator for this wow-effect, why it's a natural interest of mine. I generally like to grasp all concepts around what needs to be done, but nobody has the time to learn all the coding languages, and all the best practices out there, all the API endpoints and integrations, so a shortcut in the shape of a platform, is a dream come true.\n\nEnthusiastic about Canvas Apps, Power Automate, PowerBI and T-SQL combinations 🤓",
+          "photoUrl": "https://cdn.runevents.net/speaker-profile-images/0bd8c42f-7a6e-4ddd-8bbb-0c0e66c91043"
         }
       ]
     },
@@ -991,7 +1289,11 @@
       "speakers": [
         {
           "id": "marco-rocca",
-          "name": "Marco Rocca"
+          "name": "Marco Rocca",
+          "tagline": "Technology Enthusiast",
+          "company": "Tecnimont Services",
+          "bio": "I'm a Cloud Solution Architect Modern Work and deals mainly (but not only ...) with SharePoint, a product that has been with him for 15 years and has experienced the birth and growth of all the latest versions. Today, however, collaboration is not just SharePoint, but all Microsoft 365 applications that are helping to revolutionize the way we work. Today I support customers to identify the better adoption strategy for Modern Work new products and technologies.  In the last period I'm focusing on Power Platform, Teams, Copilot and Artificial Intelligence. As a speaker I have participated in several conferences as a speaker among which WPC Milan, BeConnected Italy, Scottish Summit, CollabDays, European Collaboration Summit, European Power Platform Conference, Thrive and more.",
+          "photoUrl": "https://cdn.runevents.net/speaker-profile-images/f681fbbc-b6df-4710-b3c5-f264c573ec58"
         }
       ]
     },
@@ -1012,11 +1314,18 @@
       "speakers": [
         {
           "id": "marta-januszek",
-          "name": "Marta Januszek"
+          "name": "Marta Januszek",
+          "tagline": "Turning business challenges into low-code solutions with Microsoft Power Platform",
+          "company": "Capgemini",
+          "bio": "Power Platform specialist with 7+ years of experience in low-code development and digital transformation. Coming from a Business Analyst background, helping organizations turn business requirements into impactful solutions using Microsoft Power Platform. I enjoy sharing practical insights, lessons learned, and best practices from real-world projects.",
+          "photoUrl": "https://cdn.runevents.net/speaker-profile-images/4f437dba-bb86-4748-9cb0-079e043ebd43"
         },
         {
           "id": "jakub-blaszczynski",
-          "name": "Jakub Blaszczynski"
+          "name": "Jakub Blaszczynski",
+          "tagline": "Power Platform enthusiast since the Dynamics CRM days. I love building solutions, connecting with people, and pushing technology forward — even when (especially when) it’s complicated.",
+          "bio": "Experienced Functional Consultant with a demonstrated career in the software industry. Skilled in Microsoft Dynamics CRM, Mobile Applications, Management, Marketing Strategy, Social Media and Digital Printing. Professional graduated from Adam Mickiewicz University, Poznan, Poland.",
+          "photoUrl": "https://cdn.runevents.net/speaker-profile-images/7d7cf8f6-35d1-4e3c-ade6-f857dac1b28f"
         }
       ]
     },
@@ -1042,7 +1351,15 @@
       "speakers": [
         {
           "id": "renato-romao-de-souza",
-          "name": "Renato Romao de Souza"
+          "name": "Renato Romao de Souza",
+          "tagline": "6x Microsoft MVP (Microsoft Foundry & Copilot Studio), 5x MCT, Instructor & Public Speaker",
+          "company": "Storm Technology",
+          "badges": [
+            "MCT",
+            "MVP"
+          ],
+          "bio": "With over 12+ years of experience developing Microsoft 365 solutions and 8+ years of Power Platform development, I am passionate about crafting innovative solutions that enhance productivity, improve management, and unlock business value for organizations. My team was recognized as the World’s Best Microsoft Project and Portfolio Management Partner in 2020, a testament to our commitment to excellence.\n\nFor over 8 years, I have been intensely involved in the tech community, creating impactful content focused on driving innovation in technology, with a strong emphasis on Artificial Intelligence. Through these efforts, I’ve shared knowledge, empowered individuals, and contributed to the growth of professionals in this rapidly evolving field. My dedication has also led to teaching over 12,000 students and building a YouTube channel with 11,000+ subscribers.\n\nAs an expert trainer, I’ve delivered sessions in 10+ countries, sharing insights and practical guidance on Microsoft technologies. My mission is to democratize technology and inspire others to innovate with tools like Copilot, AI Builder, Azure AI, and Power Platform.\nA few highlights:\n- CollabDays New England 2024 (United States)\n- CollabDays Porto 2024 (Portugal)\n- Directions EMEA 2024 (Austria)\n- aMP Bordeaux 2024 (France)\n- ColorCloud Hamburg 2025 (Germany)\n- North America MCT Summit 2025 (United States)\n- Power Platform Community Conference 2025 (United States)\n- CollabDays Finland 2025 (Finland)\n- CollabDays Madrid 2025 (Spain)\n- Days of Knowledge Nordic 2025 (Denmark)\n- ESPC Conference 2025 (Ireland)\n- Cloud Tech Tallinn 2026 (Estonia)",
+          "photoUrl": "https://cdn.runevents.net/speaker-profile-images/3aa1fb0d-2f14-4f6b-b7c8-6e6d2e75160a"
         }
       ]
     },
@@ -1059,7 +1376,15 @@
       "speakers": [
         {
           "id": "keith-atherton",
-          "name": "Keith Atherton"
+          "name": "Keith Atherton",
+          "tagline": "Power Platform & AI Solution Architect | Microsoft MVP | MCT | 11x Microsoft Certified | User Group Leader | LinkedIn Learning Instructor | Speaker | Podcaster | Women in Power (Platform) Mentor",
+          "company": "Capgemini",
+          "badges": [
+            "MCT",
+            "MVP"
+          ],
+          "bio": "Power Platform & AI Solution Architect, Microsoft MVP for Business Applications, Microsoft Certified Trainer (MCT), 11x Microsoft certified, published LinkedIn Learning instructor, public speaker, Power Platform Community High Five user group founder, On Air in the Cloud podcast host, and Women in Power (Platform) mentor.",
+          "photoUrl": "https://cdn.runevents.net/speaker-profile-images/629f9824-dc22-49c1-9604-3521940b9a92"
         }
       ]
     },
@@ -1085,7 +1410,11 @@
       "speakers": [
         {
           "id": "marcin-samsonowski",
-          "name": "Marcin Samsonowski"
+          "name": "Marcin Samsonowski",
+          "tagline": "Senior Manager Architect",
+          "company": "Deloitte",
+          "bio": "I’m an architect with a strong technical background and a genuine passion for continuous learning and sharing knowledge. I love working at the intersection of people, processes, and technology - always aiming to find the right balance between quality and effectiveness.\n\nI’m a firm believer in the transformative power of automation and AI, especially in how they can bring clarity, efficiency, and opportunity to complex environments.\n\nOver the years, I’ve worked in variety of roles across diverse industries and company sizes - from early-stage startups to global enterprises. What drives me is connecting strategic perspective with practical execution and helping organizations use technology to achieve real business outcomes. My main focus areas are Enterprise and Solution Architecture, where I take a holistic view to make sure technology truly serves the bigger picture.",
+          "photoUrl": "https://cdn.runevents.net/speaker-profile-images/e708e5d2-d3d6-43d2-995f-8f4ab9acccb6"
         }
       ]
     },
@@ -1115,7 +1444,11 @@
       "speakers": [
         {
           "id": "rob-kuijpers",
-          "name": "Rob Kuijpers"
+          "name": "Rob Kuijpers",
+          "tagline": "CRM and Copilot enthusiast at GAC Business Solutions",
+          "company": "Bravx",
+          "bio": "I love to tell you a story! Whether it's about autonomous agents,  boosting personal productivity, enhancing your company's efficiency, exploring the latest CRM innovations within Dynamics 365, or mastering social selling through LinkedIn, I bring each story to life with passion and energy.\n\nI love inspiring audiences, whether it’s on stage, through writing, in videos, or via podcast hosting.\n\nCurious about CRM, Copilot (Studio), Power Apps, Power Automate, or Power Pages? Ask me, and we could talk for hours.\n\nWith over 25 years of experience in the CRM field, I've supported marketing, sales, and service teams around the globe. While I’ve worked with almost every major CRM platform, Microsoft Dynamics 365 CRM has stole my heart over the past decade.\n\nAlso check my website: https://robkuijpers.com/",
+          "photoUrl": "https://cdn.runevents.net/speaker-profile-images/9449b4e6-4b77-4427-b895-0f0def67f034"
         }
       ]
     }

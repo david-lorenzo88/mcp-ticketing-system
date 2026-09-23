@@ -13,7 +13,10 @@
  * - every non-content block (breaks, meals, welcome, panel, sponsor slot)
  *   becomes a session with id `runevents-block-<agenda slot id>`;
  * - `is_sold_out` and `partner_url` become the "Sold out" / "Partner session"
- *   tags, and `partner_url` is kept as `partnerUrl`.
+ *   tags, and `partner_url` is kept as `partnerUrl`;
+ * - speaker profiles (schema_version 2) carry over tagline, company, badges,
+ *   photo and biography. A placeholder biography ("TBD") is dropped, and one
+ *   that is only a URL becomes a profile link instead.
  */
 import { readFileSync, writeFileSync } from 'node:fs';
 
@@ -45,6 +48,31 @@ const localParts = (iso) => {
 
 const rooms = new Map(src.rooms.map((r) => [r.key, r.name]));
 const speakers = new Map(src.speakers.map((p) => [p.key, p]));
+
+const PLACEHOLDER_BIO = /^(tbd|tba|n\/a|-)$/i;
+const ONLY_URL = /^https?:\/\/\S+$/i;
+
+/** Profile fields for one speaker; everything but the name is optional. */
+function speakerProfile(p) {
+  const bio = p.biography?.trim() ?? '';
+  const links = {};
+  let biography = bio || undefined;
+  if (PLACEHOLDER_BIO.test(bio)) biography = undefined;
+  if (ONLY_URL.test(bio)) {
+    links[/linkedin\.com/i.test(bio) ? 'linkedin' : 'website'] = bio;
+    biography = undefined;
+  }
+  return {
+    id: p.key,
+    name: p.name,
+    ...(p.tagline ? { tagline: p.tagline } : {}),
+    ...(p.company ? { company: p.company } : {}),
+    ...(p.badges?.length ? { badges: p.badges } : {}),
+    ...(biography ? { bio: biography } : {}),
+    ...(p.photo_url ? { photoUrl: p.photo_url } : {}),
+    ...(Object.keys(links).length ? { links } : {}),
+  };
+}
 
 const slot = (item) => {
   const start = localParts(item.starts_at);
@@ -92,7 +120,7 @@ for (const s of src.sessions) {
     speakers: s.speakers.map((key) => {
       const p = speakers.get(key);
       if (!p) throw new Error(`Session ${s.source_id} references unknown speaker "${key}"`);
-      return { id: p.key, name: p.name };
+      return speakerProfile(p);
     }),
   });
 }

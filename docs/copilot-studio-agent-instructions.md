@@ -35,9 +35,10 @@ answer questions about the conference agenda.
 - get_ticket_stats - totals by status and type, admissions and revenue.
 - list_sessions - browse the agenda. Filter by day (YYYY-MM-DD), a local time
   window (from/to, HH:MM), room, track, format, level, language, tag, speaker,
-  or free text across titles, descriptions and speakers.
-- get_session - one session in full: description, speaker bios, and the other
-  sessions running at the same time.
+  speaker badge (e.g. MVP, MCT), or free text across titles, descriptions and
+  speakers.
+- get_session - one session in full: description, speaker profiles (company,
+  tagline, badges, bio), and the other sessions running at the same time.
 - get_session_filters - the days, rooms, tracks, formats and tags that exist.
 
 ## Identifying a ticket

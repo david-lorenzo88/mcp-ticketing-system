@@ -14,12 +14,16 @@ export interface SessionSpeakerSummary {
   id: string;
   name: string;
   company: string | null;
+  /** Recognitions such as MVP or MCT. */
+  badges: string[];
+  photoUrl: string | null;
 }
 
 export interface SessionSpeakerDetail extends SessionSpeakerSummary {
   jobTitle: string | null;
+  /** Profile headline as published by the speaker. */
+  tagline: string | null;
   bio: string | null;
-  photoUrl: string | null;
   links: Record<string, string> | null;
 }
 
@@ -75,6 +79,8 @@ export interface SessionFilters {
   levels: string[];
   languages: string[];
   tags: string[];
+  /** Speaker badges (MVP, MCT, …) with how many speakers hold each. */
+  badges: Array<{ badge: string; speakers: number }>;
   speakers: number;
   totalSessions: number;
   /** Sessions published without a slot yet; they have no day or time. */
@@ -132,6 +138,8 @@ export function toSummaryDto(row: SessionRow): SessionSummaryDto {
       id: speaker.id,
       name: speaker.fullName,
       company: speaker.company,
+      badges: speaker.badges,
+      photoUrl: speaker.photoUrl,
     })),
     abstract: abstractOf(row.description),
   };
@@ -156,6 +164,14 @@ async function storedTags(match: (tag: string) => boolean): Promise<string[]> {
   const rows = await getPrisma().$queryRaw<Array<{ tag: string }>>`
     SELECT DISTINCT unnest(tags) AS tag FROM sessions`;
   return rows.map((r) => r.tag).filter(match);
+}
+
+/** Speaker badges with holder counts; also used to resolve a badge case-insensitively. */
+async function storedBadges(): Promise<Array<{ badge: string; speakers: number }>> {
+  const rows = await getPrisma().$queryRaw<Array<{ badge: string; speakers: bigint }>>`
+    SELECT badge, count(*) AS speakers FROM speakers, unnest(badges) AS badge
+    GROUP BY badge ORDER BY count(*) DESC, badge`;
+  return rows.map((r) => ({ badge: r.badge, speakers: Number(r.speakers) }));
 }
 
 async function eventDays(): Promise<string[]> {
@@ -192,6 +208,13 @@ async function buildWhere(input: ListSessionsInput): Promise<Prisma.SessionWhere
     and.push({ tags: { hasSome: await storedTags((t) => wanted.has(t.toLowerCase())) } });
   }
 
+  const badges = asArray(input.badge);
+  if (badges) {
+    const wanted = new Set(badges.map((b) => b.toLowerCase()));
+    const matching = (await storedBadges()).map((b) => b.badge).filter((b) => wanted.has(b.toLowerCase()));
+    and.push({ speakers: { some: { speaker: { badges: { hasSome: matching } } } } });
+  }
+
   if (input.speaker) {
     and.push({
       speakers: {
@@ -209,7 +232,13 @@ async function buildWhere(input: ListSessionsInput): Promise<Prisma.SessionWhere
         { title: contains },
         { description: contains },
         { track: contains },
-        { speakers: { some: { speaker: { OR: [{ fullName: contains }, { company: contains }] } } } },
+        {
+          speakers: {
+            some: {
+              speaker: { OR: [{ fullName: contains }, { company: contains }, { tagline: contains }] },
+            },
+          },
+        },
         ...(matchingTags.length > 0 ? [{ tags: { hasSome: matchingTags } }] : []),
       ],
     });
@@ -319,9 +348,11 @@ export async function getSession(identifier: string): Promise<SessionDetailDto> 
       id: speaker.id,
       name: speaker.fullName,
       company: speaker.company,
-      jobTitle: speaker.jobTitle,
-      bio: speaker.bio,
+      badges: speaker.badges,
       photoUrl: speaker.photoUrl,
+      jobTitle: speaker.jobTitle,
+      tagline: speaker.tagline,
+      bio: speaker.bio,
       links: (speaker.links as Record<string, string> | null) ?? null,
     })),
     concurrentSessions: concurrent.map((s) => {
@@ -342,7 +373,7 @@ const distinctText = async (field: 'room' | 'track' | 'level' | 'language'): Pro
 export async function getSessionFilters(): Promise<SessionFilters> {
   const prisma = getPrisma();
 
-  const [perDay, perFormat, rooms, tracks, levels, languages, tags, speakers] = await Promise.all([
+  const [perDay, perFormat, rooms, tracks, levels, languages, tags, badges, speakers] = await Promise.all([
     prisma.session.groupBy({
       by: ['day'],
       _count: { _all: true },
@@ -356,6 +387,7 @@ export async function getSessionFilters(): Promise<SessionFilters> {
     distinctText('level'),
     distinctText('language'),
     storedTags(() => true),
+    storedBadges(),
     prisma.speaker.count(),
   ]);
 
@@ -380,6 +412,7 @@ export async function getSessionFilters(): Promise<SessionFilters> {
     levels,
     languages,
     tags: tags.sort((a, b) => a.localeCompare(b)),
+    badges,
     speakers,
     totalSessions: perDay.reduce((sum, g) => sum + g._count._all, 0),
     unscheduledSessions: perDay.find((g) => g.day === null)?._count._all ?? 0,

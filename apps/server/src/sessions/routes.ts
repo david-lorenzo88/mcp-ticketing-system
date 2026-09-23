@@ -20,6 +20,7 @@ sessionsRouter.get('/', async (req, res) => {
     format: multiValue(req.query.format),
     level: multiValue(req.query.level),
     tag: multiValue(req.query.tag),
+    badge: multiValue(req.query.badge),
   });
 
   res.json(await listSessions(input));

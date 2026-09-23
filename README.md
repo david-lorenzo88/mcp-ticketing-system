@@ -139,8 +139,8 @@ Copilot Studio connector definitions are in
 | `cancel_ticket` | destructive | Cancel with an optional reason (soft, auditable) |
 | `check_in_ticket` | write | Admit an attendee at the door |
 | `get_ticket_stats` | read | Totals by status and type, admissions, revenue |
-| `list_sessions` | read | Agenda by day and time; filter by day, time window, room, track, format, level, language, tag, speaker or free text |
-| `get_session` | read | One session in full — description, speaker bios, and what else runs at the same time |
+| `list_sessions` | read | Agenda by day and time; filter by day, time window, room, track, format, level, language, tag, speaker, speaker badge (MVP, MCT…) or free text |
+| `get_session` | read | One session in full — description, speaker profiles (photo, company, tagline, badges, bio), and what else runs at the same time |
 | `get_session_filters` | read | Days, rooms, tracks, formats, levels, languages and tags available to filter on |
 
 Anywhere a tool asks for an identifier it accepts a UUID or a printed ticket
@@ -160,7 +160,7 @@ faults that abort its turn.
 | `PATCH` | `/api/tickets/:id` | Partial update |
 | `POST` | `/api/tickets/:id/cancel` | Cancel — body `{ "reason": "…" }` |
 | `POST` | `/api/tickets/:id/check-in` | Check in |
-| `GET` | `/api/sessions` | Agenda. `?day=&search=&speaker=&room=&track=&format=&level=&language=&tag=&from=&to=&excludeBreaks=&page=&pageSize=` |
+| `GET` | `/api/sessions` | Agenda. `?day=&search=&speaker=&badge=&room=&track=&format=&level=&language=&tag=&from=&to=&excludeBreaks=&page=&pageSize=` |
 | `GET` | `/api/sessions/filters` | Days, rooms, tracks, formats, levels, languages and tags |
 | `GET` | `/api/sessions/:id` | One session — UUID, agenda id or exact title |
 | `GET` | `/healthz` · `/readyz` | Liveness · readiness (readiness pings the database) |

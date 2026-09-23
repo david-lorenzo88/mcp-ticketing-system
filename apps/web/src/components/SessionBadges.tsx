@@ -33,3 +33,12 @@ export function TagBadge({ tag }: { tag: string }) {
     </span>
   );
 }
+
+/** A speaker recognition such as MVP or MCT. */
+export function SpeakerBadge({ badge }: { badge: string }) {
+  return (
+    <span className="inline-flex items-center rounded bg-baltic-900 px-1.5 py-0.5 text-[10px] font-semibold tracking-wide text-white">
+      {badge}
+    </span>
+  );
+}

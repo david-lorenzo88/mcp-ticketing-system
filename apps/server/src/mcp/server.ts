@@ -231,7 +231,8 @@ export function createMcpServer(): McpServer {
       description:
         'Browse the Baltic Summit agenda, ordered by day, start time and room. Filter by day, ' +
         'local time window, room, track, format (keynote, talk, workshop, …), level, language, ' +
-        'tag or speaker, or search free text across titles, descriptions and speakers. Each ' +
+        'tag, speaker or speaker badge (e.g. MVP), or search free text across titles, ' +
+        'descriptions and speakers. Each ' +
         'result has a short abstract; call get_session for the full description and speaker ' +
         'bios. Use for "what is on Thursday afternoon", "sessions about Copilot" or ' +
         '"what is Jane Doe presenting".',
@@ -260,7 +261,8 @@ export function createMcpServer(): McpServer {
       title: 'Get a session',
       description:
         'Retrieve one conference session in full: complete description, schedule, room, ' +
-        'track, level, tags, every speaker with company, job title and bio, and the other ' +
+        'track, level, tags, every speaker with company, tagline, badges (MVP, MCT, …), bio, ' +
+        'photo URL and profile links, and the other ' +
         'sessions running at the same time. Accepts the id from list_sessions or the exact title.',
       inputSchema: sessionIdentifierShape,
       annotations: { readOnlyHint: true, openWorldHint: false },
@@ -288,8 +290,9 @@ export function createMcpServer(): McpServer {
       title: 'Get agenda filter values',
       description:
         'List the values the agenda can be filtered on: each day with its session count and ' +
-        'opening/closing times, plus every room, track, format, level, language and tag. Call ' +
-        'this before list_sessions when you need an exact room, track or tag name.',
+        'opening/closing times, plus every room, track, format, level, language, tag and ' +
+        'speaker badge. Call this before list_sessions when you need an exact room, track, tag ' +
+        'or badge name.',
       inputSchema: {},
       annotations: { readOnlyHint: true, openWorldHint: false },
     },

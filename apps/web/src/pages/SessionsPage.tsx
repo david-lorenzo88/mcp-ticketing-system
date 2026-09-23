@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import { FormatBadge, TagBadge } from '../components/SessionBadges';
+import { FormatBadge, SpeakerBadge, TagBadge } from '../components/SessionBadges';
+import { SpeakerAvatar } from '../components/SpeakerAvatar';
 import { SessionDetailDialog } from '../components/SessionDetailDialog';
 import { formatDayLong, formatDayShort, formatTimeRange } from '../lib/format';
 import type { Navigate } from '../lib/router';
@@ -85,9 +86,17 @@ function SessionCard({ session, onOpen }: { session: SessionSummary; onOpen: () 
       </div>
       <div className="line-clamp-3 text-sm font-semibold text-slate-900">{session.title}</div>
       {session.speakers.length > 0 && (
-        <div className="text-xs text-slate-600">
-          {session.speakers.map((s) => s.name).join(', ')}
-        </div>
+        <ul className="space-y-1">
+          {session.speakers.map((speaker) => (
+            <li key={speaker.id} className="flex items-center gap-2 text-xs text-slate-600">
+              <SpeakerAvatar name={speaker.name} photoUrl={speaker.photoUrl} size="xs" />
+              <span className="truncate">{speaker.name}</span>
+              {speaker.badges.map((badge) => (
+                <SpeakerBadge key={badge} badge={badge} />
+              ))}
+            </li>
+          ))}
+        </ul>
       )}
       {session.tags.length > 0 && (
         <div className="mt-auto flex flex-wrap gap-1 pt-1">
@@ -116,6 +125,7 @@ export function SessionsPage({ path, navigate }: SessionsPageProps) {
   const [room, setRoom] = useState('');
   const [format, setFormat] = useState<SessionFormat | ''>('');
   const [tag, setTag] = useState('');
+  const [badge, setBadge] = useState('');
   const [hideBreaks, setHideBreaks] = useState(false);
 
   useEffect(() => {
@@ -139,6 +149,7 @@ export function SessionsPage({ path, navigate }: SessionsPageProps) {
           room: room || undefined,
           format: format || undefined,
           tag: tag || undefined,
+          badge: badge || undefined,
           excludeBreaks: hideBreaks,
         }),
       );
@@ -148,7 +159,7 @@ export function SessionsPage({ path, navigate }: SessionsPageProps) {
     } finally {
       setLoading(false);
     }
-  }, [debouncedSearch, day, room, format, tag, hideBreaks]);
+  }, [debouncedSearch, day, room, format, tag, badge, hideBreaks]);
 
   useEffect(() => {
     void refresh();
@@ -162,12 +173,13 @@ export function SessionsPage({ path, navigate }: SessionsPageProps) {
   );
   const groups = useMemo(() => groupAgenda(visible), [visible]);
 
-  const hasFilters = Boolean(debouncedSearch || room || format || tag || hideBreaks);
+  const hasFilters = Boolean(debouncedSearch || room || format || tag || badge || hideBreaks);
   const resetFilters = () => {
     setSearch('');
     setRoom('');
     setFormat('');
     setTag('');
+    setBadge('');
     setHideBreaks(false);
   };
 
@@ -263,7 +275,7 @@ export function SessionsPage({ path, navigate }: SessionsPageProps) {
               type="search"
               value={search}
               onChange={(event) => setSearch(event.target.value)}
-              placeholder="Search title, description or speaker"
+              placeholder="Search sessions or speakers"
               aria-label="Search sessions"
               className="field pl-9"
             />
@@ -309,6 +321,22 @@ export function SessionsPage({ path, navigate }: SessionsPageProps) {
                 {filters.tags.map((t) => (
                   <option key={t} value={t}>
                     {t}
+                  </option>
+                ))}
+              </select>
+            )}
+
+            {filters && filters.badges.length > 0 && (
+              <select
+                value={badge}
+                onChange={(event) => setBadge(event.target.value)}
+                aria-label="Filter by speaker badge"
+                className="field sm:w-44"
+              >
+                <option value="">All speakers</option>
+                {filters.badges.map((b) => (
+                  <option key={b.badge} value={b.badge}>
+                    {b.badge} speakers
                   </option>
                 ))}
               </select>

@@ -21,6 +21,8 @@ interface SpeakerInput {
   name: string;
   company?: string | null;
   jobTitle?: string | null;
+  tagline?: string | null;
+  badges?: string[] | null;
   bio?: string | null;
   photoUrl?: string | null;
   links?: Record<string, string> | null;
@@ -154,6 +156,8 @@ async function main() {
       fullName: sp.name,
       company: clean(sp.company),
       jobTitle: clean(sp.jobTitle),
+      tagline: clean(sp.tagline),
+      badges: (sp.badges ?? []).map((b) => b.trim()).filter(Boolean),
       bio: clean(sp.bio),
       photoUrl: clean(sp.photoUrl),
       links: sp.links && Object.keys(sp.links).length > 0 ? sp.links : Prisma.DbNull,

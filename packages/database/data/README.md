@@ -25,8 +25,10 @@ node scripts/convert-runevents-agenda.mjs \
 npm run db:import-sessions -- --prune
 ```
 
-The export has no speaker bios or companies, and no tracks, levels or
-languages, so those fields stay empty. One session, "What do agents REALLY
+Speakers carry their published profile: photo (a link to the RunEvents CDN),
+biography, company, tagline and badges such as MVP or MCT. The converter drops
+a placeholder biography ("TBD") and turns one that is only a URL into a profile
+link. The event publishes no tracks, levels or languages, so those stay empty. One session, "What do agents REALLY
 cost?", is published without a slot. It is imported with no day or time.
 
 `sessions2026.example.json` is **made-up placeholder data** for trying the MCP
@@ -61,6 +63,8 @@ tools locally. Don't import it into production.
           "name": "Jane Doe",        // required
           "company": "…",
           "jobTitle": "…",
+          "tagline": "…",            // profile headline as published
+          "badges": ["MVP", "MCT"],
           "bio": "…",
           "photoUrl": "https://…",
           "links": { "linkedin": "https://…" }

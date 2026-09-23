@@ -40,10 +40,14 @@ export const listSessionsShape = {
       'Call get_session_filters to see which days the agenda covers.',
   ),
   search: optionalText(200).describe(
-    'Free-text search across title, description, speaker names and companies, and tags ' +
+    'Free-text search across title, description, speaker names, companies and taglines, and tags ' +
       '(case-insensitive). Use for topics such as "Copilot" or "Dataverse security".',
   ),
   speaker: optionalText(150).describe('Only sessions given by a speaker whose name contains this.'),
+  badge: oneOrMany(z.string().trim().min(1).max(100)).describe(
+    'Only sessions with at least one speaker holding this badge, e.g. MVP or MCT ' +
+      '(case-insensitive). get_session_filters lists the badges that exist.',
+  ),
   room: oneOrMany(z.string().trim().min(1).max(100)).describe('Exact room name(s), case-insensitive.'),
   track: oneOrMany(z.string().trim().min(1).max(100)).describe('Exact track name(s), case-insensitive.'),
   format: oneOrMany(z.enum(SESSION_FORMATS)).describe(
