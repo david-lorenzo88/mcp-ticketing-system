@@ -1,6 +1,8 @@
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import type { CallToolResult } from '@modelcontextprotocol/sdk/types.js';
 import { AppError } from '../lib/errors.js';
+import { listSessionsShape, sessionIdentifierShape } from '../sessions/schemas.js';
+import { getSession, getSessionFilters, listSessions } from '../sessions/service.js';
 import {
   cancelTicketShape,
   createTicketShape,
@@ -70,7 +72,11 @@ export function createMcpServer(): McpServer {
         'look up attendees, register new tickets, correct ticket details, cancel tickets and ' +
         'check attendees in at the door. Tickets are identified either by a UUID or by their ' +
         'printed ticket number such as BS26-00042 — both are accepted everywhere an identifier ' +
-        'is asked for. Always confirm the attendee name back to the user after a change.',
+        'is asked for. Always confirm the attendee name back to the user after a change. ' +
+        'The conference programme is also available: list_sessions browses and filters the ' +
+        'agenda by day, time, room, track, format, speaker or topic, get_session returns one ' +
+        'session in full with its description and speaker bios, and get_session_filters lists ' +
+        'the days, rooms, tracks and tags you can filter on. Session times are local event time.',
     },
   );
 
@@ -214,6 +220,81 @@ export function createMcpServer(): McpServer {
           `${stats.total} ticket(s) in total, ${stats.checkedIn} checked in ` +
             `(${stats.admissionRate}% of valid tickets). Revenue: ${stats.revenue.amount} ${stats.revenue.currency}.`,
           stats,
+        );
+      }),
+  );
+
+  server.registerTool(
+    'list_sessions',
+    {
+      title: 'List conference sessions',
+      description:
+        'Browse the Baltic Summit agenda, ordered by day, start time and room. Filter by day, ' +
+        'local time window, room, track, format (keynote, talk, workshop, …), level, language, ' +
+        'tag or speaker, or search free text across titles, descriptions and speakers. Each ' +
+        'result has a short abstract; call get_session for the full description and speaker ' +
+        'bios. Use for "what is on Thursday afternoon", "sessions about Copilot" or ' +
+        '"what is Jane Doe presenting".',
+      inputSchema: listSessionsShape,
+      annotations: { readOnlyHint: true, openWorldHint: false },
+    },
+    async (args) =>
+      handle(async () => {
+        const result = await listSessions(args);
+        const { total, page, totalPages } = result.pagination;
+        const days = result.byDay.map((d) => `${d.dayName} ${d.day}: ${d.sessions}`).join(', ');
+        return ok(
+          `Found ${total} session(s)${days ? ` (${days})` : ''}. ` +
+            `Showing page ${page} of ${totalPages} (${result.sessions.length} on this page).`,
+          result,
+        );
+      }),
+  );
+
+  server.registerTool(
+    'get_session',
+    {
+      title: 'Get a session',
+      description:
+        'Retrieve one conference session in full: complete description, schedule, room, ' +
+        'track, level, tags, every speaker with company, job title and bio, and the other ' +
+        'sessions running at the same time. Accepts the id from list_sessions or the exact title.',
+      inputSchema: sessionIdentifierShape,
+      annotations: { readOnlyHint: true, openWorldHint: false },
+    },
+    async ({ identifier }) =>
+      handle(async () => {
+        const session = await getSession(identifier);
+        const when = session.start
+          ? `${session.dayName} ${session.day}, ${session.start}${session.end ? `–${session.end}` : ''}`
+          : `${session.dayName} ${session.day}`;
+        const by = session.speakers.map((s) => s.name).join(', ');
+        return ok(
+          `"${session.title}" — ${when}${session.room ? `, ${session.room}` : ''}` +
+            `${by ? `, by ${by}` : ''}.`,
+          session,
+        );
+      }),
+  );
+
+  server.registerTool(
+    'get_session_filters',
+    {
+      title: 'Get agenda filter values',
+      description:
+        'List the values the agenda can be filtered on: each day with its session count and ' +
+        'opening/closing times, plus every room, track, format, level, language and tag. Call ' +
+        'this before list_sessions when you need an exact room, track or tag name.',
+      inputSchema: {},
+      annotations: { readOnlyHint: true, openWorldHint: false },
+    },
+    async () =>
+      handle(async () => {
+        const filters = await getSessionFilters();
+        return ok(
+          `${filters.totalSessions} session(s) over ${filters.days.length} day(s), ` +
+            `${filters.rooms.length} room(s), ${filters.speakers} speaker(s).`,
+          filters,
         );
       }),
   );

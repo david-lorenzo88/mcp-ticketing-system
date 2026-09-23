@@ -78,3 +78,100 @@ model Ticket {
   @@index([createdAt])
   @@map("tickets")
 }
+
+// ===========================================================================
+// Conference programme — https://balticsummit.pl/sessions2026
+//
+// Loaded from packages/database/data/sessions2026.json by
+// `npm run db:import-sessions`. The import upserts on `externalId`, so it can
+// be re-run whenever the published agenda changes.
+// ===========================================================================
+
+/// What kind of slot a session is. OTHER covers anything the agenda labels
+/// differently; the original label is kept in `Session.formatLabel`.
+enum SessionFormat {
+  KEYNOTE
+  TALK
+  WORKSHOP
+  PANEL
+  LIGHTNING
+  BREAK // Coffee, lunch, registration, networking
+  OTHER
+}
+
+model Session {
+  id String @id @default(uuid())
+
+  /// Stable id from the source agenda (e.g. its slug or Sessionize id).
+  /// Imports match on this, so re-importing updates rather than duplicates.
+  externalId String @unique @db.VarChar(100)
+
+  title       String  @db.VarChar(300)
+  description String? @db.Text
+
+  // --- Schedule ---------------------------------------------------------
+  /// Calendar day of the event (Europe/Warsaw), used for per-day filtering.
+  day      DateTime  @db.Date
+  startsAt DateTime? @db.Timestamptz(6)
+  endsAt   DateTime? @db.Timestamptz(6)
+  room     String?   @db.VarChar(100)
+
+  // --- Classification ---------------------------------------------------
+  format      SessionFormat @default(TALK)
+  formatLabel String?       @db.VarChar(100)
+  track       String?       @db.VarChar(100)
+  level       String?       @db.VarChar(50) /// e.g. Beginner, Intermediate, Advanced, or 100–400
+  language    String?       @db.VarChar(50)
+  tags        String[]      @default([])
+
+  url String? @db.VarChar(500) /// Session detail page, when the agenda has one
+
+  speakers SessionSpeaker[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([day, startsAt])
+  @@index([room])
+  @@index([track])
+  @@index([format])
+  @@map("sessions")
+}
+
+model Speaker {
+  id String @id @default(uuid())
+
+  /// Stable id from the source agenda; falls back to a slug of the name.
+  externalId String @unique @db.VarChar(100)
+
+  fullName String  @db.VarChar(150)
+  company  String? @db.VarChar(150)
+  jobTitle String? @db.VarChar(150)
+  bio      String? @db.Text
+  photoUrl String? @db.VarChar(500)
+  /// Profile links keyed by kind, e.g. { "linkedin": "...", "twitter": "..." }.
+  links    Json?
+
+  sessions SessionSpeaker[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([fullName])
+  @@map("speakers")
+}
+
+/// Sessions can have several speakers and speakers can give several sessions.
+model SessionSpeaker {
+  sessionId String
+  speakerId String
+  /// Order the speakers are listed in on the agenda.
+  position  Int    @default(0)
+
+  session Session @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+  speaker Speaker @relation(fields: [speakerId], references: [id], onDelete: Cascade)
+
+  @@id([sessionId, speakerId])
+  @@index([speakerId])
+  @@map("session_speakers")
+}

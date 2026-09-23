@@ -25,7 +25,7 @@ so an agent and a human cannot get different behaviour out of the same action.
 
 | Piece | Details |
 | --- | --- |
-| **MCP server** | Streamable HTTP at `POST /mcp`, stateless, 7 tools |
+| **MCP server** | Streamable HTTP at `POST /mcp`, stateless, 10 tools — tickets and the conference agenda |
 | **Database** | PostgreSQL 16 via Prisma 7 (driver adapters, no query engine binary) |
 | **Web UI** | React 19 + Vite + Tailwind CSS v4 — list, create, edit, cancel, check in |
 | **REST API** | `/api/tickets` — the same operations over plain HTTP |
@@ -139,6 +139,9 @@ Copilot Studio connector definitions are in
 | `cancel_ticket` | destructive | Cancel with an optional reason (soft, auditable) |
 | `check_in_ticket` | write | Admit an attendee at the door |
 | `get_ticket_stats` | read | Totals by status and type, admissions, revenue |
+| `list_sessions` | read | Agenda by day and time; filter by day, time window, room, track, format, level, language, tag, speaker or free text |
+| `get_session` | read | One session in full — description, speaker bios, and what else runs at the same time |
+| `get_session_filters` | read | Days, rooms, tracks, formats, levels, languages and tags available to filter on |
 
 Anywhere a tool asks for an identifier it accepts a UUID or a printed ticket
 number, so an agent can work from whatever the user says. Failures come back as
@@ -176,6 +179,14 @@ and changing the prefix between events needs no data migration.
 from any of them. Cancelling is a soft delete: the row stays for audit, keeps its
 reason and timestamp, and can be reinstated.
 
+**Agenda** — `sessions`, `speakers` and a `session_speakers` join table (a
+session can have several speakers, a speaker several sessions). Each session
+keeps its full description, day, start/end (stored in UTC, shown and filtered in
+`EVENT_TIMEZONE`), room, format, track, level, language and tags. The agenda is
+loaded from a JSON export of https://balticsummit.pl/sessions2026 with
+`npm run db:import-sessions`; see [`packages/database/data/README.md`](packages/database/data/README.md)
+for the file format and how to extract it.
+
 See [`packages/database/prisma/schema.prisma`](packages/database/prisma/schema.prisma).
 
 ---
@@ -188,6 +199,7 @@ See [`packages/database/prisma/schema.prisma`](packages/database/prisma/schema.p
 | `PORT` | `8080` | HTTP port |
 | `NODE_ENV` | `development` | `development` \| `production` \| `test` |
 | `TICKET_PREFIX` | `BS26` | Prefix for printed ticket numbers |
+| `EVENT_TIMEZONE` | `Europe/Warsaw` | Timezone agenda times are shown and filtered in |
 | `CORS_ORIGINS` | `*` | Comma-separated origins, or `*` |
 | `MCP_API_KEY` | *(empty)* | Optional shared secret for `/mcp` only; empty = open |
 | `MCP_JSON_RESPONSE` | `true` | JSON responses instead of SSE on `/mcp` |
@@ -282,4 +294,5 @@ system-assigned identity, grant it `AcrPull` on the registry, and replace the
 | `python3 scripts/verify-container-layout.py . /tmp/stages` | Replay the Dockerfile's stages without a Docker daemon |
 | `npm run db:migrate` / `db:deploy` | Create / apply migrations |
 | `npm run db:seed` | Insert sample tickets |
+| `npm run db:import-sessions [-- file.json] [--prune]` | Load the conference agenda (upserts; `--prune` removes dropped sessions) |
 | `npm run db:studio` | Prisma Studio |

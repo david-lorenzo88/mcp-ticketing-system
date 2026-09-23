@@ -2,8 +2,8 @@ import { PrismaPg } from '@prisma/adapter-pg';
 import { PrismaClient } from './generated/prisma/client.js';
 
 export { Prisma, PrismaClient } from './generated/prisma/client.js';
-export type { Ticket } from './generated/prisma/client.js';
-export { TicketStatus, TicketType } from './generated/prisma/enums.js';
+export type { Session, SessionSpeaker, Speaker, Ticket } from './generated/prisma/client.js';
+export { SessionFormat, TicketStatus, TicketType } from './generated/prisma/enums.js';
 
 /**
  * Builds a Prisma client backed by the `pg` driver adapter.
@@ -47,3 +47,5 @@ export async function disconnectPrisma(): Promise<void> {
     cached = undefined;
   }
 }
+
+export { localToUtc, utcToLocalTime } from './event-time.js';

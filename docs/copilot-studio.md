@@ -12,7 +12,7 @@ deployment finishes.
 Copilot Studio reaches MCP servers through a **custom connector**. What makes a
 connector an MCP connector rather than an ordinary REST one is the
 `x-ms-agentic-protocol: mcp-streamable-1.0` extension on the POST operation —
-Copilot Studio then performs the MCP handshake itself and discovers the seven
+Copilot Studio then performs the MCP handshake itself and discovers the ten
 tools automatically. You never list individual tools in the connector.
 
 ---
@@ -100,6 +100,9 @@ the main README for how to close those off.
 | `cancel_ticket` | Cancel a ticket, with an optional reason |
 | `check_in_ticket` | Admit an attendee at the door |
 | `get_ticket_stats` | Totals by status and type, admissions, revenue |
+| `list_sessions` | Browse the agenda; filter by day, time, room, track, format, speaker or topic |
+| `get_session` | One session in full, with speaker bios and concurrent sessions |
+| `get_session_filters` | The days, rooms, tracks and tags you can filter on |
 
 Every tool accepts either a UUID or a printed ticket number wherever it asks for
 an identifier, so an agent can work from whatever the user says.
@@ -126,7 +129,7 @@ curl -sS -X POST https://<your-host>/mcp \
   -d '{"jsonrpc":"2.0","id":1,"method":"tools/list"}'
 ```
 
-You should get JSON listing seven tools. A `401` means `MCP_API_KEY` is set and
+You should get JSON listing ten tools. A `401` means `MCP_API_KEY` is set and
 the connector is not sending it.
 
 **Calls time out or the agent says the tool failed.**

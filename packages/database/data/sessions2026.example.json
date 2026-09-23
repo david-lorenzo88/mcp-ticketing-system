@@ -1,0 +1,92 @@
+{
+  "event": "Baltic Summit 2026 — EXAMPLE DATA, not the real agenda",
+  "source": "https://balticsummit.pl/sessions2026",
+  "timezone": "Europe/Warsaw",
+  "sessions": [
+    {
+      "id": "example-registration-d1",
+      "title": "Registration & coffee",
+      "day": "2026-09-24",
+      "start": "08:00",
+      "end": "09:00",
+      "room": "Foyer",
+      "format": "Break"
+    },
+    {
+      "id": "example-workshop-copilot-studio",
+      "title": "Example workshop: Building agents in Copilot Studio",
+      "description": "Placeholder description for a full-day, hands-on workshop.\n\nBring a laptop with a Power Platform developer environment.",
+      "day": "2026-09-24",
+      "start": "09:00",
+      "end": "16:00",
+      "room": "Workshop Room 1",
+      "format": "Workshop",
+      "track": "AI",
+      "level": "Intermediate",
+      "language": "English",
+      "tags": ["Copilot Studio", "AI Agents"],
+      "speakers": [
+        { "id": "example-speaker-a", "name": "Example Speaker A", "company": "Example Co", "jobTitle": "Principal Consultant", "bio": "Placeholder bio." },
+        { "id": "example-speaker-b", "name": "Example Speaker B", "company": "Sample Ltd" }
+      ]
+    },
+    {
+      "id": "example-keynote-d2",
+      "title": "Example opening keynote",
+      "description": "Placeholder keynote description.",
+      "day": "2026-09-25",
+      "start": "09:00",
+      "end": "09:45",
+      "room": "Main Hall",
+      "format": "Keynote",
+      "language": "English",
+      "tags": ["AI"],
+      "speakers": [{ "id": "example-speaker-c", "name": "Example Speaker C", "company": "Contoso" }]
+    },
+    {
+      "id": "example-talk-dataverse",
+      "title": "Example talk: Dataverse security in depth",
+      "description": "Placeholder description about Dataverse security roles, teams and column-level security.",
+      "day": "2026-09-25",
+      "start": "10:00",
+      "end": "10:45",
+      "room": "Room A",
+      "format": "Session",
+      "track": "Power Platform",
+      "level": "Advanced",
+      "language": "English",
+      "tags": ["Dataverse", "Security"],
+      "url": "https://balticsummit.pl/sessions2026",
+      "speakers": [{ "id": "example-speaker-a", "name": "Example Speaker A" }]
+    },
+    {
+      "id": "example-talk-power-automate",
+      "title": "Example talk: Power Automate patterns",
+      "description": "Placeholder description.",
+      "day": "2026-09-25",
+      "start": "10:00",
+      "end": "10:45",
+      "room": "Room B",
+      "format": "Session",
+      "track": "Power Platform",
+      "level": "Beginner",
+      "language": "Polish",
+      "tags": ["Power Automate"],
+      "speakers": [{ "id": "example-speaker-d", "name": "Example Speaker D", "company": "Fabrikam" }]
+    },
+    {
+      "id": "example-panel-d3",
+      "title": "Example panel: The future of business applications",
+      "day": "2026-09-26",
+      "start": "15:00",
+      "end": "16:00",
+      "room": "Main Hall",
+      "format": "Panel discussion",
+      "language": "English",
+      "speakers": [
+        { "id": "example-speaker-b", "name": "Example Speaker B" },
+        { "id": "example-speaker-c", "name": "Example Speaker C" }
+      ]
+    }
+  ]
+}

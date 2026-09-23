@@ -24,6 +24,12 @@ const envSchema = z.object({
   /** Prefix for human-readable ticket numbers, e.g. BS26 -> BS26-00042. */
   TICKET_PREFIX: z.string().min(1).max(10).default('BS26'),
 
+  /**
+   * IANA timezone the agenda is published in. Session times are shown and
+   * filtered in this zone, whatever timezone the server runs in.
+   */
+  EVENT_TIMEZONE: z.string().min(1).default('Europe/Warsaw'),
+
   /** Comma-separated allowed browser origins, or "*" for any. */
   CORS_ORIGINS: z.string().default('*'),
 

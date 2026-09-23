@@ -74,5 +74,17 @@ console.log('\n--- tools/call: get_ticket with a nonsense identifier (expect too
 const bad = await call('get_ticket', { identifier: 'not-a-ticket' });
 console.log('  isError:', bad.isError, '|', bad.text);
 
+console.log('\n--- tools/call: get_session_filters ---');
+console.log((await call('get_session_filters')).text.split('\n')[0]);
+
+console.log('\n--- tools/call: list_sessions {excludeBreaks, pageSize:3} ---');
+const sessions = await call('list_sessions', { excludeBreaks: true, pageSize: 3 });
+console.log(sessions.text.split('\n')[0]);
+const firstSession = JSON.parse(sessions.text.slice(sessions.text.indexOf('{'))).sessions[0];
+if (firstSession) {
+  console.log('\n--- tools/call: get_session ---');
+  console.log((await call('get_session', { identifier: firstSession.id })).text.split('\n')[0]);
+}
+
 await client.close();
 console.log('\n✓ ALL MCP CHECKS PASSED');

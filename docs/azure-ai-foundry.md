@@ -23,7 +23,7 @@ URL and it discovers the tools.
    | --- | --- |
    | Server label | `baltic_summit_tickets` |
    | Server URL | `https://<your-host>/mcp` |
-   | Allowed tools | leave empty for all seven, or list the ones you want |
+   | Allowed tools | leave empty for all ten, or list the ones you want |
 
 5. If you set `MCP_API_KEY`, add a custom header `x-api-key` with the key.
 6. Save, then use the playground to try it.
@@ -80,7 +80,7 @@ with project.agents as agents:
 
 ## Approval mode
 
-Four of the seven tools change data — `create_ticket`, `update_ticket`,
+Four of the ten tools change data — `create_ticket`, `update_ticket`,
 `cancel_ticket` and `check_in_ticket`. The server advertises this through MCP
 tool annotations (`readOnlyHint`, `destructiveHint`), and `cancel_ticket` is
 marked destructive, so a Foundry agent configured with approvals will surface
@@ -91,7 +91,7 @@ If you want an agent that can only report and never change anything, restrict
 it at the source with `allowed_tools`:
 
 ```python
-allowed_tools=["list_tickets", "get_ticket", "get_ticket_stats"]
+allowed_tools=["list_tickets", "get_ticket", "get_ticket_stats", "list_sessions", "get_session", "get_session_filters"]
 ```
 
 ---
