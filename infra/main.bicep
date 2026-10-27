@@ -50,8 +50,19 @@ param minReplicas int = 1
 @maxValue(30)
 param maxReplicas int = 3
 
-@description('PostgreSQL compute tier. Burstable B1ms is the cheapest option that fits this workload.')
+@description('PostgreSQL compute SKU. Burstable B1ms is the cheapest option that fits this workload.')
 param postgresSkuName string = 'Standard_B1ms'
+
+@description('PostgreSQL compute tier. Must match the SKU — Standard_B* is Burstable, Standard_D* is GeneralPurpose.')
+@allowed([
+  'Burstable'
+  'GeneralPurpose'
+  'MemoryOptimized'
+])
+param postgresTier string = 'Burstable'
+
+@description('PostgreSQL major version. Which versions exist depends on the subscription, region and tier; the deploy script queries the available set and picks one.')
+param postgresVersion string = '16'
 
 var suffix = uniqueString(resourceGroup().id)
 var postgresServerName = take(toLower('${namePrefix}-pg-${suffix}'), 60)
@@ -80,10 +91,10 @@ resource postgres 'Microsoft.DBforPostgreSQL/flexibleServers@2024-08-01' = {
   location: location
   sku: {
     name: postgresSkuName
-    tier: 'Burstable'
+    tier: postgresTier
   }
   properties: {
-    version: '16'
+    version: postgresVersion
     administratorLogin: postgresAdminUser
     administratorLoginPassword: postgresAdminPassword
     storage: {
@@ -148,6 +159,29 @@ resource containerEnv 'Microsoft.App/managedEnvironments@2024-03-01' = {
 // string, so the admin password does not have to be URL-safe.
 var databaseUrl = 'postgresql://${postgresAdminUser}:${uriComponent(postgresAdminPassword)}@${postgres.properties.fullyQualifiedDomainName}:5432/${databaseName}?sslmode=require'
 
+// The MCP secret and its env var are only emitted when a key was supplied.
+// Container Apps rejects a secret with an empty value, so the open, no-auth
+// deployment must not declare one at all.
+var hasMcpApiKey = !empty(mcpApiKey)
+
+var mcpApiKeySecret = hasMcpApiKey
+  ? [
+      {
+        name: 'mcp-api-key'
+        value: mcpApiKey
+      }
+    ]
+  : []
+
+var mcpApiKeyEnv = hasMcpApiKey
+  ? [
+      {
+        name: 'MCP_API_KEY'
+        secretRef: 'mcp-api-key'
+      }
+    ]
+  : []
+
 resource containerApp 'Microsoft.App/containerApps@2024-03-01' = {
   name: containerAppName
   location: location
@@ -176,20 +210,19 @@ resource containerApp 'Microsoft.App/containerApps@2024-03-01' = {
           allowedHeaders: ['*']
         }
       }
-      secrets: [
-        {
-          name: 'database-url'
-          value: databaseUrl
-        }
-        {
-          name: 'mcp-api-key'
-          value: mcpApiKey
-        }
-        {
-          name: 'registry-password'
-          value: registry.listCredentials().passwords[0].value
-        }
-      ]
+      secrets: concat(
+        [
+          {
+            name: 'database-url'
+            value: databaseUrl
+          }
+          {
+            name: 'registry-password'
+            value: registry.listCredentials().passwords[0].value
+          }
+        ],
+        mcpApiKeySecret
+      )
       registries: [
         {
           server: registry.properties.loginServer
@@ -207,14 +240,10 @@ resource containerApp 'Microsoft.App/containerApps@2024-03-01' = {
             cpu: json('0.5')
             memory: '1Gi'
           }
-          env: [
+          env: concat([
             {
               name: 'DATABASE_URL'
               secretRef: 'database-url'
-            }
-            {
-              name: 'MCP_API_KEY'
-              secretRef: 'mcp-api-key'
             }
             {
               name: 'PORT'
@@ -236,7 +265,7 @@ resource containerApp 'Microsoft.App/containerApps@2024-03-01' = {
               name: 'PUBLIC_BASE_URL'
               value: 'https://${containerAppName}.${containerEnv.properties.defaultDomain}'
             }
-          ]
+          ], mcpApiKeyEnv)
           probes: [
             {
               type: 'Liveness'
@@ -290,3 +319,6 @@ output mcpHost string = containerApp.properties.configuration.ingress.fqdn
 
 @description('PostgreSQL server FQDN.')
 output postgresHost string = postgres.properties.fullyQualifiedDomainName
+
+@description('Whether the MCP endpoint requires an API key.')
+output mcpAuthMode string = hasMcpApiKey ? 'api-key' : 'open'
